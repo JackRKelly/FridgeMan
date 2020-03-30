@@ -24,7 +24,7 @@ const AddStock = () => {
     }
 
     return (
-        <form onSubmit={(e) => {addStock(e)}} >
+        <form className="add" onSubmit={(e) => {addStock(e)}} >
             <input type="text" placeholder="Stock Name" value={name} onChange={e => {setName(e.target.value)}}/>
             <input type="text" placeholder="Stock Location" value={location} onChange={e => {setLocation(e.target.value)}}/>
             <input type="text" placeholder="Stock Quantity" value={quantity} onChange={e => {setQuantity(e.target.value)}}/>

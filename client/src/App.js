@@ -1,14 +1,19 @@
-import React, { Fragment } from 'react';
+import React, { useState } from 'react';
 import ListStocks from './components/ListStock';
-import Header from './components/Header';
+import AddStock from './components/AddStock';
+import SearchStock from './components/SearchStock';
 import './App.css';
 
 const App = () => {
+  
+  const [stocks, setStocks] = useState([])
+
   return (
-    <Fragment>
-        <Header/>
-        <ListStocks/>
-    </Fragment>
+    <>
+        <AddStock/>
+        <SearchStock stocks={stocks} setStocks={setStocks}/>
+        <ListStocks stocks={stocks} setStocks={setStocks}/>
+    </>
   );
 }
 

@@ -36,10 +36,19 @@ app.get('/stocks', async (req, res) => {
 })
 
 //Search a stock (name, location)
-app.get('/stocks/search/:name/:location', async (req, res) => {
+app.get('/stocks/search/', async (req, res) => {
     try {
-        const { name, location } = req.params;
-        const searchStock = await pool.query("SELECT * FROM stock WHERE name = $1 AND location = $2", [name, location]);
+        const { name, location } = req.query;
+        let searchStock;
+        if (location == 'all-locations' && name.length == 0) {
+            searchStock = await pool.query("SELECT * FROM stock");
+        } else if (name.length == 0 && location.length > 0) {
+            searchStock = await pool.query("SELECT * FROM stock WHERE location ILIKE $1", ['%' + location + '%']);
+        } else if (location == 'all-locations' && name.length > 0) {
+            searchStock = await pool.query("SELECT * FROM stock WHERE name ILIKE $1", ['%' + name + '%']);
+        } else {
+            searchStock = await pool.query("SELECT * FROM stock WHERE name ILIKE $1 AND location ILIKE $2", ['%' + name + '%', '%' + location + '%']);
+        }
 
         await res.send(searchStock.rows);
     } catch (err) {
@@ -69,6 +78,18 @@ app.put('/stocks/:id', async (req, res) => {
         await res.send(updateStock);
     } catch (err) {
         console.error(err.message);
+    }
+})
+
+//Delete a certain stock with an id
+app.delete('/stocks/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteStock = await pool.query("DELETE FROM stock WHERE stock_id = $1 RETURNING *", [id])
+
+        await res.send(deleteStock);
+    } catch (err) {
+        console.error(err.message)
     }
 })
 
