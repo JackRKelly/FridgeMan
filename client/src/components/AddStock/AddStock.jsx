@@ -4,7 +4,7 @@ import "./styles.scss";
 const AddStock = () => {
 
     const [ name, setName ] = useState("");
-    const [ location, setLocation ] = useState("");
+    const [ location, setLocation ] = useState("Fridge");
     const [ quantity, setQuantity ] = useState("");
     const [ expiration, setExpiration ] = useState("");
 
@@ -25,10 +25,15 @@ const AddStock = () => {
 
     return (
         <form className="add" onSubmit={(e) => {addStock(e)}} >
-            <input type="text" placeholder="Stock Name" value={name} onChange={e => {setName(e.target.value)}}/>
-            <input type="text" placeholder="Stock Location" value={location} onChange={e => {setLocation(e.target.value)}}/>
-            <input type="text" placeholder="Stock Quantity" value={quantity} onChange={e => {setQuantity(e.target.value)}}/>
-            <input type="date" value={expiration} onChange={e => {setExpiration(e.target.value)}}/>
+            <input type="text" placeholder="Stock Name" value={name} onChange={e => {setName(e.target.value)}} required/>
+            <select value={location} onChange={e => {setLocation(e.target.value)}} required>
+                    <option value="Fridge">Fridge</option>
+                    <option value="Freezer">Freezer</option>
+                    <option value="Hutch">Hutch</option>
+                    <option value="Pantry">Pantry</option>
+            </select>
+            <input type="number" placeholder="Stock Quantity" value={quantity} onChange={e => {setQuantity(e.target.value)}} required/>
+            <input type="date" value={expiration} onChange={e => {setExpiration(e.target.value)}} required/>
             <button>Add Stock</button>
         </form>
     );

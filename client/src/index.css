@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: NeutraBold;
+  src: url('./assets/fonts/NeutraText-Bold.otf');
+}
+@font-face {
+  font-family: NeutraBook;
+  src: url('./assets/fonts/NeutraText-Book.otf');
+}

@@ -72,8 +72,8 @@ app.get('/stocks/getid/:id', async (req, res) => {
 app.put('/stocks/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, location, expiration } = req.body;
-        const updateStock = await pool.query("UPDATE stock SET name = $1, location = $2, expiration = $3 WHERE stock_id = $4", [name, location, expiration, id]);
+        const { name, location, quantity, expiration } = req.body;
+        const updateStock = await pool.query("UPDATE stock SET name = $1, location = $2, quantity = $3, expiration = $4 WHERE stock_id = $5", [name, location, quantity, expiration, id]);
 
         await res.send(updateStock);
     } catch (err) {
