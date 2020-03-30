@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
-const EditStock = ({ stock }) => {
+const EditStock = ({ stock, getStocks, locationList }) => {
   const [name, setName] = useState(stock.name);
   const [location, setLocation] = useState(stock.location);
   const [quantity, setQuantity] = useState(stock.quantity);
@@ -12,22 +12,24 @@ const EditStock = ({ stock }) => {
     e.preventDefault();
     try {
       const body = { name, location, quantity, expiration };
-      const response = await fetch(
-        `http://localhost:5000/stocks/${stock.stock_id}`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body)
-        }
-      );
-
-      window.location = "/";
+      await fetch(`http://localhost:5000/stocks/${stock.stock_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+      getStocks();
+      setVisible(false);
+      setName(name);
+      setLocation(location);
+      setQuantity(quantity);
+      setExpiration(expiration);
     } catch (err) {
       console.error(err.message);
     }
   };
 
   const closeModal = () => {
+    getStocks();
     setName(stock.name);
     setLocation(stock.location);
     setQuantity(stock.quantity);
@@ -40,7 +42,7 @@ const EditStock = ({ stock }) => {
       <button
         type="button"
         className="open-modal"
-        onClick={() => setVisible(1)}
+        onClick={() => setVisible(true)}
       >
         Edit
       </button>
@@ -72,11 +74,24 @@ const EditStock = ({ stock }) => {
               </div>
               <div className="modal-input">
                 <label htmlFor="location">Location</label>
-                <select value={location} onChange={e => {setLocation(e.target.value)}}>
-                    <option value="Fridge">Fridge</option>
-                    <option value="Freezer">Freezer</option>
-                    <option value="Hutch">Hutch</option>
-                    <option value="Pantry">Pantry</option>
+                <select
+                  value={location}
+                  onChange={e => {
+                    setLocation(e.target.value);
+                  }}
+                >
+                  {locationList.map((location, key) => {
+                    return (
+                      <option
+                        key={key}
+                        value={
+                          location.charAt(0).toUpperCase() + location.slice(1)
+                        }
+                      >
+                        {location}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
               <div className="modal-input">
@@ -86,7 +101,9 @@ const EditStock = ({ stock }) => {
                   className="form-control"
                   name="quantity"
                   value={quantity}
-                  onChange={e => {setQuantity(e.target.value)}}
+                  onChange={e => {
+                    setQuantity(e.target.value);
+                  }}
                 />
               </div>
               <div className="modal-input">
@@ -102,18 +119,10 @@ const EditStock = ({ stock }) => {
             </div>
 
             <div className="modal-footer">
-              <button
-                type="submit"
-                className="btn"
-                onClick={updateStock}
-              >
+              <button type="submit" className="btn" onClick={updateStock}>
                 Edit
               </button>
-              <button
-                type="button"
-                className="btn"
-                onClick={closeModal}
-              >
+              <button type="button" className="btn" onClick={closeModal}>
                 Close
               </button>
             </div>
