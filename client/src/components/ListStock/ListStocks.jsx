@@ -21,30 +21,33 @@ const ListStocks = ({ stocks, getStocks, setStocks, locationList }) => {
         let today = new Date();
         let expDate = new Date(stock.expiration);
         let difDay = Math.round((expDate - today) / (1000 * 3600 * 24));
-        let expStr =
-          difDay <= 0
-            ? `Expired ${difDay * -1} days ago.`
-            : `Expires in ${difDay} days.`;
+        let expStr = difDay <= 0 ? `Exp. ${difDay}` : `Exp. ${difDay} days`;
         return (
-          <div key={stock.stock_id}>
-            <p>
-              {stock.quantity}x {stock.name}, Located in the {stock.location},{" "}
-              {expStr}
-            </p>
-            <EditStock
-              locationList={locationList}
-              stock={stock}
-              getStocks={getStocks}
-              stocks={stocks}
-              setStocks={setStocks}
-            />
-            <button
-              onClick={() => {
-                deleteStock(stock.stock_id);
-              }}
-            >
-              Delete
-            </button>
+          <div className="stock-list-item" key={stock.stock_id}>
+            <div className="row-1">
+              <p className="name">{stock.name}</p>
+              <p className="quantity">Qt. {stock.quantity}</p>
+            </div>
+            <div className="row-2">
+              <p className="location">{stock.location}</p>
+              <p className="expiration">{expStr}</p>
+            </div>
+            <div className="row-3">
+              <EditStock
+                locationList={locationList}
+                stock={stock}
+                getStocks={getStocks}
+                stocks={stocks}
+                setStocks={setStocks}
+              />
+              <button
+                onClick={() => {
+                  deleteStock(stock.stock_id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         );
       })}

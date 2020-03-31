@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
-const EditStock = ({ stock, getStocks, locationList, stocks, setStocks }) => {
+const EditStock = ({ stock, locationList, stocks, setStocks }) => {
   const [name, setName] = useState(stock.name);
   const [location, setLocation] = useState(stock.location);
   const [quantity, setQuantity] = useState(stock.quantity);
@@ -20,7 +20,7 @@ const EditStock = ({ stock, getStocks, locationList, stocks, setStocks }) => {
 
       let newStocks = [...stocks];
 
-      newStocks.map((currentStock) => {
+      newStocks.map(currentStock => {
         if (currentStock.stock_id === stock.stock_id) {
           currentStock.name = name;
           currentStock.location = location;

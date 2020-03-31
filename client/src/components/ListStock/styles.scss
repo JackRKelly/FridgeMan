@@ -1,0 +1,75 @@
+.stock-list {
+  width: 100%;
+  &-item {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 25px auto;
+    padding: 0 15px;
+    font-family: "NeutraBook";
+    color: #535353;
+    @media only screen and (max-width: 1000px) {
+      width: 75%;
+      margin: 20px auto;
+    }
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+      margin: 15px auto;
+    }
+    .row-1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .name {
+        margin: 0;
+        display: inline;
+        font-family: "NeutraBold";
+        font-size: 22px;
+      }
+      .quantity {
+        margin: 0;
+        display: inline;
+        font-size: 20px;
+      }
+    }
+    .row-2 {
+      margin: 7.5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .location {
+        margin: 0;
+        display: inline;
+        font-size: 20px;
+      }
+      .expiration {
+        margin: 0;
+        display: inline;
+        font-size: 20px;
+      }
+    }
+    .row-3 {
+      display: flex;
+      flex-direction: row-reverse;
+      button {
+        margin: 0 0 0 7.5px;
+        display: block;
+        border: none;
+        border-radius: 5px;
+        padding: 6.5px 15px;
+        font-size: 16px;
+        border-radius: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
+        font-family: "NeutraBold", sans-serif;
+        color: #535353;
+        cursor: pointer;
+        transition: 280ms ease-in-out background;
+        width: inherit;
+        align-self: center;
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}

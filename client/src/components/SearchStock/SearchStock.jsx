@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles.scss";
 
-const SearchStock = ({ setStocks, locationList, name, setName, location, setLocation }) => {
-
+const SearchStock = ({
+  setStocks,
+  locationList,
+  name,
+  setName,
+  location,
+  setLocation
+}) => {
   const searchStock = async e => {
     e.preventDefault();
     try {
@@ -59,7 +65,7 @@ const SearchStock = ({ setStocks, locationList, name, setName, location, setLoca
           </select>
         </div>
         <div className="btn-container">
-          <button>Search Stock</button>
+          <button>Search Item</button>
         </div>
       </form>
     </>
