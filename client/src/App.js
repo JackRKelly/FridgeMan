@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ListStocks from './components/ListStock';
-import AddStock from './components/AddStock';
-import SearchStock from './components/SearchStock';
+import Navigation from './components/Navigation';
 import './App.css';
 
 const App = () => {
   
   const [stocks, setStocks] = useState([])
+
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("all-locations");
 
   const [locationList] = useState(['Fridge', 'Freezer', 'Basement Freezer', 'Pantry', 'Hutch', 'Laundry Room', 'Basement Freezer 2'])
 
@@ -21,14 +23,12 @@ const App = () => {
   }
 
   useEffect(() => {
-    console.log('get stocks app.js');
     getStocks();
   }, []);
 
   return (
     <>
-        <AddStock locationList={locationList} getStocks={getStocks}/>
-        <SearchStock locationList={locationList} stocks={stocks} setStocks={setStocks}/>
+        <Navigation name={name} location={location} setName={setName} setLocation={setLocation} locationList={locationList} getStocks={getStocks} stocks={stocks} setStocks={setStocks}/>
         <ListStocks locationList={locationList} getStocks={getStocks} stocks={stocks} setStocks={setStocks}/>
     </>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
-const EditStock = ({ stock, getStocks, locationList }) => {
+const EditStock = ({ stock, getStocks, locationList, stocks, setStocks }) => {
   const [name, setName] = useState(stock.name);
   const [location, setLocation] = useState(stock.location);
   const [quantity, setQuantity] = useState(stock.quantity);
@@ -17,7 +17,19 @@ const EditStock = ({ stock, getStocks, locationList }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
-      getStocks();
+
+      let newStocks = [...stocks];
+
+      newStocks.map((currentStock) => {
+        if (currentStock.stock_id === stock.stock_id) {
+          currentStock.name = name;
+          currentStock.location = location;
+          currentStock.quantity = quantity;
+          currentStock.expiration = expiration;
+        }
+      });
+
+      setStocks(newStocks);
       setVisible(false);
       setName(name);
       setLocation(location);
@@ -29,7 +41,6 @@ const EditStock = ({ stock, getStocks, locationList }) => {
   };
 
   const closeModal = () => {
-    getStocks();
     setName(stock.name);
     setLocation(stock.location);
     setQuantity(stock.quantity);

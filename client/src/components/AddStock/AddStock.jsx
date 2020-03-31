@@ -33,51 +33,69 @@ const AddStock = ({ getStocks, locationList }) => {
         addStock(e);
       }}
     >
-      <input
-        type="text"
-        placeholder="Stock Name"
-        value={name}
-        onChange={e => {
-          setName(e.target.value);
-        }}
-        required
-      />
-      <select
-        value={location}
-        onChange={e => {
-          setLocation(e.target.value);
-        }}
-        required
-      >
-        {locationList.map((location, key) => {
-          return (
-            <option
-              key={key}
-              value={location.charAt(0).toUpperCase() + location.slice(1)}
-            >
-              {location}
-            </option>
-          );
-        })}
-      </select>
-      <input
-        type="number"
-        placeholder="Stock Quantity"
-        value={quantity}
-        onChange={e => {
-          setQuantity(e.target.value);
-        }}
-        required
-      />
-      <input
-        type="date"
-        value={expiration}
-        onChange={e => {
-          setExpiration(e.target.value);
-        }}
-        required
-      />
-      <button>Add Stock</button>
+      <div className="add-input">
+        <label htmlFor="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Stock Name"
+          value={name}
+          onChange={e => {
+            setName(e.target.value);
+          }}
+          required
+        />
+      </div>
+      <div className="add-input">
+        <label htmlFor="location">Location</label>
+        <select
+          name="location"
+          value={location}
+          onChange={e => {
+            setLocation(e.target.value);
+          }}
+          required
+        >
+          {locationList.map((location, key) => {
+            return (
+              <option
+                key={key}
+                value={location.charAt(0).toUpperCase() + location.slice(1)}
+              >
+                {location}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+      <div className="add-input">
+        <label htmlFor="quantity">Quantity</label>
+        <input
+          type="number"
+          name="quantity"
+          placeholder="Stock Quantity"
+          value={quantity}
+          onChange={e => {
+            setQuantity(e.target.value);
+          }}
+          required
+        />
+      </div>
+      <div className="add-input">
+        <label htmlFor="expiration">Expiration</label>
+        <input
+          name="expiration"
+          type="date"
+          value={expiration}
+          onChange={e => {
+            setExpiration(e.target.value);
+          }}
+          required
+        />
+      </div>
+      <div className="btn-container">
+        <button>Add Stock</button>
+      </div>
     </form>
   );
 };

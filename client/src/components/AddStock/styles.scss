@@ -1,0 +1,58 @@
+form.add {
+  background-color: white;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .btn-container {
+    flex-basis: 100%;
+    button {
+      display: block;
+      margin: 12.5px auto 5px;
+      border: none;
+      border-radius: 5px;
+      padding: 7.5px 35px;
+      font-size: 22px;
+      border-radius: 100px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      background-color: transparent;
+      font-family: "NeutraBold", sans-serif;
+      color: #535353;
+      cursor: pointer;
+      transition: 280ms ease-in-out background;
+      width: inherit;
+      align-self: center;
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+  .add-input {
+    margin: 10px 20px;
+    flex: 1;
+    min-width: 200px;
+    label {
+      font-size: 14px;
+      width: 100%;
+      display: block;
+      font-family: "NeutraBold", sans-serif;
+      color: #a8a8a8;
+      text-transform: uppercase;
+    }
+    input,
+    select {
+      border: none;
+      font-size: 24px;
+      width: 100%;
+      color: #535353;
+      border-bottom: 2px solid #a8a8a8;
+      font-family: "NeutraBook", sans-serif;
+      padding: 3px 0 7px 0;
+      &::placeholder {
+        color: #535353;
+      }
+    }
+  }
+}

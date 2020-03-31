@@ -16,7 +16,7 @@ const ListStocks = ({ stocks, getStocks, setStocks, locationList }) => {
   };
 
   return (
-    <div className="stocks">
+    <div className="stock-list">
       {stocks.map(stock => {
         let today = new Date();
         let expDate = new Date(stock.expiration);
@@ -25,7 +25,6 @@ const ListStocks = ({ stocks, getStocks, setStocks, locationList }) => {
           difDay <= 0
             ? `Expired ${difDay * -1} days ago.`
             : `Expires in ${difDay} days.`;
-
         return (
           <div key={stock.stock_id}>
             <p>

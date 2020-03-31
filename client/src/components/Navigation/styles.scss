@@ -1,0 +1,21 @@
+nav {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,.2);
+    z-index: 100;
+    position: relative;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        li {
+            padding: 14px 16px;
+            display: inline-block;
+            cursor: pointer;
+            font-family: 'NeutraBold';
+            font-size: 20px;
+        }
+    }
+}
