@@ -7,31 +7,16 @@ const EditLocation = ({ stock, locationList, stocks, setStocks }) => {
   const updateStock = async e => {
     e.preventDefault();
     try {
-      const body = { name, location, quantity, expiration };
+      const body = { name };
       await fetch(`http://localhost:5000/stocks/${stock.stock_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
 
-      // let newStocks = [...stocks];
-
-      // newStocks.map(currentStock => {
-      //   if (currentStock.stock_id === stock.stock_id) {
-      //     currentStock.name = name;
-      //     currentStock.location = location;
-      //     currentStock.quantity = quantity;
-      //     currentStock.expiration = expiration;
-      //   }
-      //   return "done";
-      // });
-
-      // setStocks(newStocks);
+      getLocationList();
       // setVisible(false);
       // setName(name);
-      // setLocation(location);
-      // setQuantity(quantity);
-      // setExpiration(expiration);
     } catch (err) {
       console.error(err.message);
     }

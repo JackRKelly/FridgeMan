@@ -10,7 +10,10 @@ const pool = require("./db.js");
 app.use(cors());
 app.use(express.json());
 
-//Routes
+//
+//     STOCK ROUTES
+//
+
 //Add a stock
 app.post("/stocks", async (req, res) => {
   try {
@@ -108,6 +111,66 @@ app.delete("/stocks/:id", async (req, res) => {
     );
 
     res.send(deleteStock);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//
+//     LOCATION ROUTES
+//
+
+//Get all locations
+app.get("/locations", async (req, res) => {
+  try {
+    const allLocations = await pool.query("SELECT * FROM location");
+    res.send(allLocations.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//Delete a certain location with an id
+app.delete("/locations/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteLocation = await pool.query(
+      "DELETE FROM location WHERE location_id = $1 RETURNING *",
+      [id]
+    );
+
+    res.send(deleteLocation);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//Get location with a certain ID
+app.get("/locations/getid/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const getIdlocation = await pool.query(
+      "SELECT * FROM location WHERE location_id = $1",
+      [id]
+    );
+
+    res.send(getIdlocation.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//Update a location with a certain id
+app.put("/locations/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name } = req.body;
+    const updatelocation = await pool.query(
+      "UPDATE location SET name = $1 WHERE location_id = $2",
+      [name, id]
+    );
+
+    res.send(updatelocation);
   } catch (err) {
     console.error(err.message);
   }

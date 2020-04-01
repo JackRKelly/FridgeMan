@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import ListStocks from "../components/ListStock";
-import Navigation from "../components/Navigation";
+import ListStocks from "../components/Stock/ListStock";
+import Navigation from "../components/Stock/Navigation";
 
-const ViewStocks = ({ isMobile, locationList }) => {
+const Stocks = ({ isMobile, locationList }) => {
   const [stocks, setStocks] = useState([]);
 
   const [name, setName] = useState("");
@@ -45,4 +45,4 @@ const ViewStocks = ({ isMobile, locationList }) => {
   );
 };
 
-export default ViewStocks;
+export default Stocks;

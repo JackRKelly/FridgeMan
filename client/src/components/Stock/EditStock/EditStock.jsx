@@ -94,13 +94,8 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
                 >
                   {locationList.map((location, key) => {
                     return (
-                      <option
-                        key={key}
-                        value={
-                          location.charAt(0).toUpperCase() + location.slice(1)
-                        }
-                      >
-                        {location}
+                      <option key={key} value={location.name}>
+                        {location.name}
                       </option>
                     );
                   })}
