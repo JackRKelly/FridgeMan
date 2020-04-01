@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import "./styles.scss";
 
-const EditStock = ({ stock, locationList, stocks, setStocks }) => {
-  const [name, setName] = useState(stock.name);
+const EditLocation = ({ stock, locationList, stocks, setStocks }) => {
   const [location, setLocation] = useState(stock.location);
-  const [quantity, setQuantity] = useState(stock.quantity);
-  const [expiration, setExpiration] = useState(stock.expiration);
-  const [visible, setVisible] = useState(false);
 
   const updateStock = async e => {
     e.preventDefault();
@@ -18,40 +14,40 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
         body: JSON.stringify(body)
       });
 
-      let newStocks = [...stocks];
+      // let newStocks = [...stocks];
 
-      newStocks.map(currentStock => {
-        if (currentStock.stock_id === stock.stock_id) {
-          currentStock.name = name;
-          currentStock.location = location;
-          currentStock.quantity = quantity;
-          currentStock.expiration = expiration;
-        }
-        return "done";
-      });
+      // newStocks.map(currentStock => {
+      //   if (currentStock.stock_id === stock.stock_id) {
+      //     currentStock.name = name;
+      //     currentStock.location = location;
+      //     currentStock.quantity = quantity;
+      //     currentStock.expiration = expiration;
+      //   }
+      //   return "done";
+      // });
 
-      setStocks(newStocks);
-      setVisible(false);
-      setName(name);
-      setLocation(location);
-      setQuantity(quantity);
-      setExpiration(expiration);
+      // setStocks(newStocks);
+      // setVisible(false);
+      // setName(name);
+      // setLocation(location);
+      // setQuantity(quantity);
+      // setExpiration(expiration);
     } catch (err) {
       console.error(err.message);
     }
   };
 
   const closeModal = () => {
-    setName(stock.name);
-    setLocation(stock.location);
-    setQuantity(stock.quantity);
-    setExpiration(stock.expiration);
-    setVisible(false);
+    // setName(stock.name);
+    // setLocation(stock.location);
+    // setQuantity(stock.quantity);
+    // setExpiration(stock.expiration);
+    // setVisible(false);
   };
 
   return (
     <>
-      <button
+      {/* <button
         type="button"
         className="open-modal"
         onClick={() => setVisible(true)}
@@ -141,9 +137,9 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
           </div>
         </form>
         <div className="modal-background" onClick={closeModal}></div>
-      </div>
+      </div> */}
     </>
   );
 };
 
-export default EditStock;
+export default EditLocation;

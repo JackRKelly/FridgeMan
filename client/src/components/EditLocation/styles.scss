@@ -1,0 +1,138 @@
+.open-modal {
+  cursor: pointer;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  font-family: "NeutraBook", sans-serif;
+  transition: 0.2s ease-in-out opacity;
+
+  form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .modal-content {
+      background-color: white;
+      padding: 35px;
+      z-index: 100;
+      width: 45%;
+      position: absolute;
+      border-radius: 5px;
+      box-sizing: border-box;
+
+      @media only screen and (max-width: 1000px) {
+        width: 85%;
+      }
+
+      .modal-header {
+        .modal-title {
+          margin: 0;
+          color: #535353;
+          font-family: "NeutraBold", sans-serif;
+          text-transform: uppercase;
+          font-size: 25px;
+        }
+      }
+
+      .modal-body {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .modal-input {
+          width: 45%;
+          margin-top: 15px;
+
+          @media only screen and (max-width: 1000px) {
+            width: 100%;
+            margin-top: 15px;
+          }
+
+          input {
+            border: none;
+            font-size: 24px;
+            width: 100%;
+            color: #535353;
+            border-bottom: 2px solid #a8a8a8;
+            font-family: "NeutraBook", sans-serif;
+            padding: 3px 0 7px 0;
+          }
+          select {
+            border: none;
+            font-size: 24px;
+            width: 100%;
+            color: #535353;
+            border-bottom: 2px solid #a8a8a8;
+            font-family: "NeutraBook", sans-serif;
+            padding: 3px 0 7px 0;
+          }
+          label {
+            font-size: 14px;
+            width: 100%;
+            display: block;
+            font-family: "NeutraBold", sans-serif;
+            color: #a8a8a8;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .modal-footer {
+        text-align: right;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .btn {
+          margin-left: 10px;
+          padding: 2.5px 10px;
+          border: none;
+          border-radius: 5px;
+          padding: 7.5px 20px;
+          font-size: 25px;
+          border-radius: 100px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+          background-color: transparent;
+          font-family: "NeutraBold", sans-serif;
+          color: #535353;
+          cursor: pointer;
+          transition: 280ms ease-in-out background;
+
+          @media only screen and (min-width: 500px) {
+            padding: 12.5px 30px;
+          }
+          @media only screen and (max-width: 1000px) {
+            width: 25%;
+            margin: 0;
+          }
+          @media only screen and (max-width: 600px) {
+            width: 45%;
+            margin: 0;
+          }
+          &:hover {
+            background-color: #eee;
+          }
+        }
+      }
+    }
+  }
+
+  .modal-background {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ViewStocks from "./pages/ViewStocks";
 import Home from "./pages/Home";
+import Locations from "./pages/Locations";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState();
+
+  const [locationList, setLocationList] = useState([]);
 
   const checkMobile = () => {
     if (window.innerWidth <= 800) {
@@ -15,12 +18,12 @@ const App = () => {
   };
 
   window.addEventListener("resize", checkMobile);
-    
+
   useEffect(checkMobile, []);
 
   return (
     <Router>
-      <div>
+      <>
         <nav>
           <ul>
             <li>
@@ -29,20 +32,24 @@ const App = () => {
             <li>
               <Link to="/stocks">View Stocks</Link>
             </li>
+            <li>
+              <Link to="/locations">Locations</Link>
+            </li>
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/locations">
+            <Locations locationList={locationList} setLocationList={setLocationList}/>
+          </Route>
           <Route path="/stocks">
-            <ViewStocks isMobile={isMobile} />
+            <ViewStocks locationList={locationList} isMobile={isMobile} />
           </Route>
           <Route path="/">
             <Home />
           </Route>
         </Switch>
-      </div>
+      </>
     </Router>
   );
 };

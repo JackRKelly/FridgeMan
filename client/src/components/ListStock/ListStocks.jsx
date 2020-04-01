@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import EditStock from "../EditStock";
 import "./styles.scss";
 
@@ -101,7 +101,9 @@ const ListStocks = ({
                 <td>{stock.name}</td>
                 <td>{stock.quantity}</td>
                 <td>{stock.location}</td>
-                <td><span style={{ color: color }}>{difDay}</span> days</td>
+                <td>
+                  <span style={{ color: color }}>{difDay}</span> days
+                </td>
                 <td>
                   <EditStock
                     locationList={locationList}

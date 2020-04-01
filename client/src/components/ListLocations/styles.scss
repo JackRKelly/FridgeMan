@@ -1,0 +1,126 @@
+div.stock-list {
+  width: 100%;
+  &-item {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 25px auto;
+    padding: 0 15px;
+    font-family: "NeutraBook";
+    transition: 1s ease-in-out all;
+    color: #535353;
+    @media only screen and (max-width: 1000px) {
+      width: 75%;
+      margin: 20px auto;
+    }
+    @media only screen and (max-width: 500px) {
+      width: 100%;
+      margin: 15px auto;
+    }
+    .row-1 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .name {
+        margin: 0;
+        display: inline;
+        font-family: "NeutraBold";
+        font-size: 22px;
+      }
+      .quantity {
+        margin: 0;
+        display: inline;
+        font-size: 20px;
+      }
+    }
+    .row-2 {
+      margin: 7.5px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .location {
+        margin: 0;
+        display: inline;
+        font-size: 20px;
+      }
+      .expiration {
+        margin: 0;
+        display: inline;
+        font-size: 20px;
+      }
+    }
+    .row-3 {
+      display: flex;
+      flex-direction: row-reverse;
+      button {
+        margin: 0 0 0 7.5px;
+        display: block;
+        border: none;
+        padding: 6.5px 15px;
+        border-radius: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
+        font: 1em "NeutraBold", sans-serif;
+        color: #535353;
+        cursor: pointer;
+        transition: 280ms ease-in-out background;
+        width: inherit;
+        align-self: center;
+        -webkit-appearance: none;
+        &:hover {
+          background-color: #eee;
+        }
+      }
+    }
+  }
+}
+
+table.stock-list {
+  width: 90%;
+  margin: 5px auto 15px;
+  tbody {
+    box-sizing: border-box;
+    margin: 25px auto;
+    padding: 0 15px;
+    font-family: "NeutraBook";
+    transition: 1s ease-in-out all;
+    color: #535353;
+    tr {
+      td {
+        font-size: 1.25em;
+        padding: 5px 0;
+        button {
+          margin: 0 10px 0 0;
+          display: inline;
+          border: none;
+          padding: 5.5px 17.5px;
+          border-radius: 100px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          background-color: transparent;
+          font: .9em "NeutraBold", sans-serif;
+          color: #535353;
+          cursor: pointer;
+          transition: 280ms ease-in-out background;
+          align-self: center;
+          -webkit-appearance: none;
+          &:hover {
+            background-color: #eee;
+          }
+        }
+      }
+    }
+  }
+  thead {
+    box-sizing: border-box;
+    margin: 25px auto;
+    padding: 0 15px;
+    font-family: "NeutraBold";
+    text-align: left;
+    transition: 1s ease-in-out all;
+    color: #535353;
+    tr {
+      th {
+        font-size: 1.5em
+      }
+    }
+  }
+}
