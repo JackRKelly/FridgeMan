@@ -1,57 +1,89 @@
-form.add {
-  background-color: white;
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
-  padding: 15px;
+div.add-modal {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  font-family: "NeutraBook", sans-serif;
+  transition: 0.2s ease-in-out opacity;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  .btn-container {
-    flex-basis: 100%;
-    button {
-      display: block;
-      margin: 12.5px auto 5px;
-      border: none;
-      border-radius: 5px;
-      padding: 7.5px 35px;
-      font-size: 22px;
-      border-radius: 100px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-      background-color: transparent;
-      font-family: "NeutraBold", sans-serif;
+  justify-content: center;
+  .modal-background {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  form.add {
+    background-color: white;
+    z-index: 200;
+    width: 50%;
+    padding: 35px;
+    border-radius: 5px;
+    h1 {
+      margin: 0;
       color: #535353;
-      cursor: pointer;
-      transition: 280ms ease-in-out background;
-      width: inherit;
-      align-self: center;
-      &:hover {
-        background-color: #eee;
+      font-family: "NeutraBold", sans-serif;
+      text-transform: uppercase;
+      font-size: 25px;
+    }
+    .btn-container {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        display: inline;
+        margin: 15px 30px 10px;
+        border: none;
+        border-radius: 5px;
+        padding: 7.5px 35px;
+        flex: 1;
+        font-size: 22px;
+        border-radius: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        background-color: transparent;
+        font-family: "NeutraBold", sans-serif;
+        color: #535353;
+        cursor: pointer;
+        transition: 280ms ease-in-out background;
+        align-self: center;
+        &:hover {
+          background-color: #eee;
+        }
       }
     }
-  }
-  .add-input {
-    margin: 10px 20px;
-    flex: 1;
-    min-width: 200px;
-    label {
-      font-size: 14px;
-      width: 100%;
-      display: block;
-      font-family: "NeutraBold", sans-serif;
-      color: #a8a8a8;
-      text-transform: uppercase;
-    }
-    input,
-    select {
-      border: none;
-      font-size: 24px;
-      width: 100%;
-      color: #535353;
-      border-bottom: 2px solid #a8a8a8;
-      font-family: "NeutraBook", sans-serif;
-      padding: 3px 0 7px 0;
-      &::placeholder {
+    .add-input {
+      margin: 15px 0;
+      min-width: 200px;
+      flex: 1;
+      label {
+        font-size: 14px;
+        width: 100%;
+        display: block;
+        font-family: "NeutraBold", sans-serif;
+        color: #a8a8a8;
+        text-transform: uppercase;
+      }
+      input,
+      select {
+        border: none;
+        font-size: 24px;
+        width: 100%;
         color: #535353;
+        border-bottom: 2px solid #a8a8a8;
+        font-family: "NeutraBook", sans-serif;
+        padding: 3px 0 7px 0;
+        -webkit-appearance: none;
+        border-radius: 0;
+        &::placeholder {
+          color: #535353;
+        }
       }
     }
   }

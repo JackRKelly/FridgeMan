@@ -1,37 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import ListStocks from './components/ListStock';
-import Navigation from './components/Navigation';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ViewStocks from "./pages/ViewStocks";
+import Home from "./pages/Home";
 
 const App = () => {
-  
-  const [stocks, setStocks] = useState([])
+  const [isMobile, setIsMobile] = useState();
 
-  const [name, setName] = useState("");
-  const [location, setLocation] = useState("all-locations");
-
-  const [locationList] = useState(['Fridge', 'Freezer', 'Basement Freezer', 'Pantry', 'Hutch', 'Laundry Room', 'Basement Freezer 2'])
-
-  const getStocks = async () => {
-    try {
-        const response = await fetch('http://localhost:5000/stocks');
-        const jsonResponse = await response.json();
-        setStocks(jsonResponse);
-    } catch (err) {
-        console.error(err.message);
+  const checkMobile = () => {
+    if (window.innerWidth <= 800) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
     }
-  }
+  };
 
-  useEffect(() => {
-    getStocks();
-  }, []);
+  window.addEventListener("resize", checkMobile);
+    
+  useEffect(checkMobile, []);
 
   return (
-    <>
-        <Navigation name={name} location={location} setName={setName} setLocation={setLocation} locationList={locationList} getStocks={getStocks} stocks={stocks} setStocks={setStocks}/>
-        <ListStocks locationList={locationList} getStocks={getStocks} stocks={stocks} setStocks={setStocks}/>
-    </>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/stocks">View Stocks</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/stocks">
+            <ViewStocks isMobile={isMobile} />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

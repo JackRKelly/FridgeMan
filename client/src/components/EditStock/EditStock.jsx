@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.scss";
 
 const EditStock = ({ stock, locationList, stocks, setStocks }) => {
@@ -27,6 +27,7 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
           currentStock.quantity = quantity;
           currentStock.expiration = expiration;
         }
+        return 'done';
       });
 
       setStocks(newStocks);

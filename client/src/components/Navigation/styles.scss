@@ -8,14 +8,28 @@ nav {
         margin: 0;
         padding: 0;
         list-style: none;
-        display: flex;
-        justify-content: space-around;
+        text-align: center;
         li {
             padding: 14px 16px;
+            margin: 0 20px;
             display: inline-block;
             cursor: pointer;
             font-family: 'NeutraBold';
             font-size: 20px;
         }
+    }
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    .modal-button {
+        background-color: #D8D8D8;
+        border: none;
+        border-radius: 3px;
+        font: 20px 'NeutraBold';
+        color: #535353;
+        padding: 5px 15px;
+        margin: 15px;
+        cursor: pointer;
     }
 }

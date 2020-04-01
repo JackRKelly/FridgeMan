@@ -7,7 +7,9 @@ const SearchStock = ({
   name,
   setName,
   location,
-  setLocation
+  setLocation,
+  setSearchVisibility,
+  searchVisible
 }) => {
   const searchStock = async e => {
     e.preventDefault();
@@ -23,13 +25,20 @@ const SearchStock = ({
   };
 
   return (
-    <>
+    <div
+      className="search-modal"
+      style={{
+        opacity: searchVisible ? "1" : "0",
+        pointerEvents: searchVisible ? "auto" : "none"
+      }}
+    >
       <form
         className="search"
         onSubmit={e => {
           searchStock(e);
         }}
       >
+        <h1>Search all stocks</h1>
         <div className="search-input">
           <label htmlFor="name">Name</label>
           <input
@@ -65,10 +74,24 @@ const SearchStock = ({
           </select>
         </div>
         <div className="btn-container">
-          <button>Search Item</button>
+          <button type="submit">Search Item</button>
+          <button
+            type="button"
+            onClick={() => {
+              setSearchVisibility(false);
+            }}
+          >
+            Close
+          </button>
         </div>
       </form>
-    </>
+      <div
+        className="modal-background"
+        onClick={() => {
+          setSearchVisibility(false);
+        }}
+      ></div>
+    </div>
   );
 };
 
