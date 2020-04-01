@@ -18,18 +18,17 @@ app.use(express.json());
 app.post("/stocks", async (req, res) => {
   try {
     const { name, quantity, location, expiration } = req.body;
-    const newTodo = await pool.query(
+    const newStock = await pool.query(
       "INSERT INTO stock (name, quantity, location, expiration) values ($1, $2, $3, $4) RETURNING *",
       [name, quantity, location, expiration]
     );
 
-    await res.send(newTodo.rows);
+    await res.send(newStock.rows);
   } catch (err) {
     console.error(err.message);
   }
 });
 
-//insert into stock (name, quantity, location, expiration) values ('test', 123, 'Location', '12/12/2012')
 //Get all stocks
 app.get("/stocks", async (req, res) => {
   try {
@@ -171,6 +170,21 @@ app.put("/locations/:id", async (req, res) => {
     );
 
     res.send(updatelocation);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//Add a location
+app.post("/locations", async (req, res) => {
+  try {
+    const { name } = req.body;
+    const newLocation = await pool.query(
+      "INSERT INTO location (name) values ($1) RETURNING *",
+      [name]
+    );
+
+    await res.send(newLocation.rows);
   } catch (err) {
     console.error(err.message);
   }

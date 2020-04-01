@@ -1,2 +1,2 @@
-import AddStock from "./AddStock";
-export default AddStock;
+import AddLocation from "./AddLocation";
+export default AddLocation;

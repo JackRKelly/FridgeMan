@@ -60,7 +60,7 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
       </button>
 
       <div
-        className="modal"
+        className="edit-stock-modal"
         id={`modal${stock.stock_id}`}
         style={{
           opacity: visible ? 1 : 0,

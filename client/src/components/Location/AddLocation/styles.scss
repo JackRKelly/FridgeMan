@@ -1,4 +1,4 @@
-div.add-modal {
+div.add-location-modal {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -23,9 +23,15 @@ div.add-modal {
   form.add {
     background-color: white;
     z-index: 200;
-    width: 50%;
+    width: 25%;
     padding: 35px;
     border-radius: 5px;
+    @media only screen and (max-width: 1000px) {
+      width: 50%;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 75%;
+    }
     h1 {
       margin: 0;
       color: #535353;
@@ -40,6 +46,9 @@ div.add-modal {
       button {
         display: inline;
         margin: 15px 30px 10px;
+        @media only screen and (max-width: 600px) {
+          margin: 7.5px 10px 10px;
+        }
         border: none;
         border-radius: 5px;
         padding: 7.5px 35px;

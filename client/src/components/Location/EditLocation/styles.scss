@@ -2,7 +2,7 @@
   cursor: pointer;
 }
 
-.modal {
+.edit-location-modal {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -24,12 +24,20 @@
       background-color: white;
       padding: 35px;
       z-index: 100;
-      width: 45%;
+      width: 25%;
       position: absolute;
       border-radius: 5px;
       box-sizing: border-box;
 
+      @media only screen and (max-width: 1200px) {
+        width: 40%;
+      }
+
       @media only screen and (max-width: 1000px) {
+        width: 60%;
+      }
+
+      @media only screen and (max-width: 600px) {
         width: 85%;
       }
 
@@ -50,7 +58,7 @@
         justify-content: space-between;
 
         .modal-input {
-          width: 45%;
+          width: 100%;
           margin-top: 15px;
 
           @media only screen and (max-width: 1000px) {
@@ -112,12 +120,13 @@
             padding: 12.5px 30px;
           }
           @media only screen and (max-width: 1000px) {
-            width: 25%;
+            width: 40%;
             margin: 0;
           }
           @media only screen and (max-width: 600px) {
             width: 45%;
             margin: 0;
+            font-size: 20px;
           }
           &:hover {
             background-color: #eee;

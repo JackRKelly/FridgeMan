@@ -33,7 +33,7 @@ const AddStock = ({
 
   return (
     <div
-      className="add-modal"
+      className="add-stock-modal"
       style={{
         opacity: addVisible ? "1" : "0",
         pointerEvents: addVisible ? "auto" : "none"
@@ -106,7 +106,7 @@ const AddStock = ({
           />
         </div>
         <div className="btn-container">
-          <button type="submit">Add Stock</button>
+          <button type="submit">Add</button>
           <button
             type="button"
             onClick={() => {
