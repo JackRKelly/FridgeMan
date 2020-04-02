@@ -45,9 +45,12 @@ div.add-location-modal {
       justify-content: center;
       button {
         display: inline;
-        margin: 15px 30px 10px;
-        @media only screen and (max-width: 600px) {
+        margin: 15px 20px 10px;
+        @media only screen and (max-width: 1200px) {
           margin: 7.5px 10px 10px;
+        }
+        @media only screen and (max-width: 600px) {
+          margin: 7.5px 5px 10px;
         }
         border: none;
         border-radius: 5px;

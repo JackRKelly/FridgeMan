@@ -7,7 +7,14 @@ const Locations = ({ locationList, setLocationList, getLocations }) => {
 
   return (
     <>
-      <button className="add-location-btn" onClick={() => {setAddVisibility(true)}}>Add Location</button>
+      <button
+        className="add-location-btn"
+        onClick={() => {
+          setAddVisibility(true);
+        }}
+      >
+        Add Location
+      </button>
       <AddLocation
         setAddVisibility={setAddVisibility}
         addVisible={addVisible}

@@ -71,7 +71,7 @@ const SearchStock = ({
           </select>
         </div>
         <div className="btn-container">
-          <button type="submit">Search Item</button>
+          <button type="submit">Search</button>
           <button
             type="button"
             onClick={() => {

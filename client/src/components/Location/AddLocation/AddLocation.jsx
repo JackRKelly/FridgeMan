@@ -35,13 +35,13 @@ const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
           addLocation(e);
         }}
       >
-        <h1>Add a stock</h1>
+        <h1>Add a location</h1>
         <div className="add-input">
           <label htmlFor="name">Name</label>
           <input
             type="text"
             name="name"
-            placeholder="Stock Name"
+            placeholder="Location Name"
             value={name}
             onChange={e => {
               setName(e.target.value);

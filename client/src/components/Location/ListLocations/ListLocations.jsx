@@ -20,17 +20,16 @@ const ListLocations = ({ locationList, getLocations }) => {
         return (
           <div className="location-list-item" key={location.location_id}>
             <p className="name">{location.name}</p>
-            <EditLocation
-              location={location}
-              getLocations={getLocations}
-            />
-            <button
-              onClick={() => {
-                deleteLocation(location.location_id);
-              }}
-            >
-              Delete
-            </button>
+            <div className="btn-container">
+              <EditLocation location={location} getLocations={getLocations} />
+              <button
+                onClick={() => {
+                  deleteLocation(location.location_id);
+                }}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         );
       })}

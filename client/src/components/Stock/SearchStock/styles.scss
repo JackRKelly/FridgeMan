@@ -21,11 +21,18 @@ div.search-modal {
     top: 0;
   }
   form.search {
+    box-sizing: border-box;
     background-color: white;
     z-index: 200;
-    width: 50%;
+    width: 60%;
     padding: 35px;
     border-radius: 5px;
+    @media only screen and (max-width: 1000px) {
+      width: 80%;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 95%;
+    }
     h1 {
       margin: 0;
       color: #535353;
@@ -53,6 +60,12 @@ div.search-modal {
         cursor: pointer;
         transition: 280ms ease-in-out background;
         align-self: center;
+        @media only screen and (max-width: 1000px) {
+          margin: 15px 10px 10px;
+        }
+        @media only screen and (max-width: 600px) {
+          margin: 15px 5px 10px;
+        }
         &:hover {
           background-color: #eee;
         }

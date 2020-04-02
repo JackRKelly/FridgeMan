@@ -24,7 +24,7 @@
       background-color: white;
       padding: 35px;
       z-index: 100;
-      width: 25%;
+      width: 35%;
       position: absolute;
       border-radius: 5px;
       box-sizing: border-box;
@@ -120,11 +120,9 @@
             padding: 12.5px 30px;
           }
           @media only screen and (max-width: 1000px) {
-            width: 40%;
             margin: 0;
           }
           @media only screen and (max-width: 600px) {
-            width: 45%;
             margin: 0;
             font-size: 20px;
           }

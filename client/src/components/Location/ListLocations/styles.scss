@@ -22,35 +22,43 @@ div.location-list {
       font-family: "NeutraBold";
       font-size: 22px;
     }
-    button {
-      margin: 0 0 0 7.5px;
-      display: inline-block;
-      border: none;
-      float: right;
-      padding: 6.5px 15px;
-      border-radius: 100px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      background-color: transparent;
-      font: 1em "NeutraBold", sans-serif;
-      color: #535353;
-      cursor: pointer;
-      transition: 280ms ease-in-out background;
-      align-self: center;
-      -webkit-appearance: none;
-      &:hover {
-        background-color: #eee;
+    .btn-container {
+      @media only screen and (min-width: 500px) {
+        display: inline;
+        float: right;
+      }
+      button {
+        margin: 0 0 0 7.5px;
+        border: none;
+        padding: 6.5px 15px;
+        border-radius: 100px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
+        font: 1em "NeutraBold", sans-serif;
+        color: #535353;
+        cursor: pointer;
+        transition: 280ms ease-in-out background;
+        align-self: center;
+        -webkit-appearance: none;
+        @media only screen and (max-width: 500px) {
+          float: none;
+          margin: 7.5px 7.5px 0 0;
+        }
+        &:hover {
+          background-color: #eee;
+        }
       }
     }
   }
 }
 
 button.add-location-btn {
-  background-color: #D8D8D8;
+  background-color: #d8d8d8;
   border: none;
   display: block;
   margin: 25px auto;
   border-radius: 3px;
-  font: 20px 'NeutraBold';
+  font: 20px "NeutraBold";
   color: #535353;
   padding: 5px 15px;
   cursor: pointer;
