@@ -16,7 +16,7 @@ const ListLocations = ({ locationList, getLocations }) => {
 
   return (
     <div className="location-list">
-      {locationList.map((location, index) => {
+      {locationList.sort((a, b) => (a.name > b.name) ? 1 : -1).map((location, index) => {
         return (
           <div className="location-list-item" key={location.location_id}>
             <p className="name">{location.name}</p>
