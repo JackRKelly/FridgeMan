@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Stocks from "./pages/Stocks";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
+import Login from "./pages/Login";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState();
@@ -48,10 +49,16 @@ const App = () => {
             <li>
               <Link to="/locations">Locations</Link>
             </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
           </ul>
         </nav>
 
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/locations">
             <Locations
               locationList={locationList}
