@@ -10,6 +10,8 @@ const App = () => {
 
   const [locationList, setLocationList] = useState([]);
 
+  const [isLoggedIn, setIsLoggedIn] = useState("");
+
   const checkMobile = () => {
     if (window.innerWidth <= 800) {
       setIsMobile(true);
@@ -33,6 +35,7 @@ const App = () => {
   useEffect(() => {
     getLocations();
     checkMobile();
+
   }, []);
 
   return (
