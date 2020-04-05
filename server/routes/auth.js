@@ -26,16 +26,13 @@ const compareHash = async (password, hash) => {
   return result;
 };
 
-router.get("/", async (req, res) => {
-    try {
+//Login route
+router.post("/logout", async (req, res) => {
+  req.session.destroy();
+  res.redirect('http://localhost:3000');
+});
 
-      console.log(loggedIn);
-  
-    } catch (err) {
-      console.error(err.message);
-    }
-  });
-
+//Login route
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -46,15 +43,14 @@ router.post("/login", async (req, res) => {
 
     const loggedIn = await compareHash(password, response.rows[0].password);
 
-    console.log(loggedIn);
-    res.send(loggedIn);
-
+    res.send("logged in");
   } catch (err) {
     console.error(err.message);
     //res.send(err.message);
   }
 });
 
+//Signup route
 router.post("/signup", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -67,6 +63,7 @@ router.post("/signup", async (req, res) => {
     );
 
     console.log(response.rows);
+    res.send("signed up");
   } catch (err) {
     console.error(err.message);
     //res.send(err.message);

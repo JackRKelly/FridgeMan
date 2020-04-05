@@ -22,6 +22,12 @@ const App = () => {
 
   window.addEventListener("resize", checkMobile);
 
+  const logOut = async () => {
+    await fetch('http://localhost:5000/auth/logout', {
+      method: "POST"
+    });
+  }
+
   const getLocations = async () => {
     try {
       const response = await fetch("http://localhost:5000/locations");
@@ -35,7 +41,6 @@ const App = () => {
   useEffect(() => {
     getLocations();
     checkMobile();
-
   }, []);
 
   return (
@@ -54,6 +59,9 @@ const App = () => {
             </li>
             <li>
               <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <button onClick={logOut}>Logout</button>
             </li>
           </ul>
         </nav>
