@@ -8,7 +8,7 @@ const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
     e.preventDefault();
     try {
       const body = { name };
-      await fetch("http://localhost:5000/locations", {
+      await fetch("http://localhost:5000/api/locations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)

@@ -5,7 +5,7 @@ import "./styles.scss";
 const ListLocations = ({ locationList, getLocations }) => {
   const deleteLocation = async id => {
     try {
-      await fetch(`http://localhost:5000/locations/${id}`, {
+      await fetch(`http://localhost:5000/api/locations/${id}`, {
         method: "DELETE"
       });
       getLocations();

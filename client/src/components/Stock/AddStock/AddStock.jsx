@@ -16,7 +16,7 @@ const AddStock = ({
     e.preventDefault();
     try {
       const body = { name, location, quantity, expiration };
-      await fetch("http://localhost:5000/stocks", {
+      await fetch("http://localhost:5000/api/stocks", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)

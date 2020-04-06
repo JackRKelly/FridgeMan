@@ -11,7 +11,7 @@ const ListStocks = ({
 }) => {
   const deleteStock = async id => {
     try {
-      await fetch(`http://localhost:5000/stocks/${id}`, {
+      await fetch(`http://localhost:5000/api/stocks/${id}`, {
         method: "DELETE"
       });
       console.log("get stocks delete stock list stocks");

@@ -4,13 +4,12 @@ import Stocks from "./pages/Stocks";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState();
 
   const [locationList, setLocationList] = useState([]);
-
-  const [isLoggedIn, setIsLoggedIn] = useState("");
 
   const checkMobile = () => {
     if (window.innerWidth <= 800) {
@@ -23,14 +22,14 @@ const App = () => {
   window.addEventListener("resize", checkMobile);
 
   const logOut = async () => {
-    await fetch('http://localhost:5000/auth/logout', {
-      method: "POST"
+    await fetch("http://localhost:5000/api/auth/logout", {
+      method: "POST",
     });
-  }
+  };
 
   const getLocations = async () => {
     try {
-      const response = await fetch("http://localhost:5000/locations");
+      const response = await fetch("http://localhost:5000/api/locations");
       const jsonResponse = await response.json();
       setLocationList(jsonResponse);
     } catch (err) {
@@ -61,12 +60,18 @@ const App = () => {
               <Link to="/login">Login</Link>
             </li>
             <li>
+              <Link to="/signup">Signup</Link>
+            </li>
+            <li>
               <button onClick={logOut}>Logout</button>
             </li>
           </ul>
         </nav>
 
         <Switch>
+          <Route path="/signup">
+            <Signup />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>

@@ -10,7 +10,7 @@ const Stocks = ({ isMobile, locationList }) => {
 
   const getStocks = async () => {
     try {
-      const response = await fetch("http://localhost:5000/stocks");
+      const response = await fetch("http://localhost:5000/api/stocks");
       const jsonResponse = await response.json();
       setStocks(jsonResponse);
     } catch (err) {

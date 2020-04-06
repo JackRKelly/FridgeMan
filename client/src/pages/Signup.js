@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import "./login.scss";
+import "./signup.scss";
 
-const Login = () => {
+const Signup = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     const body = {email, password}
-    await fetch('http://localhost:5000/api/auth/login', {
+    await fetch('http://localhost:5000/api/auth/signup', {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
@@ -18,7 +18,7 @@ const Login = () => {
 
   return (
     <>
-      <form onSubmit={(e) => {handleLogin(e)}}>
+      <form onSubmit={(e) => {handleSignup(e)}}>
         <div className="login-input">
           <label htmlFor="email">Email</label>
           <input name="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
@@ -28,12 +28,11 @@ const Login = () => {
           <input name="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
         </div>
         <div className="btn-container">
-          <button>Login</button>
-          <p>No login? signup here</p>
+          <button>Signup</button>
         </div>
       </form>
     </>
   );
 };
 
-export default Login;
+export default Signup;
