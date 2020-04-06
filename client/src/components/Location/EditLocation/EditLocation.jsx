@@ -5,22 +5,18 @@ const EditLocation = ({ locationList, location, getLocations }) => {
   const [name, setName] = useState(location.name);
   const [visible, setVisible] = useState(false);
 
-  const updateLocation = async e => {
+  const updateLocation = async (e) => {
     e.preventDefault();
-    try {
-      const body = { name };
-      await fetch(`http://localhost:5000/api/locations/${location.location_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
+    const body = { name };
+    await fetch(`http://localhost:5000/api/locations/${location.location_id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
 
-      getLocations();
-      setVisible(false);
-      setName(name);
-    } catch (err) {
-      console.error(err.message);
-    }
+    getLocations();
+    setVisible(false);
+    setName(name);
   };
 
   const closeModal = () => {
@@ -43,7 +39,7 @@ const EditLocation = ({ locationList, location, getLocations }) => {
         id={`modal${location.location_id}`}
         style={{
           opacity: visible ? 1 : 0,
-          pointerEvents: visible ? "auto" : "none"
+          pointerEvents: visible ? "auto" : "none",
         }}
       >
         <form>
@@ -60,7 +56,7 @@ const EditLocation = ({ locationList, location, getLocations }) => {
                   className="form-control"
                   name="name"
                   value={name}
-                  onChange={e => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
             </div>

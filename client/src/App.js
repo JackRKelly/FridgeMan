@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
 import Stocks from "./pages/Stocks";
 import Home from "./pages/Home";
 import Locations from "./pages/Locations";
@@ -10,6 +16,8 @@ const App = () => {
   const [isMobile, setIsMobile] = useState();
 
   const [locationList, setLocationList] = useState([]);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const checkMobile = () => {
     if (window.innerWidth <= 800) {
@@ -24,17 +32,18 @@ const App = () => {
   const logOut = async () => {
     await fetch("http://localhost:5000/api/auth/logout", {
       method: "POST",
+      credentials: "include",
+    }).then((response) => {
+      if (response.redirected) {
+        window.location.href = response.url;
+      }
     });
   };
 
   const getLocations = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/locations");
-      const jsonResponse = await response.json();
-      setLocationList(jsonResponse);
-    } catch (err) {
-      console.error(err.message);
-    }
+    const response = await fetch("http://localhost:5000/api/locations");
+    const jsonResponse = await response.json();
+    setLocationList(jsonResponse);
   };
 
   useEffect(() => {

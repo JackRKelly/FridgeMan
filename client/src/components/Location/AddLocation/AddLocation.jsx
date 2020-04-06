@@ -4,21 +4,17 @@ import "./styles.scss";
 const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
   const [name, setName] = useState("");
 
-  const addLocation = async e => {
+  const addLocation = async (e) => {
     e.preventDefault();
-    try {
-      const body = { name };
-      await fetch("http://localhost:5000/api/locations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
-      setName("");
-      getLocations();
-      setAddVisibility(false);
-    } catch (err) {
-      console.error(err.message);
-    }
+    const body = { name };
+    await fetch("http://localhost:5000/api/locations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    setName("");
+    getLocations();
+    setAddVisibility(false);
   };
 
   return (
@@ -26,12 +22,12 @@ const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
       className="add-location-modal"
       style={{
         opacity: addVisible ? "1" : "0",
-        pointerEvents: addVisible ? "auto" : "none"
+        pointerEvents: addVisible ? "auto" : "none",
       }}
     >
       <form
         className="add"
-        onSubmit={e => {
+        onSubmit={(e) => {
           addLocation(e);
         }}
       >
@@ -43,7 +39,7 @@ const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
             name="name"
             placeholder="Location Name"
             value={name}
-            onChange={e => {
+            onChange={(e) => {
               setName(e.target.value);
             }}
             required

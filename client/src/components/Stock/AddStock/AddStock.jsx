@@ -5,30 +5,26 @@ const AddStock = ({
   getStocks,
   locationList,
   setAddVisibility,
-  addVisible
+  addVisible,
 }) => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("Fridge");
   const [quantity, setQuantity] = useState("");
   const [expiration, setExpiration] = useState("");
 
-  const addStock = async e => {
+  const addStock = async (e) => {
     e.preventDefault();
-    try {
-      const body = { name, location, quantity, expiration };
-      await fetch("http://localhost:5000/api/stocks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
-      setName("");
-      setLocation("Fridge");
-      setQuantity("");
-      setExpiration("");
-      getStocks();
-    } catch (err) {
-      console.error(err.message);
-    }
+    const body = { name, location, quantity, expiration };
+    await fetch("http://localhost:5000/api/stocks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    setName("");
+    setLocation("Fridge");
+    setQuantity("");
+    setExpiration("");
+    getStocks();
   };
 
   return (
@@ -36,12 +32,12 @@ const AddStock = ({
       className="add-stock-modal"
       style={{
         opacity: addVisible ? "1" : "0",
-        pointerEvents: addVisible ? "auto" : "none"
+        pointerEvents: addVisible ? "auto" : "none",
       }}
     >
       <form
         className="add"
-        onSubmit={e => {
+        onSubmit={(e) => {
           addStock(e);
         }}
       >
@@ -53,7 +49,7 @@ const AddStock = ({
             name="name"
             placeholder="Stock Name"
             value={name}
-            onChange={e => {
+            onChange={(e) => {
               setName(e.target.value);
             }}
             required
@@ -64,7 +60,7 @@ const AddStock = ({
           <select
             name="location"
             value={location}
-            onChange={e => {
+            onChange={(e) => {
               setLocation(e.target.value);
             }}
             required
@@ -86,7 +82,7 @@ const AddStock = ({
             min="0"
             placeholder="Stock Quantity"
             value={quantity}
-            onChange={e => {
+            onChange={(e) => {
               setQuantity(e.target.value);
             }}
             required
@@ -99,7 +95,7 @@ const AddStock = ({
             type="date"
             value={expiration}
             placeholder="MM/DD/YYYY"
-            onChange={e => {
+            onChange={(e) => {
               setExpiration(e.target.value);
             }}
             required

@@ -6,18 +6,14 @@ const pool = require("../db");
 const bcrypt = require("bcrypt");
 const dotenv = require("dotenv").config();
 
-//
-//     USER AUTH
-//
+/************************
+ ***USER AUTH FUNCTIONS***
+ *************************/
 
-//Hash a password
 const hashPassword = (password) => {
-  var salt = bcrypt.genSaltSync(10);
-  var hash = bcrypt.hashSync(password, salt);
-  return hash;
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
 
-//Compare hash to password
 const compareHash = async (password, hash) => {
   let result;
   await bcrypt.compare(password, hash).then(async (res, err) => {
@@ -26,51 +22,49 @@ const compareHash = async (password, hash) => {
   return result;
 };
 
-//Login route
+/*********************
+ ***USER AUTH ROUTES***
+ *********************/
+
+//Authenticate
+router.get("/", (req, res) => {
+  res.send(req.session.isAuthenticated);
+});
+
 router.post("/logout", async (req, res) => {
-  res.redirect("/");
+  res.cookie("connect.sid", "", { expires: new Date() });
+  res.redirect("/login");
+  res.end();
 });
 
-//Login route
 router.post("/login", async (req, res) => {
-  try {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    const response = await pool.query("SELECT * FROM users WHERE email=$1", [
-      email,
-    ]);
+  const response = await pool.query("SELECT * FROM users WHERE email=$1", [
+    email,
+  ]);
 
-    const loggedIn = await compareHash(password, response.rows[0].password);
+  const loggedIn = await compareHash(password, response.rows[0].password);
 
-    if (loggedIn) {
-      console.log(`${email} Just logged in!`);
-    }
-
-    res.send("logged in");
-  } catch (err) {
-    console.error(err.message);
-    //res.send(err.message);
+  if (loggedIn) {
+    req.session.isAuthenticated = true;
+    res.redirect("/");
+  } else {
+    res.send("Not logged in.");
   }
+  res.end();
 });
 
-//Signup route
 router.post("/signup", async (req, res) => {
-  try {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
-    const hashedPassword = hashPassword(password);
+  const hashedPassword = hashPassword(password);
 
-    const response = await pool.query(
-      "INSERT INTO users (email, password) values ($1, $2) RETURNING *",
-      [email, hashedPassword]
-    );
-
-    console.log(`${response.rows.email} Just signed up!`);
-    res.send("signed up");
-  } catch (err) {
-    console.error(err.message);
-    //res.send(err.message);
-  }
+  await pool.query("INSERT INTO users (email, password) values ($1, $2)", [
+    email,
+    hashedPassword,
+  ]);
+  res.send("signed up");
 });
 
 module.exports = router;

@@ -9,19 +9,15 @@ const SearchStock = ({
   location,
   setLocation,
   setSearchVisibility,
-  searchVisible
+  searchVisible,
 }) => {
-  const searchStock = async e => {
+  const searchStock = async (e) => {
     e.preventDefault();
-    try {
-      const searchResult = await fetch(
-        `http://localhost:5000/api/stocks/search/?name=${name}&location=${location}`
-      );
-      const jsonResponse = await searchResult.json();
-      await setStocks(jsonResponse);
-    } catch (err) {
-      console.error(err.message);
-    }
+    const searchResult = await fetch(
+      `http://localhost:5000/api/stocks/search/?name=${name}&location=${location}`
+    );
+    const jsonResponse = await searchResult.json();
+    await setStocks(jsonResponse);
   };
 
   return (
@@ -29,12 +25,12 @@ const SearchStock = ({
       className="search-modal"
       style={{
         opacity: searchVisible ? "1" : "0",
-        pointerEvents: searchVisible ? "auto" : "none"
+        pointerEvents: searchVisible ? "auto" : "none",
       }}
     >
       <form
         className="search"
-        onSubmit={e => {
+        onSubmit={(e) => {
           searchStock(e);
         }}
       >
@@ -46,7 +42,7 @@ const SearchStock = ({
             name="name"
             placeholder="Search Name"
             value={name}
-            onChange={e => {
+            onChange={(e) => {
               setName(e.target.value);
             }}
           />
@@ -56,7 +52,7 @@ const SearchStock = ({
           <select
             name="location"
             value={location}
-            onChange={e => {
+            onChange={(e) => {
               setLocation(e.target.value);
             }}
           >

@@ -9,13 +9,9 @@ const Stocks = ({ isMobile, locationList }) => {
   const [location, setLocation] = useState("all-locations");
 
   const getStocks = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/api/stocks");
-      const jsonResponse = await response.json();
-      setStocks(jsonResponse);
-    } catch (err) {
-      console.error(err.message);
-    }
+    const response = await fetch("http://localhost:5000/api/stocks");
+    const jsonResponse = await response.json();
+    setStocks(jsonResponse);
   };
 
   useEffect(() => {

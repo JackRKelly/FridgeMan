@@ -8,37 +8,33 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
   const [expiration, setExpiration] = useState(stock.expiration);
   const [visible, setVisible] = useState(false);
 
-  const updateStock = async e => {
+  const updateStock = async (e) => {
     e.preventDefault();
-    try {
-      const body = { name, location, quantity, expiration };
-      await fetch(`http://localhost:5000/api/stocks/${stock.stock_id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      });
+    const body = { name, location, quantity, expiration };
+    await fetch(`http://localhost:5000/api/stocks/${stock.stock_id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
 
-      let newStocks = [...stocks];
+    let newStocks = [...stocks];
 
-      newStocks.map(currentStock => {
-        if (currentStock.stock_id === stock.stock_id) {
-          currentStock.name = name;
-          currentStock.location = location;
-          currentStock.quantity = quantity;
-          currentStock.expiration = expiration;
-        }
-        return "done";
-      });
+    newStocks.map((currentStock) => {
+      if (currentStock.stock_id === stock.stock_id) {
+        currentStock.name = name;
+        currentStock.location = location;
+        currentStock.quantity = quantity;
+        currentStock.expiration = expiration;
+      }
+      return "done";
+    });
 
-      setStocks(newStocks);
-      setVisible(false);
-      setName(name);
-      setLocation(location);
-      setQuantity(quantity);
-      setExpiration(expiration);
-    } catch (err) {
-      console.error(err.message);
-    }
+    setStocks(newStocks);
+    setVisible(false);
+    setName(name);
+    setLocation(location);
+    setQuantity(quantity);
+    setExpiration(expiration);
   };
 
   const closeModal = () => {
@@ -64,7 +60,7 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
         id={`modal${stock.stock_id}`}
         style={{
           opacity: visible ? 1 : 0,
-          pointerEvents: visible ? "auto" : "none"
+          pointerEvents: visible ? "auto" : "none",
         }}
       >
         <form>
@@ -81,14 +77,14 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
                   className="form-control"
                   name="name"
                   value={name}
-                  onChange={e => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="modal-input">
                 <label htmlFor="location">Location</label>
                 <select
                   value={location}
-                  onChange={e => {
+                  onChange={(e) => {
                     setLocation(e.target.value);
                   }}
                 >
@@ -108,7 +104,7 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
                   className="form-control"
                   name="quantity"
                   value={quantity}
-                  onChange={e => {
+                  onChange={(e) => {
                     setQuantity(e.target.value);
                   }}
                 />
@@ -120,7 +116,7 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
                   className="form-control"
                   name="expiration"
                   value={expiration}
-                  onChange={e => setExpiration(e.target.value)}
+                  onChange={(e) => setExpiration(e.target.value)}
                 />
               </div>
             </div>
