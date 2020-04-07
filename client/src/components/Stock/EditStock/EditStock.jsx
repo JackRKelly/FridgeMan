@@ -103,6 +103,7 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
                   type="number"
                   className="form-control"
                   name="quantity"
+                  min="0"
                   value={quantity}
                   onChange={(e) => {
                     setQuantity(e.target.value);

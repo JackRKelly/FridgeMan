@@ -48,7 +48,7 @@ const Login = () => {
         </div>
         <div className="btn-container">
           <button>Login</button>
-          <p>No login? signup here</p>
+          <p>No login? Signup <a href="signup">here</a></p>
         </div>
       </form>
     </>

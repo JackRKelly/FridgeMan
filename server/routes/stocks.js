@@ -11,7 +11,6 @@ const pool = require("../db");
 //Add a stock
 router.post("/", async (req, res) => {
   const { name, quantity, location, expiration } = req.body;
-
   res.send(
     await pool.query(
       "INSERT INTO stock (name, quantity, location, expiration) values ($1, $2, $3, $4) RETURNING *",
@@ -29,7 +28,6 @@ router.get("/", async (req, res) => {
 router.get("/search/", async (req, res) => {
   const { name, location } = req.query;
   let params;
-
   switch (`${location == "all-locations"} ${name.length == 0}`) {
     case "true true":
       params = ["SELECT * FROM stock"];
@@ -50,7 +48,6 @@ router.get("/search/", async (req, res) => {
       ];
       break;
   }
-
   res.send((await pool.query(...params)).rows);
 });
 

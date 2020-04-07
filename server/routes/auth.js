@@ -28,7 +28,8 @@ const compareHash = async (password, hash) => {
 
 //Authenticate
 router.get("/", (req, res) => {
-  res.send(req.session.isAuthenticated);
+  res.status(200).send({"response": req.session.isAuthenticated});
+  res.end();
 });
 
 router.post("/logout", async (req, res) => {

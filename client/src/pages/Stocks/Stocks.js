@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
-import ListStocks from "../components/Stock/ListStock";
-import Navigation from "../components/Stock/Navigation";
+import ListStocks from "../../components/Stock/ListStock";
+import Navigation from "../../components/Stock/Navigation";
 
 const Stocks = ({ isMobile, locationList }) => {
   const [stocks, setStocks] = useState([]);
-
   const [name, setName] = useState("");
   const [location, setLocation] = useState("all-locations");
 
   const getStocks = async () => {
-    const response = await fetch("http://localhost:5000/api/stocks");
-    const jsonResponse = await response.json();
-    setStocks(jsonResponse);
+    await fetch("http://localhost:5000/api/stocks")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setStocks(data);
+      });
   };
 
   useEffect(() => {

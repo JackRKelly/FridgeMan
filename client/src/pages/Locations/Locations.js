@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ListLocations from "../components/Location/ListLocations";
-import AddLocation from "../components/Location/AddLocation";
+import ListLocations from "../../components/Location/ListLocations";
+import AddLocation from "../../components/Location/AddLocation";
 
 const Locations = ({ locationList, setLocationList, getLocations }) => {
   const [addVisible, setAddVisibility] = useState(false);

@@ -6,19 +6,20 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import Stocks from "./pages/Stocks";
-import Home from "./pages/Home";
-import Locations from "./pages/Locations";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+//Pages
+import Stocks from "./pages/Stocks/Stocks";
+import Home from "./pages/Home/Home";
+import Locations from "./pages/Locations/Locations";
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
 
 const App = () => {
+  //State
   const [isMobile, setIsMobile] = useState();
-
   const [locationList, setLocationList] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  //Component Functions
   const checkMobile = () => {
     if (window.innerWidth <= 800) {
       setIsMobile(true);
@@ -26,9 +27,6 @@ const App = () => {
       setIsMobile(false);
     }
   };
-
-  window.addEventListener("resize", checkMobile);
-
   const logOut = async () => {
     await fetch("http://localhost:5000/api/auth/logout", {
       method: "POST",
@@ -39,17 +37,37 @@ const App = () => {
       }
     });
   };
-
   const getLocations = async () => {
-    const response = await fetch("http://localhost:5000/api/locations");
-    const jsonResponse = await response.json();
-    setLocationList(jsonResponse);
+    await fetch("http://localhost:5000/api/locations")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setLocationList(data);
+      });
+  };
+  const authenticateUser = async () => {
+    await fetch("http://localhost:5000/api/auth/", {
+      credentials: "include",
+    }).then((response) => {
+      response.json().then((data) => {
+        if (data.response) {
+          setIsAuthenticated(data.response);
+        } else {
+          setIsAuthenticated(false);
+        }
+      });
+    });
   };
 
+  //Listeners
   useEffect(() => {
     getLocations();
     checkMobile();
+    authenticateUser();
   }, []);
+
+  window.addEventListener("resize", checkMobile);
 
   return (
     <Router>
@@ -65,12 +83,13 @@ const App = () => {
             <li>
               <Link to="/locations">Locations</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/signup">Signup</Link>
-            </li>
+            {!isAuthenticated ? (
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            ) : (
+              <></>
+            )}
             <li>
               <button onClick={logOut}>Logout</button>
             </li>
@@ -85,14 +104,22 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/locations">
-            <Locations
-              locationList={locationList}
-              setLocationList={setLocationList}
-              getLocations={getLocations}
-            />
+            {isAuthenticated ? (
+              <Locations
+                locationList={locationList}
+                setLocationList={setLocationList}
+                getLocations={getLocations}
+              />
+            ) : (
+              <Redirect to="/login" />
+            )}
           </Route>
           <Route path="/stocks">
-            <Stocks locationList={locationList} isMobile={isMobile} />
+            {isAuthenticated ? (
+              <Stocks locationList={locationList} isMobile={isMobile} />
+            ) : (
+              <Redirect to="/login" />
+            )}
           </Route>
           <Route path="/">
             <Home />
