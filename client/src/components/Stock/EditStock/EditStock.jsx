@@ -11,7 +11,7 @@ const EditStock = ({ stock, locationList, stocks, setStocks }) => {
   const updateStock = async (e) => {
     e.preventDefault();
     const body = { name, location, quantity, expiration };
-    await fetch(`http://localhost:5000/api/stocks/${stock.stock_id}`, {
+    await fetch(`/api/stocks/${stock.stock_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),

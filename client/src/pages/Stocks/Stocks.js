@@ -8,7 +8,7 @@ const Stocks = ({ isMobile, locationList }) => {
   const [location, setLocation] = useState("all-locations");
 
   const getStocks = async () => {
-    await fetch("http://localhost:5000/api/stocks")
+    await fetch("/api/stocks")
       .then((response) => {
         return response.json();
       })

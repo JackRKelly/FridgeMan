@@ -18,6 +18,7 @@ const App = () => {
   const [isMobile, setIsMobile] = useState();
   const [locationList, setLocationList] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [email, setEmail] = useState("");
 
   //Component Functions
   const checkMobile = () => {
@@ -28,7 +29,7 @@ const App = () => {
     }
   };
   const logOut = async () => {
-    await fetch("http://localhost:5000/api/auth/logout", {
+    await fetch("/api/auth/logout", {
       method: "POST",
       credentials: "include",
     }).then((response) => {
@@ -38,7 +39,7 @@ const App = () => {
     });
   };
   const getLocations = async () => {
-    await fetch("http://localhost:5000/api/locations")
+    await fetch("/api/locations")
       .then((response) => {
         return response.json();
       })
@@ -47,12 +48,13 @@ const App = () => {
       });
   };
   const authenticateUser = async () => {
-    await fetch("http://localhost:5000/api/auth/", {
+    await fetch("/api/auth/", {
       credentials: "include",
     }).then((response) => {
       response.json().then((data) => {
         if (data.response) {
           setIsAuthenticated(data.response);
+          setEmail(data.email);
         } else {
           setIsAuthenticated(false);
         }
@@ -77,12 +79,20 @@ const App = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/stocks">Stocks</Link>
-            </li>
-            <li>
-              <Link to="/locations">Locations</Link>
-            </li>
+            {isAuthenticated ? (
+              <li>
+                <Link to="/stocks">Stocks</Link>
+              </li>
+            ) : (
+              <></>
+            )}
+            {isAuthenticated ? (
+              <li>
+                <Link to="/locations">Locations</Link>
+              </li>
+            ) : (
+              <></>
+            )}
             {!isAuthenticated ? (
               <li>
                 <Link to="/login">Login</Link>
@@ -90,9 +100,13 @@ const App = () => {
             ) : (
               <></>
             )}
-            <li>
-              <button onClick={logOut}>Logout</button>
-            </li>
+            {isAuthenticated ? (
+              <li>
+                <button onClick={logOut}>Logout</button>
+              </li>
+            ) : (
+              <></>
+            )}
           </ul>
         </nav>
 

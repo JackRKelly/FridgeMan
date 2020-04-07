@@ -1,7 +1,76 @@
-h1 {
-  margin: 25px 0 10px;
+form.login {
+  width: 50%;
   display: block;
-  text-align: center;
-  color: #535353;
-  font-family: "NeutraBold", sans-serif;
+  margin: auto;
+  @media only screen and (max-width: 1000px) {
+    width: 75%;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
+  h1 {
+    margin: 25px 0 10px;
+    display: block;
+    text-align: center;
+    color: #535353;
+    font-family: "NeutraBold", sans-serif;
+  }
+  .login-input {
+    margin: 15px 0;
+    min-width: 200px;
+    flex: 1;
+    label {
+      font-size: 14px;
+      width: 100%;
+      display: block;
+      font-family: "NeutraBold", sans-serif;
+      color: #a8a8a8;
+      text-transform: uppercase;
+    }
+    input,
+    select {
+      border: none;
+      font-size: 24px;
+      width: 100%;
+      color: #535353;
+      border-bottom: 2px solid #a8a8a8;
+      font-family: "NeutraBook", sans-serif;
+      padding: 3px 0 7px 0;
+      -webkit-appearance: none;
+      border-radius: 0;
+      &::placeholder {
+        color: #535353;
+      }
+    }
+  }
+  p.no-login {
+    font-size: 18px;
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  .btn-container {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    button {
+      display: inline;
+      border: none;
+      border-radius: 5px;
+      padding: 7.5px 50px;
+      font-size: 22px;
+      border-radius: 100px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      background-color: transparent;
+      font-family: "NeutraBold", sans-serif;
+      color: #535353;
+      cursor: pointer;
+      transition: 280ms ease-in-out background;
+      align-self: center;
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
 }

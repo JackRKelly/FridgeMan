@@ -28,7 +28,9 @@ const compareHash = async (password, hash) => {
 
 //Authenticate
 router.get("/", (req, res) => {
-  res.status(200).send({"response": req.session.isAuthenticated});
+  res
+    .status(200)
+    .send({ response: req.session.isAuthenticated, email: req.session.email });
   res.end();
 });
 
@@ -49,6 +51,7 @@ router.post("/login", async (req, res) => {
 
   if (loggedIn) {
     req.session.isAuthenticated = true;
+    req.session.email = email;
     res.redirect("/");
   } else {
     res.send("Not logged in.");
@@ -61,11 +64,40 @@ router.post("/signup", async (req, res) => {
 
   const hashedPassword = hashPassword(password);
 
-  await pool.query("INSERT INTO users (email, password) values ($1, $2)", [
-    email,
-    hashedPassword,
-  ]);
-  res.send("signed up");
+  const uppercaseCheck = RegExp("(?=.*[A-Z])");
+  const numberCheck = RegExp("(?=.*[0-9])");
+  const lowercaseCheck = RegExp("(?=.*[a-z])");
+
+  if (email.length === 0) {
+    res.status(409).send({ error: "Email cannot be left blank." });
+  } else if (password.length < 8) {
+    res
+      .status(409)
+      .send({ error: "Password must contain more than 8 characters." });
+  } else if (!uppercaseCheck.test(password)) {
+    res
+      .status(409)
+      .send({ error: "Password must contain at least 1 capitol character." });
+  } else if (!numberCheck.test(password)) {
+    res.status(409).send({ error: "Password must contain at least 1 number." });
+  } else if (!lowercaseCheck.test(password)) {
+    res
+      .status(409)
+      .send({ error: "Password must contain at least 1 lowercase character." });
+  } else {
+    await pool
+      .query("INSERT INTO users (email, password) values ($1, $2)", [
+        email,
+        hashedPassword,
+      ])
+      .then(() => {
+        res.redirect("/login");
+      })
+      .catch((err) => {
+        console.log(err.detail);
+        res.status(409).send({ error: err.detail });
+      });
+  }
 });
 
 module.exports = router;

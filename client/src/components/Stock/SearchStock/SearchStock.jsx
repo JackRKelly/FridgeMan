@@ -14,7 +14,7 @@ const SearchStock = ({
   const searchStock = async (e) => {
     e.preventDefault();
     const searchResult = await fetch(
-      `http://localhost:5000/api/stocks/search/?name=${name}&location=${location}`
+      `/api/stocks/search/?name=${name}&location=${location}`
     );
     const jsonResponse = await searchResult.json();
     await setStocks(jsonResponse);

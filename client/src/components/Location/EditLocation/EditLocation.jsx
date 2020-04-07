@@ -8,7 +8,7 @@ const EditLocation = ({ locationList, location, getLocations }) => {
   const updateLocation = async (e) => {
     e.preventDefault();
     const body = { name };
-    await fetch(`http://localhost:5000/api/locations/${location.location_id}`, {
+    await fetch(`/api/locations/${location.location_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),

@@ -10,7 +10,7 @@ const ListStocks = ({
   isMobile,
 }) => {
   const deleteStock = async (id) => {
-    await fetch(`http://localhost:5000/api/stocks/${id}`, {
+    await fetch(`/api/stocks/${id}`, {
       method: "DELETE",
     });
     getStocks();
