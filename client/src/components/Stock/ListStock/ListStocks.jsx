@@ -135,7 +135,7 @@ const ListStocks = ({
     );
   };
   return stocks.length === 0 ? (
-    <h1 className="no-stock">No stocks found. Add a stock to get started.</h1>
+    <h1 className="no-stock">No stocks found.</h1>
   ) : isMobile ? (
     <MobileList />
   ) : (

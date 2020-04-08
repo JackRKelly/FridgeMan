@@ -11,9 +11,7 @@ const ListLocations = ({ locationList, getLocations }) => {
   };
 
   return locationList.length === 0 ? (
-    <h1 className="no-location">
-      No locations found. Add a location to get started.
-    </h1>
+    <h1 className="no-location">No locations found.</h1>
   ) : (
     <div className="location-list">
       {locationList
