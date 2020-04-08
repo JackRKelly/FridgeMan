@@ -5,6 +5,7 @@ import "./login.scss";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -13,11 +14,15 @@ const Login = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-    }).then((response) => {
-      if (response.redirected) {
-        window.location.href = response.url;
-      }
-    });
+    })
+      .then((response) => {
+        if (response.redirected) {
+          window.location.href = response.url;
+        }
+      })
+      .then((data) => {
+        setErrorMessage(data.error);
+      });
   };
 
   return (
@@ -28,6 +33,14 @@ const Login = () => {
         }}
         className="login"
       >
+        <div className="error">
+          <p
+            className="error-message"
+            style={{ display: errorMessage ? "inline-block" : "none" }}
+          >
+            {errorMessage}
+          </p>
+        </div>
         <h1>Login</h1>
         <div className="login-input">
           <label htmlFor="email">Email</label>

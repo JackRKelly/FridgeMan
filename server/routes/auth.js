@@ -43,20 +43,26 @@ router.post("/logout", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  const response = await pool.query("SELECT * FROM users WHERE email=$1", [
-    email,
-  ]);
-
-  const loggedIn = await compareHash(password, response.rows[0].password);
-
-  if (loggedIn) {
-    req.session.isAuthenticated = true;
-    req.session.email = email;
-    res.redirect("/");
+  if (email.length === 0) {
+    res.status(409).send({ error: "Email cannot be left blank." });
+  } else if (password.length === 0) {
+    res.status(409).send({ error: "Password cannot be left blank." });
   } else {
-    res.send("Not logged in.");
+    if (
+      await compareHash(
+        password,
+        (await pool.query("SELECT * FROM users WHERE email=$1", [email]))
+          .rows[0].password
+      )
+    ) {
+      req.session.isAuthenticated = true;
+      req.session.email = email;
+      res.redirect("/");
+    } else {
+      res.status(409).send({ error: "Not logged in." });
+    }
+    res.end();
   }
-  res.end();
 });
 
 router.post("/signup", async (req, res) => {
@@ -94,7 +100,6 @@ router.post("/signup", async (req, res) => {
         res.redirect("/login");
       })
       .catch((err) => {
-        console.log(err.detail);
         res.status(409).send({ error: err.detail });
       });
   }

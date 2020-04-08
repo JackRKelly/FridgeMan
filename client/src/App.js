@@ -57,6 +57,7 @@ const App = () => {
           setEmail(data.email);
         } else {
           setIsAuthenticated(false);
+          setEmail("");
         }
       });
     });
@@ -69,7 +70,7 @@ const App = () => {
     authenticateUser();
   }, []);
 
-  window.addEventListener("resize", checkMobile);
+  window.addEventListener('resize', checkMobile);
 
   return (
     <Router>
@@ -102,7 +103,7 @@ const App = () => {
             )}
             {isAuthenticated ? (
               <li>
-                <button onClick={logOut}>Logout</button>
+                <button class="logout" onClick={logOut}>Logout</button>
               </li>
             ) : (
               <></>

@@ -13,15 +13,15 @@ router.post("/", async (req, res) => {
   const { name, quantity, location, expiration } = req.body;
   res.send(
     await pool.query(
-      "INSERT INTO stock (name, quantity, location, expiration) values ($1, $2, $3, $4) RETURNING *",
-      [name, quantity, location, expiration]
+      "INSERT INTO stock (name, quantity, location, expiration, email) values ($1, $2, $3, $4, $5) RETURNING *",
+      [name, quantity, location, expiration, req.session.email]
     ).rows
   );
 });
 
 //Get all stocks
 router.get("/", async (req, res) => {
-  res.send((await pool.query("SELECT * FROM stock")).rows);
+  res.send((await pool.query("SELECT * FROM stock WHERE email = $1", [req.session.email])).rows);
 });
 
 //Search a stock (name, location)
@@ -30,21 +30,21 @@ router.get("/search/", async (req, res) => {
   let params;
   switch (`${location == "all-locations"} ${name.length == 0}`) {
     case "true true":
-      params = ["SELECT * FROM stock"];
+      params = ["SELECT * FROM stock WHERE email = $1", [req.session.email]];
       break;
     case "false true":
       params = [
-        "SELECT * FROM stock WHERE location ILIKE $1",
-        ["%" + location + "%"],
+        "SELECT * FROM stock WHERE location ILIKE $1 AND email = $2",
+        ["%" + location + "%", req.session.email],
       ];
       break;
     case "true false":
-      params = ["SELECT * FROM stock WHERE name ILIKE $1", ["%" + name + "%"]];
+      params = ["SELECT * FROM stock WHERE name ILIKE $1 AND email = $2", ["%" + name + "%", req.session.email]];
       break;
     default:
       params = [
-        "SELECT * FROM stock WHERE name ILIKE $1 AND location ILIKE $2",
-        ["%" + name + "%", "%" + location + "%"],
+        "SELECT * FROM stock WHERE name ILIKE $1 AND location ILIKE $2 AND email = $3",
+        ["%" + name + "%", "%" + location + "%", req.session.email],
       ];
       break;
   }

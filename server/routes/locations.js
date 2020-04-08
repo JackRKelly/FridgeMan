@@ -10,7 +10,10 @@ const pool = require("../db");
 
 //Get all locations
 router.get("/", async (req, res) => {
-  const allLocations = await pool.query("SELECT * FROM location");
+  const allLocations = await pool.query(
+    "SELECT * FROM location WHERE email = $1",
+    [req.session.email]
+  );
   res.send(allLocations.rows);
 });
 
@@ -50,9 +53,10 @@ router.post("/", async (req, res) => {
   const { name } = req.body;
   res.send(
     (
-      await pool.query("INSERT INTO location (name) values ($1) RETURNING *", [
-        name,
-      ])
+      await pool.query(
+        "INSERT INTO location (name, email) values ($1, $2) RETURNING *",
+        [name, req.session.email]
+      )
     ).rows
   );
 });
