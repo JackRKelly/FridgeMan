@@ -8,10 +8,11 @@ const AddStock = ({
   addVisible,
 }) => {
   const [name, setName] = useState("");
-  const [location, setLocation] = useState("Fridge");
+  const [location, setLocation] = useState(locationList[0].name);
   const [quantity, setQuantity] = useState("");
   const [expiration, setExpiration] = useState("");
 
+  console.log(locationList[0]);
   const addStock = async (e) => {
     e.preventDefault();
     const body = { name, location, quantity, expiration };
@@ -21,7 +22,7 @@ const AddStock = ({
       body: JSON.stringify(body),
     });
     setName("");
-    setLocation("Fridge");
+    setLocation(locationList[0].name);
     setQuantity("");
     setExpiration("");
     getStocks();

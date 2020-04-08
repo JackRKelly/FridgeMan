@@ -21,7 +21,13 @@ router.post("/", async (req, res) => {
 
 //Get all stocks
 router.get("/", async (req, res) => {
-  res.send((await pool.query("SELECT * FROM stock WHERE email = $1", [req.session.email])).rows);
+  res.send(
+    (
+      await pool.query("SELECT * FROM stock WHERE email = $1", [
+        req.session.email,
+      ])
+    ).rows
+  );
 });
 
 //Search a stock (name, location)
@@ -39,7 +45,10 @@ router.get("/search/", async (req, res) => {
       ];
       break;
     case "true false":
-      params = ["SELECT * FROM stock WHERE name ILIKE $1 AND email = $2", ["%" + name + "%", req.session.email]];
+      params = [
+        "SELECT * FROM stock WHERE name ILIKE $1 AND email = $2",
+        ["%" + name + "%", req.session.email],
+      ];
       break;
     default:
       params = [

@@ -10,7 +10,11 @@ const ListLocations = ({ locationList, getLocations }) => {
     getLocations();
   };
 
-  return (
+  return locationList.length === 0 ? (
+    <h1 className="no-location">
+      No locations found. Add a location to get started.
+    </h1>
+  ) : (
     <div className="location-list">
       {locationList
         .sort((a, b) => (a.name > b.name ? 1 : -1))

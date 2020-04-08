@@ -134,8 +134,13 @@ const ListStocks = ({
       </table>
     );
   };
-
-  return isMobile ? <MobileList /> : <DesktopList />;
+  return stocks.length === 0 ? (
+    <h1 className="no-stock">No stocks found. Add a stock to get started.</h1>
+  ) : isMobile ? (
+    <MobileList />
+  ) : (
+    <DesktopList />
+  );
 };
 
 export default ListStocks;
