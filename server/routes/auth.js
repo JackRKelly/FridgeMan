@@ -44,24 +44,30 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   if (email.length === 0) {
-    res.status(409).send({ error: "Email cannot be left blank." });
+    res.status(401).send({ error: "Email cannot be left blank." });
   } else if (password.length === 0) {
-    res.status(409).send({ error: "Password cannot be left blank." });
+    res.status(401).send({ error: "Password cannot be left blank." });
   } else {
-    if (
-      await compareHash(
-        password,
-        (await pool.query("SELECT * FROM users WHERE email=$1", [email]))
-          .rows[0].password
-      )
-    ) {
-      req.session.isAuthenticated = true;
-      req.session.email = email;
-      res.redirect("/");
-    } else {
-      res.status(409).send({ error: "Not logged in." });
-    }
-    res.end();
+    await pool
+      .query("SELECT * FROM users WHERE email=$1", [email])
+      .then((data) => {
+        if (data.rows.length === 0) {
+          res.status(401).send({ error: "Email not found." });
+        } else {
+          compareHash(password, data.rows[0].password).then((response) => {
+            switch (response) {
+              case true:
+                req.session.isAuthenticated = true;
+                req.session.email = email;
+                res.redirect("/");
+                break;
+              case false:
+                res.status(401).send({ error: "Password is incorrect." });
+                break;
+            }
+          });
+        }
+      });
   }
 });
 
@@ -75,20 +81,20 @@ router.post("/signup", async (req, res) => {
   const lowercaseCheck = RegExp("(?=.*[a-z])");
 
   if (email.length === 0) {
-    res.status(409).send({ error: "Email cannot be left blank." });
+    res.status(401).send({ error: "Email cannot be left blank." });
   } else if (password.length < 8) {
     res
-      .status(409)
+      .status(401)
       .send({ error: "Password must contain more than 8 characters." });
   } else if (!uppercaseCheck.test(password)) {
     res
-      .status(409)
+      .status(401)
       .send({ error: "Password must contain at least 1 capitol character." });
   } else if (!numberCheck.test(password)) {
-    res.status(409).send({ error: "Password must contain at least 1 number." });
+    res.status(401).send({ error: "Password must contain at least 1 number." });
   } else if (!lowercaseCheck.test(password)) {
     res
-      .status(409)
+      .status(401)
       .send({ error: "Password must contain at least 1 lowercase character." });
   } else {
     await pool
@@ -100,7 +106,7 @@ router.post("/signup", async (req, res) => {
         res.redirect("/login");
       })
       .catch((err) => {
-        res.status(409).send({ error: err.detail });
+        res.status(401).send({ error: err.detail });
       });
   }
 });

@@ -18,10 +18,14 @@ const Login = () => {
       .then((response) => {
         if (response.redirected) {
           window.location.href = response.url;
+        } else {
+          return response.json();
         }
       })
-      .catch((err) => {
-        setErrorMessage(err);
+      .then((data) => {
+        if (data) {
+          setErrorMessage(data.error);
+        }
       });
   };
 
