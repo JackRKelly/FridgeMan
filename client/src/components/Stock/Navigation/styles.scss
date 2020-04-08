@@ -4,6 +4,9 @@ nav {
     box-shadow: 0 8px 6px -6px rgba(0,0,0,.2);
     z-index: 100;
     position: relative;
+    .active {
+        color: red;
+    }
     ul {
         margin: 0;
         padding: 0;

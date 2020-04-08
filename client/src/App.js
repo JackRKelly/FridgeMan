@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  NavLink,
   Redirect,
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -83,25 +83,25 @@ const App = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink activeClassName="active" to="/home">Home</NavLink>
           </li>
           {isAuthenticated ? (
             <li>
-              <Link to="/stocks">Stocks</Link>
+              <NavLink activeClassName="active" to="/stocks">Stocks</NavLink>
             </li>
           ) : (
             <></>
           )}
           {isAuthenticated ? (
             <li>
-              <Link to="/locations">Locations</Link>
+              <NavLink activeClassName="active" to="/locations">Locations</NavLink>
             </li>
           ) : (
             <></>
           )}
           {!isAuthenticated ? (
             <li>
-              <Link to="/login">Login</Link>
+              <NavLink activeClassName="active" to="/login">Login</NavLink>
             </li>
           ) : (
             <></>
@@ -150,8 +150,11 @@ const App = () => {
                     <Redirect to="/login" />
                   )}
                 </Route>
-                <Route path="/">
+                <Route path="/home">
                   <Home />
+                </Route>
+                <Route path="/">
+                  <Redirect to="/home" />
                 </Route>
               </Switch>
             </CSSTransition>
