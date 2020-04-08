@@ -39,8 +39,8 @@ const Signup = () => {
         }
         return response.json();
       })
-      .then((data) => {
-        setErrorMessage(data.error);
+      .catch((err) => {
+        setErrorMessage(err);
       });
   };
 

@@ -20,8 +20,8 @@ const Login = () => {
           window.location.href = response.url;
         }
       })
-      .then((data) => {
-        setErrorMessage(data.error);
+      .catch((err) => {
+        setErrorMessage(err);
       });
   };
 

@@ -18,3 +18,11 @@ code {
   font-family: NeutraBook;
   src: url("./assets/fonts/NeutraText-Book.otf");
 }
+
+h1.loading {
+  margin: 25px 0 10px;
+  display: block;
+  text-align: center;
+  color: #535353;
+  font-family: "NeutraBold", sans-serif;
+}

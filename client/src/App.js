@@ -17,6 +17,7 @@ const App = () => {
   //State
   const [isMobile, setIsMobile] = useState();
   const [locationList, setLocationList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
 
@@ -55,9 +56,13 @@ const App = () => {
         if (data.response) {
           setIsAuthenticated(data.response);
           setEmail(data.email);
+          setIsLoading(false);
+          return true;
         } else {
           setIsAuthenticated(false);
           setEmail("");
+          setIsLoading(false);
+          return false;
         }
       });
     });
@@ -70,7 +75,7 @@ const App = () => {
     authenticateUser();
   }, []);
 
-  window.addEventListener('resize', checkMobile);
+  window.addEventListener("resize", checkMobile);
 
   return (
     <Router>
@@ -103,7 +108,9 @@ const App = () => {
             )}
             {isAuthenticated ? (
               <li>
-                <button class="logout" onClick={logOut}>Logout</button>
+                <button class="logout" onClick={logOut}>
+                  Logout
+                </button>
               </li>
             ) : (
               <></>
@@ -119,7 +126,9 @@ const App = () => {
             <Login />
           </Route>
           <Route path="/locations">
-            {isAuthenticated ? (
+            {isLoading ? (
+              <h1 className="loading">Loading</h1>
+            ) : isAuthenticated ? (
               <Locations
                 locationList={locationList}
                 setLocationList={setLocationList}
@@ -130,7 +139,9 @@ const App = () => {
             )}
           </Route>
           <Route path="/stocks">
-            {isAuthenticated ? (
+            {isLoading ? (
+              <h1 className="loading">Loading</h1>
+            ) : isAuthenticated ? (
               <Stocks locationList={locationList} isMobile={isMobile} />
             ) : (
               <Redirect to="/login" />
