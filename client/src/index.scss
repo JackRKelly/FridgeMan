@@ -5,11 +5,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 @font-face {
   font-family: NeutraBold;
   src: url("./assets/fonts/NeutraText-Bold.otf");
@@ -26,3 +21,30 @@ h1.loading {
   color: #535353;
   font-family: "NeutraBold", sans-serif;
 }
+
+.page {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.fade {
+  &-appear,
+  &-enter {
+    opacity: 0;
+    z-index: 1;
+  }
+  &-appear-active,
+  &-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms linear 150ms;
+  }
+  &-exit {
+    opacity: 1;
+  }
+  &-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 150ms linear;
+  }
+}
+

@@ -6,7 +6,7 @@ const Locations = ({ locationList, setLocationList, getLocations }) => {
   const [addVisible, setAddVisibility] = useState(false);
 
   return (
-    <>
+    <div className="locations page">
       <button
         className="add-location-btn"
         onClick={() => {
@@ -22,7 +22,7 @@ const Locations = ({ locationList, setLocationList, getLocations }) => {
         getLocations={getLocations}
       />
       <ListLocations locationList={locationList} getLocations={getLocations} />
-    </>
+    </div>
   );
 };
 

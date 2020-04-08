@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="home">
+    <div className="home page">
       <h1>Welcome to Fridge Man</h1>
       <p>You can view your stock <Link to="/stocks">here</Link>. You can also edit the location list <Link to="/locations">here</Link>.</p>
     </div>

@@ -22,7 +22,7 @@ const Stocks = ({ isMobile, locationList }) => {
   }, []);
 
   return (
-    <>
+    <div className="stocks page">
       <Navigation
         name={name}
         location={location}
@@ -40,7 +40,7 @@ const Stocks = ({ isMobile, locationList }) => {
         setStocks={setStocks}
         isMobile={isMobile}
       />
-    </>
+    </div>
   );
 };
 

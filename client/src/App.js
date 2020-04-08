@@ -6,6 +6,7 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 //Pages
 import Stocks from "./pages/Stocks/Stocks";
 import Home from "./pages/Home/Home";
@@ -79,79 +80,84 @@ const App = () => {
 
   return (
     <Router>
-      <>
-        <nav>
-          <ul>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          {isAuthenticated ? (
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/stocks">Stocks</Link>
             </li>
-            {isAuthenticated ? (
-              <li>
-                <Link to="/stocks">Stocks</Link>
-              </li>
-            ) : (
-              <></>
-            )}
-            {isAuthenticated ? (
-              <li>
-                <Link to="/locations">Locations</Link>
-              </li>
-            ) : (
-              <></>
-            )}
-            {!isAuthenticated ? (
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            ) : (
-              <></>
-            )}
-            {isAuthenticated ? (
-              <li>
-                <button class="logout" onClick={logOut}>
-                  Logout
-                </button>
-              </li>
-            ) : (
-              <></>
-            )}
-          </ul>
-        </nav>
-
-        <Switch>
-          <Route path="/signup">
-            <Signup />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/locations">
-            {isLoading ? (
-              <h1 className="loading">Loading</h1>
-            ) : isAuthenticated ? (
-              <Locations
-                locationList={locationList}
-                setLocationList={setLocationList}
-                getLocations={getLocations}
-              />
-            ) : (
-              <Redirect to="/login" />
-            )}
-          </Route>
-          <Route path="/stocks">
-            {isLoading ? (
-              <h1 className="loading">Loading</h1>
-            ) : isAuthenticated ? (
-              <Stocks locationList={locationList} isMobile={isMobile} />
-            ) : (
-              <Redirect to="/login" />
-            )}
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </>
+          ) : (
+            <></>
+          )}
+          {isAuthenticated ? (
+            <li>
+              <Link to="/locations">Locations</Link>
+            </li>
+          ) : (
+            <></>
+          )}
+          {!isAuthenticated ? (
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          ) : (
+            <></>
+          )}
+          {isAuthenticated ? (
+            <li>
+              <button class="logout" onClick={logOut}>
+                Logout
+              </button>
+            </li>
+          ) : (
+            <></>
+          )}
+        </ul>
+      </nav>
+      <Route
+        render={({location}) => (
+          <TransitionGroup>
+            <CSSTransition key={location.key} timeout={300} classNames="fade">
+              <Switch location={location}>
+                <Route path="/signup">
+                  <Signup />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/locations">
+                  {isLoading ? (
+                    <h1 className="loading">Loading</h1>
+                  ) : isAuthenticated ? (
+                    <Locations
+                      locationList={locationList}
+                      setLocationList={setLocationList}
+                      getLocations={getLocations}
+                    />
+                  ) : (
+                    <Redirect to="/login" />
+                  )}
+                </Route>
+                <Route path="/stocks">
+                  {isLoading ? (
+                    <h1 className="loading">Loading</h1>
+                  ) : isAuthenticated ? (
+                    <Stocks locationList={locationList} isMobile={isMobile} />
+                  ) : (
+                    <Redirect to="/login" />
+                  )}
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            </CSSTransition>
+          </TransitionGroup>
+        )}
+      />
     </Router>
   );
 };
