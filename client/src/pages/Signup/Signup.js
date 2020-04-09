@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./signup.scss";
 
 const Signup = () => {
+  document.title = "FridgeMan - Signup";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

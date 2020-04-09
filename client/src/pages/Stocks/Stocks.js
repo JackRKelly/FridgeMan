@@ -3,6 +3,8 @@ import ListStocks from "../../components/Stock/ListStock";
 import Navigation from "../../components/Stock/Navigation";
 
 const Stocks = ({ isMobile, locationList }) => {
+  document.title = "FridgeMan - Stocks";
+
   const [stocks, setStocks] = useState([]);
   const [name, setName] = useState("");
   const [location, setLocation] = useState("all-locations");

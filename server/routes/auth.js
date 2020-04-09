@@ -52,7 +52,7 @@ router.post("/login", async (req, res) => {
       .query("SELECT * FROM users WHERE email=$1", [email])
       .then((data) => {
         if (data.rows.length === 0) {
-          res.status(401).send({ error: "Email not found." });
+          res.status(401).send({ error: "Email/Password incorrect." });
         } else {
           compareHash(password, data.rows[0].password).then((response) => {
             switch (response) {
@@ -62,7 +62,7 @@ router.post("/login", async (req, res) => {
                 res.redirect("/");
                 break;
               case false:
-                res.status(401).send({ error: "Password is incorrect." });
+                res.status(401).send({ error: "Email/Password incorrect." });
                 break;
             }
           });

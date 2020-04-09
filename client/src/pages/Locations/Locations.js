@@ -3,6 +3,8 @@ import ListLocations from "../../components/Location/ListLocations";
 import AddLocation from "../../components/Location/AddLocation";
 
 const Locations = ({ locationList, setLocationList, getLocations }) => {
+  document.title = "FridgeMan - Locations";
+
   const [addVisible, setAddVisibility] = useState(false);
 
   return (

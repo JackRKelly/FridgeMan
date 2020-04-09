@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import "./login.scss";
 
 const Login = () => {
+  document.title = "FridgeMan - Login";
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

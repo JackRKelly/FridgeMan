@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddStock from "../AddStock";
 import SearchStock from "../SearchStock";
+import './styles.scss';
 
 const Navigation = ({
   setStocks,
@@ -16,9 +17,8 @@ const Navigation = ({
 
   return (
     <>
-      <div className="button-container">
+      <div className="navigation-buttons">
         <button
-          className="modal-button"
           onClick={() => {
             setAddVisibility(true);
           }}
@@ -26,7 +26,6 @@ const Navigation = ({
           Add Item
         </button>
         <button
-          className="modal-button"
           onClick={() => {
             setSearchVisibility(true);
           }}

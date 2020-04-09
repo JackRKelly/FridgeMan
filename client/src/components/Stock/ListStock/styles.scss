@@ -1,4 +1,4 @@
-@import '../../../assets/colors/palette';
+@import "../../../assets/colors/palette";
 
 div.stock-list {
   width: 100%;
@@ -54,22 +54,17 @@ div.stock-list {
       display: flex;
       flex-direction: row-reverse;
       button {
-        margin: 0 0 0 7.5px;
-        display: block;
+        margin: 5px 0 0 10px;
         border: none;
-        padding: 6.5px 15px;
+        padding: 6.5px 19px;
+        font-size: 18px;
         border-radius: 100px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: transparent;
-        font: 1em "NeutraBold", sans-serif;
-        color: $color5;
+        font-family: "NeutraBold", sans-serif;
+        color: $color2;
         cursor: pointer;
-        transition: 280ms ease-in-out background;
-        width: inherit;
-        align-self: center;
-        -webkit-appearance: none;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         &:hover {
-          background-color: #eee;
+          transform: scale(1.1);
         }
       }
     }
@@ -90,22 +85,26 @@ table.stock-list {
       td {
         font-size: 1.25em;
         padding: 5px 0;
+        &:last-child {
+          width: 1%;
+          white-space: nowrap;
+        }
         button {
-          margin: 0 10px 0 0;
+          margin: 0 0 0 7.5px;
           display: inline;
           border: none;
-          padding: 5.5px 17.5px;
+          padding: 6.5px 25px;
+          font-size: 1em;
           border-radius: 100px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          background-color: transparent;
-          font: 0.9em "NeutraBold", sans-serif;
-          color: $color5;
+          font-family: "NeutraBold", sans-serif;
+          color: $color2;
           cursor: pointer;
-          transition: 280ms ease-in-out background;
-          align-self: center;
-          -webkit-appearance: none;
+          transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           &:hover {
-            background-color: #eee;
+            transform: scale(1.1);
+          }
+          &:focus {
+            outline: 0;
           }
         }
       }

@@ -1,4 +1,4 @@
-@import '../../../assets/colors/palette';
+@import "../../../assets/colors/palette";
 
 div.search-modal {
   width: 100%;
@@ -43,33 +43,29 @@ div.search-modal {
       font-size: 25px;
     }
     .btn-container {
-      flex-basis: 100%;
-      display: flex;
-      justify-content: center;
+      text-align: right;
+      margin-top: 20px;
+      @media only screen and (max-width: 600px) {
+        text-align: center;
+      }
       button {
-        display: inline;
-        margin: 15px 30px 10px;
+        margin: 0 10px;
         border: none;
-        border-radius: 5px;
-        padding: 7.5px 35px;
-        flex: 1;
+        padding: 7.5px 50px;
         font-size: 22px;
         border-radius: 100px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        background-color: transparent;
         font-family: "NeutraBold", sans-serif;
-        color: $color5;
+        color: $color2;
         cursor: pointer;
-        transition: 280ms ease-in-out background;
-        align-self: center;
-        @media only screen and (max-width: 1000px) {
-          margin: 15px 10px 10px;
-        }
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         @media only screen and (max-width: 600px) {
-          margin: 15px 5px 10px;
+          padding: 7.5px 25px;
         }
         &:hover {
-          background-color: #eee;
+          transform: scale(1.1);
+        }
+        &:focus {
+          outline: 0;
         }
       }
     }
@@ -77,6 +73,7 @@ div.search-modal {
       margin: 15px 0;
       min-width: 200px;
       flex: 1;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       label {
         font-size: 14px;
         width: 100%;
@@ -99,6 +96,10 @@ div.search-modal {
         &::placeholder {
           color: $color5;
         }
+      }
+
+      &:hover {
+        transform: scale(1.025);
       }
     }
   }

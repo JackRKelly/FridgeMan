@@ -123,10 +123,22 @@ const App = () => {
             <CSSTransition key={location.key} timeout={300} classNames="fade">
               <Switch location={location}>
                 <Route path="/signup">
-                  <Signup />
+                  {isLoading ? (
+                    <h1 className="loading">Loading</h1>
+                  ) : !isAuthenticated ? (
+                    <Signup />
+                  ) : (
+                    <Redirect to="/home" />
+                  )}
                 </Route>
                 <Route path="/login">
-                  <Login />
+                  {isLoading ? (
+                    <h1 className="loading">Loading</h1>
+                  ) : !isAuthenticated ? (
+                    <Login />
+                  ) : (
+                    <Redirect to="/home" />
+                  )}
                 </Route>
                 <Route path="/locations">
                   {isLoading ? (
@@ -154,7 +166,7 @@ const App = () => {
                   {isLoading ? (
                     <h1 className="loading">Loading</h1>
                   ) : isAuthenticated ? (
-                    <Dashboard email={email}/>
+                    <Dashboard email={email} />
                   ) : (
                     <Redirect to="/login" />
                   )}

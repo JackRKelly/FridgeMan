@@ -1,6 +1,8 @@
 import React from "react";
 
 const Dashboard = ({email}) => {
+  document.title = "FridgeMan - Dashboard";
+
   const logOut = async () => {
     await fetch("/api/auth/logout", {
       method: "POST",
@@ -11,6 +13,7 @@ const Dashboard = ({email}) => {
       }
     });
   };
+
   return (
     <div className="dashboard page">
       <h1>Dashboard</h1>

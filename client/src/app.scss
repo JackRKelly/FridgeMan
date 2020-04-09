@@ -12,7 +12,6 @@ nav {
     list-style: none;
     text-align: center;
     li {
-      padding: 14px 16px;
       margin: 0 20px;
       display: inline-block;
       cursor: pointer;
@@ -20,9 +19,11 @@ nav {
       font-size: 20px;
       transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.15);
       }
       a {
+        display: block;
+        padding: 14px 16px;
         text-decoration: none;
         color: $color5;
         font-family: "NeutraBold";
@@ -31,15 +32,16 @@ nav {
         &::after {
           content: "";
           position: absolute;
-          bottom: -3px;
-          left: 0;
+          bottom: 9px;
+          left: 50%;
           width: 0%;
           height: 2.5px;
           transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           background-color: $color5;
+          transform: translateX(-50%);
         }
         &:hover::after {
-          width: 100%;
+          width: 90%;
         }
       }
       a.active {
@@ -51,31 +53,18 @@ nav {
         &::after {
           content: "";
           position: absolute;
-          bottom: -3px;
-          left: 0;
+          bottom: 9px;
+          left: 50%;
           width: 0%;
           height: 2.5px;
           transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           background-color: $color4;
+          transform: translateX(-50%);
         }
         &:hover::after {
-          width: 100%;
+          width: 90%;
         }
       }
     }
-  }
-}
-.button-container {
-  display: flex;
-  justify-content: center;
-  .modal-button {
-    background-color: #d8d8d8;
-    border: none;
-    border-radius: 3px;
-    font: 20px "NeutraBold";
-    color: $color5;
-    padding: 5px 15px;
-    margin: 25px 10px;
-    cursor: pointer;
   }
 }

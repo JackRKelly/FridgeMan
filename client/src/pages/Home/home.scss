@@ -15,9 +15,12 @@
   p {
     text-align: center;
     color: $color5;
+    margin: 15px auto;
     font-size: 1.5em;
+    max-width: 90%;
+    display: block;
     @media only screen and (max-width: 1000px) {
-      font-size: 1em;
+      font-size: 1.5em;
     }
   }
   a {
@@ -29,7 +32,7 @@
     &::after {
       content: "";
       position: absolute;
-      bottom: 0;
+      bottom: -2px;
       left: 0;
       width: 0%;
       height: 2px;
