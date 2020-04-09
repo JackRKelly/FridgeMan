@@ -1,9 +1,39 @@
-/* RGB */
-$color1: rgba(246, 226, 255, 1);
-$color2: rgba(123, 129, 237, 1);
-$color3: rgba(89, 65, 169, 1);
-$color4: rgba(255, 71, 123, 1);
-$color5: rgba(29, 17, 40, 1);
-$color6: rgba(240, 240, 240, 1);
+//Colors
+$platinum: rgba(246, 226, 255, 1);
+$bluepurple: rgba(123, 129, 237, 1);
+$purple: rgba(89, 65, 169, 1);
+$pink: rgba(255, 71, 123, 1);
+$darkpurple: rgba(29, 17, 40, 1);
+$lightgray: rgba(240, 240, 240, 1);
 
+//Fonts
+$neutra-bold: "NeutraBold", sans-serif;
+$neutra: "NeutraBook", sans-serif;
+
+//Transitions
 $bezier-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+//Mixins
+@mixin bar($bottom, $width, $is-nav) {
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: $bottom;
+    left: 50%;
+    width: 0%;
+    transform: translateX(-50%);
+    height: 3px;
+    transition: $bezier-transition;
+    @if $is-nav {
+      background-color: $darkpurple;
+    } @else {
+      background-color: $pink;
+    }
+  }
+  &:hover::after {
+    width: $width;
+  }
+  &.active::after {
+    background-color: $pink;
+  }
+}

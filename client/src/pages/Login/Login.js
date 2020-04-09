@@ -73,7 +73,7 @@ const Login = () => {
           />
         </div>
         <p className="no-login">
-          No login? Signup <Link to="/signup">here</Link>.
+          No login? <Link to="/signup">Signup</Link>.
         </p>
         <div className="btn-container">
           <button>Login</button>

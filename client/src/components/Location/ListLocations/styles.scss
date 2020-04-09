@@ -1,4 +1,4 @@
-@import '../../../assets/variables';
+@import "../../../assets/variables";
 
 div.location-list {
   width: 90%;
@@ -8,11 +8,15 @@ div.location-list {
     width: 50%;
     margin: 25px auto;
     padding: 0 15px;
-    font-family: "NeutraBook";
+    font-family: $neutra;
     transition: 1s ease-in-out all;
-    color: $color5;
+    color: $darkpurple;
     @media only screen and (max-width: 1000px) {
       width: 75%;
+      margin: 20px auto;
+    }
+    @media only screen and (max-width: 750px) {
+      width: 90%;
       margin: 20px auto;
     }
     @media only screen and (max-width: 500px) {
@@ -22,7 +26,7 @@ div.location-list {
     .name {
       margin: 0;
       display: inline;
-      font-family: "NeutraBold";
+      font-family: $neutra-bold;
       font-size: 22px;
     }
     .btn-container {
@@ -32,14 +36,14 @@ div.location-list {
         float: right;
       }
       button {
-        margin: 0px 7.5px 0 0;
+        margin: 5px 7.5px 0 0;
         display: inline;
         border: none;
         padding: 6.5px 25px;
         font-size: 1em;
         border-radius: 100px;
-        font-family: "NeutraBold", sans-serif;
-        color: $color2;
+        font-family: $neutra-bold;
+        color: $bluepurple;
         cursor: pointer;
         transition: $bezier-transition;
         &:hover {

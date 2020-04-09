@@ -15,7 +15,7 @@ nav {
       margin: 0 20px;
       display: inline-block;
       cursor: pointer;
-      font-family: "NeutraBold";
+      font-family: $neutra-bold;
       font-size: 20px;
       transition: $bezier-transition;
       &:hover {
@@ -25,45 +25,19 @@ nav {
         display: block;
         padding: 14px 16px;
         text-decoration: none;
-        color: $color5;
-        font-family: "NeutraBold";
+        color: $darkpurple;
+        font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 9px;
-          left: 50%;
-          width: 0%;
-          height: 2.5px;
-          transition: $bezier-transition;
-          background-color: $color5;
-          transform: translateX(-50%);
-        }
-        &:hover::after {
-          width: 90%;
-        }
+        @include bar(9px, 90%, true);
       }
       a.active {
         text-decoration: none;
-        color: $color4;
-        font-family: "NeutraBold";
+        color: $pink;
+        font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 9px;
-          left: 50%;
-          width: 0%;
-          height: 2.5px;
-          transition: $bezier-transition;
-          background-color: $color4;
-          transform: translateX(-50%);
-        }
-        &:hover::after {
-          width: 90%;
-        }
+        @include bar(9px, 90%, true);
       }
     }
   }

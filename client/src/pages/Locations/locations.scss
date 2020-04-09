@@ -5,8 +5,8 @@
     margin: 25px 0 0;
     display: block;
     text-align: center;
-    color: $color5;
-    font-family: "NeutraBold",sans-serif;
+    color: $darkpurple;
+    font-family: $neutra-bold;
     font-size: 3em;
     @media only screen and (max-width: 600px) {
       font-size: 2em;
@@ -19,8 +19,8 @@
     padding: 7.5px 50px;
     font-size: 22px;
     border-radius: 100px;
-    font-family: "NeutraBold", sans-serif;
-    color: $color4;
+    font-family: $neutra-bold;
+    color: $pink;
     cursor: pointer;
     transition: $bezier-transition;
     @media only screen and (max-width: 600px) {
@@ -35,8 +35,8 @@
   }
 
   .no-location {
-    color: $color5;
-    font-family: "NeutraBook", sans-serif;
+    color: $darkpurple;
+    font-family: $neutra;
     text-transform: uppercase;
     font-size: 25px;
     text-align: center;

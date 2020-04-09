@@ -7,9 +7,9 @@ div.stock-list {
     width: 50%;
     margin: 25px auto;
     padding: 0 15px;
-    font-family: "NeutraBook";
+    font-family: $neutra;
     transition: 1s ease-in-out all;
-    color: $color5;
+    color: $darkpurple;
     @media only screen and (max-width: 1000px) {
       width: 75%;
       margin: 20px auto;
@@ -25,7 +25,7 @@ div.stock-list {
       .name {
         margin: 0;
         display: inline;
-        font-family: "NeutraBold";
+        font-family: $neutra-bold;
         font-size: 22px;
       }
       .quantity {
@@ -59,8 +59,8 @@ div.stock-list {
         padding: 6.5px 19px;
         font-size: 18px;
         border-radius: 100px;
-        font-family: "NeutraBold", sans-serif;
-        color: $color2;
+        font-family: $neutra-bold;
+        color: $bluepurple;
         cursor: pointer;
         transition: $bezier-transition;
         &:hover {
@@ -78,9 +78,9 @@ table.stock-list {
     box-sizing: border-box;
     margin: 25px auto;
     padding: 0 15px;
-    font-family: "NeutraBook";
+    font-family: $neutra;
     transition: 1s ease-in-out all;
-    color: $color5;
+    color: $darkpurple;
     tr {
       td {
         font-size: 1.25em;
@@ -96,8 +96,8 @@ table.stock-list {
           padding: 6.5px 25px;
           font-size: 1em;
           border-radius: 100px;
-          font-family: "NeutraBold", sans-serif;
-          color: $color2;
+          font-family: $neutra-bold;
+          color: $bluepurple;
           cursor: pointer;
           transition: $bezier-transition;
           &:hover {
@@ -114,10 +114,10 @@ table.stock-list {
     box-sizing: border-box;
     margin: 25px auto;
     padding: 0 15px;
-    font-family: "NeutraBold";
+    font-family: $neutra-bold;
     text-align: left;
     transition: 1s ease-in-out all;
-    color: $color5;
+    color: $darkpurple;
     tr {
       th {
         font-size: 1.5em;
@@ -127,8 +127,8 @@ table.stock-list {
 }
 
 .no-stock {
-  color: $color5;
-  font-family: "NeutraBook", sans-serif;
+  color: $darkpurple;
+  font-family: $neutra;
   text-transform: uppercase;
   font-size: 25px;
   text-align: center;

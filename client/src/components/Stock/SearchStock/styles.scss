@@ -9,7 +9,7 @@ div.search-modal {
   right: 0;
   bottom: 0;
   z-index: 200;
-  font-family: "NeutraBook", sans-serif;
+  font-family: $neutra;
   transition: 0.2s ease-in-out opacity;
   display: flex;
   align-items: center;
@@ -37,8 +37,8 @@ div.search-modal {
     }
     h1 {
       margin: 0;
-      color: $color5;
-      font-family: "NeutraBold", sans-serif;
+      color: $darkpurple;
+      font-family: $neutra-bold;
       text-transform: uppercase;
       font-size: 25px;
     }
@@ -54,8 +54,8 @@ div.search-modal {
         padding: 7.5px 50px;
         font-size: 22px;
         border-radius: 100px;
-        font-family: "NeutraBold", sans-serif;
-        color: $color2;
+        font-family: $neutra-bold;
+        color: $bluepurple;
         cursor: pointer;
         transition: $bezier-transition;
         @media only screen and (max-width: 600px) {
@@ -78,8 +78,8 @@ div.search-modal {
         font-size: 14px;
         width: 100%;
         display: block;
-        font-family: "NeutraBold", sans-serif;
-        color: $color2;
+        font-family: $neutra-bold;
+        color: $bluepurple;
         text-transform: uppercase;
       }
       input,
@@ -87,14 +87,14 @@ div.search-modal {
         border: none;
         font-size: 24px;
         width: 100%;
-        color: $color5;
-        border-bottom: 2px solid $color2;
-        font-family: "NeutraBook", sans-serif;
+        color: $darkpurple;
+        border-bottom: 2px solid $bluepurple;
+        font-family: $neutra;
         padding: 3px 0 7px 0;
         -webkit-appearance: none;
         border-radius: 0;
         &::placeholder {
-          color: $color5;
+          color: $darkpurple;
         }
       }
 
