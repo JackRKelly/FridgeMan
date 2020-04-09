@@ -1,3 +1,5 @@
+@import '../../../assets/colors/palette';
+
 div.stock-list {
   width: 100%;
   &-item {
@@ -7,7 +9,7 @@ div.stock-list {
     padding: 0 15px;
     font-family: "NeutraBook";
     transition: 1s ease-in-out all;
-    color: #535353;
+    color: $color5;
     @media only screen and (max-width: 1000px) {
       width: 75%;
       margin: 20px auto;
@@ -60,7 +62,7 @@ div.stock-list {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         background-color: transparent;
         font: 1em "NeutraBold", sans-serif;
-        color: #535353;
+        color: $color5;
         cursor: pointer;
         transition: 280ms ease-in-out background;
         width: inherit;
@@ -83,7 +85,7 @@ table.stock-list {
     padding: 0 15px;
     font-family: "NeutraBook";
     transition: 1s ease-in-out all;
-    color: #535353;
+    color: $color5;
     tr {
       td {
         font-size: 1.25em;
@@ -97,7 +99,7 @@ table.stock-list {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           background-color: transparent;
           font: 0.9em "NeutraBold", sans-serif;
-          color: #535353;
+          color: $color5;
           cursor: pointer;
           transition: 280ms ease-in-out background;
           align-self: center;
@@ -116,7 +118,7 @@ table.stock-list {
     font-family: "NeutraBold";
     text-align: left;
     transition: 1s ease-in-out all;
-    color: #535353;
+    color: $color5;
     tr {
       th {
         font-size: 1.5em;
@@ -126,7 +128,7 @@ table.stock-list {
 }
 
 .no-stock {
-  color: #535353;
+  color: $color5;
   font-family: "NeutraBook", sans-serif;
   text-transform: uppercase;
   font-size: 25px;

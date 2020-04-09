@@ -88,18 +88,24 @@ const Signup = () => {
           />
         </div>
         <div className="password-requirements">
-          <h3>Password Requirements</h3>
+          <h3>Password Requirements:</h3>
           <ul>
-            <li style={{ color: checkPassword.charCount ? "green" : "red" }}>
+            <li
+              style={{ color: checkPassword.charCount ? "green" : "#ff477b" }}
+            >
               - More Than 8 Characters
             </li>
-            <li style={{ color: checkPassword.number ? "green" : "red" }}>
+            <li style={{ color: checkPassword.number ? "green" : "#ff477b" }}>
               - At Least 1 Number
             </li>
-            <li style={{ color: checkPassword.upperCase ? "green" : "red" }}>
+            <li
+              style={{ color: checkPassword.upperCase ? "green" : "#ff477b" }}
+            >
               - At Least 1 Capitol Letter
             </li>
-            <li style={{ color: checkPassword.lowerCase ? "green" : "red" }}>
+            <li
+              style={{ color: checkPassword.lowerCase ? "green" : "#ff477b" }}
+            >
               - At Least 1 Lowercase Letter
             </li>
           </ul>

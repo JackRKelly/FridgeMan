@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import AddStock from "../AddStock";
 import SearchStock from "../SearchStock";
-import "./styles.scss";
 
 const Navigation = ({
   setStocks,
@@ -10,7 +9,7 @@ const Navigation = ({
   name,
   setName,
   location,
-  setLocation
+  setLocation,
 }) => {
   const [addVisible, setAddVisibility] = useState(false);
   const [searchVisible, setSearchVisibility] = useState(false);

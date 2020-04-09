@@ -1,3 +1,5 @@
+@import "../../assets/colors/palette";
+
 form.signup {
   width: 50%;
   display: block;
@@ -6,16 +8,17 @@ form.signup {
     margin: 25px 0 10px;
     display: block;
     text-align: center;
-    color: #535353;
+    color: $color5;
     font-family: "NeutraBold", sans-serif;
   }
   .error {
     text-align: center;
     p.error-message {
-      background-color: rgba(255, 0, 0, 0.6);
+      background-color: $color4;
       padding: 10px;
       font-size: 18px;
       margin: 5px;
+      color: $color5;
     }
   }
   @media only screen and (max-width: 1000px) {
@@ -28,12 +31,13 @@ form.signup {
     margin: 15px 0;
     min-width: 200px;
     flex: 1;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     label {
       font-size: 14px;
       width: 100%;
       display: block;
       font-family: "NeutraBold", sans-serif;
-      color: #a8a8a8;
+      color: $color2;
       text-transform: uppercase;
     }
     input,
@@ -41,49 +45,59 @@ form.signup {
       border: none;
       font-size: 24px;
       width: 100%;
-      color: #535353;
-      border-bottom: 2px solid #a8a8a8;
+      color: $color5;
+      border-bottom: 2px solid $color2;
       font-family: "NeutraBook", sans-serif;
       padding: 3px 0 7px 0;
       -webkit-appearance: none;
       border-radius: 0;
       &::placeholder {
-        color: #535353;
+        color: $color5;
+      }
+    }
+    &:hover {
+      transform: scale(1.025);
+    }
+  }
+  .password-requirements {
+    h3 {
+      font-family: "NeutraBold";
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        width: 50%;
+        transition: 0.2s all ease-in-out;
+        font-size: 20px;
+        display: inline-block;
+        cursor: default;
+        transform-origin: 50% 50%;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        @media only screen and (max-width: 650px) {
+          width: 90%;
+        }
+        &:hover {
+          transform: scale(1.05);
+        }
       }
     }
   }
-  ul {
-    list-style: none;
-    padding: 0;
-    li {
-      width: 50%;
-      transition: 0.2s all ease-in-out;
-      font-size: 18px;
-      display: inline-block;
-      @media only screen and (max-width: 600px) {
-        width: 90%;
-      }
-    }
-  }
+
   .btn-container {
     flex-basis: 100%;
     display: flex;
     justify-content: center;
     button {
-      display: inline;
       margin: 15px 30px 10px;
       border: none;
-      border-radius: 5px;
       padding: 7.5px 50px;
       font-size: 22px;
       border-radius: 100px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-      background-color: transparent;
       font-family: "NeutraBold", sans-serif;
-      color: #535353;
+      color: $color2;
       cursor: pointer;
-      transition: 280ms ease-in-out background;
-      align-self: center;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       @media only screen and (max-width: 1000px) {
         margin: 15px 10px 10px;
       }
@@ -91,7 +105,7 @@ form.signup {
         margin: 15px 5px 10px;
       }
       &:hover {
-        background-color: #eee;
+        transform: scale(1.1);
       }
     }
   }

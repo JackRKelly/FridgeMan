@@ -1,3 +1,5 @@
+@import '../../../assets/colors/palette';
+
 .open-modal {
   cursor: pointer;
 }
@@ -44,7 +46,7 @@
       .modal-header {
         .modal-title {
           margin: 0;
-          color: #535353;
+          color: $color5;
           font-family: "NeutraBold", sans-serif;
           text-transform: uppercase;
           font-size: 25px;
@@ -70,8 +72,8 @@
             border: none;
             font-size: 24px;
             width: 100%;
-            color: #535353;
-            border-bottom: 2px solid #a8a8a8;
+            color: $color5;
+            border-bottom: 2px solid $color2;
             font-family: "NeutraBook", sans-serif;
             padding: 3px 0 7px 0;
           }
@@ -79,8 +81,8 @@
             border: none;
             font-size: 24px;
             width: 100%;
-            color: #535353;
-            border-bottom: 2px solid #a8a8a8;
+            color: $color5;
+            border-bottom: 2px solid $color2;
             font-family: "NeutraBook", sans-serif;
             padding: 3px 0 7px 0;
           }
@@ -89,7 +91,7 @@
             width: 100%;
             display: block;
             font-family: "NeutraBold", sans-serif;
-            color: #a8a8a8;
+            color: $color2;
             text-transform: uppercase;
           }
         }
@@ -112,7 +114,7 @@
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
           background-color: transparent;
           font-family: "NeutraBold", sans-serif;
-          color: #535353;
+          color: $color5;
           cursor: pointer;
           transition: 280ms ease-in-out background;
 

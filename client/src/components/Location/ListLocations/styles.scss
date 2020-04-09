@@ -1,5 +1,8 @@
+@import '../../../assets/colors/palette';
+
 div.location-list {
-  width: 100%;
+  width: 90%;
+  margin: auto;
   &-item {
     box-sizing: border-box;
     width: 50%;
@@ -7,7 +10,7 @@ div.location-list {
     padding: 0 15px;
     font-family: "NeutraBook";
     transition: 1s ease-in-out all;
-    color: #535353;
+    color: $color5;
     @media only screen and (max-width: 1000px) {
       width: 75%;
       margin: 20px auto;
@@ -35,7 +38,7 @@ div.location-list {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         background-color: transparent;
         font: 1em "NeutraBold", sans-serif;
-        color: #535353;
+        color: $color5;
         cursor: pointer;
         transition: 280ms ease-in-out background;
         align-self: center;
@@ -59,13 +62,13 @@ button.add-location-btn {
   margin: 25px auto;
   border-radius: 3px;
   font: 20px "NeutraBold";
-  color: #535353;
+  color: $color5;
   padding: 5px 15px;
   cursor: pointer;
 }
 
 .no-location {
-  color: #535353;
+  color: $color5;
   font-family: "NeutraBook", sans-serif;
   text-transform: uppercase;
   font-size: 25px;

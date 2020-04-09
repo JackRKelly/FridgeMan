@@ -1,9 +1,4 @@
-body {
-  margin: 0;
-  font-family: "NeutraBook", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import './assets/colors/palette';
 
 @font-face {
   font-family: NeutraBold;
@@ -14,11 +9,23 @@ body {
   src: url("./assets/fonts/NeutraText-Book.otf");
 }
 
+body {
+  margin: 0;
+  font-family: "NeutraBook", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $color5;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
 h1.loading {
   margin: 25px 0 10px;
   display: block;
   text-align: center;
-  color: #535353;
+  color: $color5;
   font-family: "NeutraBold", sans-serif;
 }
 

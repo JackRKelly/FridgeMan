@@ -7,12 +7,14 @@ import {
   Redirect,
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import "./app.scss";
 //Pages
 import Stocks from "./pages/Stocks/Stocks";
 import Home from "./pages/Home/Home";
 import Locations from "./pages/Locations/Locations";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const App = () => {
   //State
@@ -29,16 +31,6 @@ const App = () => {
     } else {
       setIsMobile(false);
     }
-  };
-  const logOut = async () => {
-    await fetch("/api/auth/logout", {
-      method: "POST",
-      credentials: "include",
-    }).then((response) => {
-      if (response.redirected) {
-        window.location.href = response.url;
-      }
-    });
   };
   const getLocations = async () => {
     await fetch("/api/locations")
@@ -83,34 +75,42 @@ const App = () => {
       <nav>
         <ul>
           <li>
-            <NavLink activeClassName="active" to="/home">Home</NavLink>
+            <NavLink activeClassName="active" to="/home">
+              Home
+            </NavLink>
           </li>
           {isAuthenticated ? (
             <li>
-              <NavLink activeClassName="active" to="/stocks">Stocks</NavLink>
+              <NavLink activeClassName="active" to="/stocks">
+                Stocks
+              </NavLink>
             </li>
           ) : (
             <></>
           )}
           {isAuthenticated ? (
             <li>
-              <NavLink activeClassName="active" to="/locations">Locations</NavLink>
+              <NavLink activeClassName="active" to="/locations">
+                Locations
+              </NavLink>
             </li>
           ) : (
             <></>
           )}
           {!isAuthenticated ? (
             <li>
-              <NavLink activeClassName="active" to="/login">Login</NavLink>
+              <NavLink activeClassName="active" to="/login">
+                Login
+              </NavLink>
             </li>
           ) : (
             <></>
           )}
           {isAuthenticated ? (
             <li>
-              <button class="logout" onClick={logOut}>
-                Logout
-              </button>
+              <NavLink activeClassName="active" to="/dashboard">
+                Dashboard
+              </NavLink>
             </li>
           ) : (
             <></>
@@ -118,7 +118,7 @@ const App = () => {
         </ul>
       </nav>
       <Route
-        render={({location}) => (
+        render={({ location }) => (
           <TransitionGroup>
             <CSSTransition key={location.key} timeout={300} classNames="fade">
               <Switch location={location}>
@@ -146,6 +146,15 @@ const App = () => {
                     <h1 className="loading">Loading</h1>
                   ) : isAuthenticated ? (
                     <Stocks locationList={locationList} isMobile={isMobile} />
+                  ) : (
+                    <Redirect to="/login" />
+                  )}
+                </Route>
+                <Route path="/dashboard">
+                  {isLoading ? (
+                    <h1 className="loading">Loading</h1>
+                  ) : isAuthenticated ? (
+                    <Dashboard email={email}/>
                   ) : (
                     <Redirect to="/login" />
                   )}

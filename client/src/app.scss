@@ -1,0 +1,81 @@
+@import "./assets/colors/palette";
+
+nav {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  position: relative;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    li {
+      padding: 14px 16px;
+      margin: 0 20px;
+      display: inline-block;
+      cursor: pointer;
+      font-family: "NeutraBold";
+      font-size: 20px;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      &:hover {
+        transform: scale(1.1);
+      }
+      a {
+        text-decoration: none;
+        color: $color5;
+        font-family: "NeutraBold";
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          width: 0%;
+          height: 2.5px;
+          transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          background-color: $color5;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+      a.active {
+        text-decoration: none;
+        color: $color4;
+        font-family: "NeutraBold";
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          width: 0%;
+          height: 2.5px;
+          transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          background-color: $color4;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  .modal-button {
+    background-color: #d8d8d8;
+    border: none;
+    border-radius: 3px;
+    font: 20px "NeutraBold";
+    color: $color5;
+    padding: 5px 15px;
+    margin: 25px 10px;
+    cursor: pointer;
+  }
+}
