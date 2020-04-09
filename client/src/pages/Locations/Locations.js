@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ListLocations from "../../components/Location/ListLocations";
 import AddLocation from "../../components/Location/AddLocation";
+import './locations.scss';
 
 const Locations = ({ locationList, setLocationList, getLocations }) => {
   document.title = "FridgeMan - Locations";
@@ -10,7 +11,7 @@ const Locations = ({ locationList, setLocationList, getLocations }) => {
   return (
     <div className="locations page">
       <button
-        className="add-location-btn"
+        className="add-location-button"
         onClick={() => {
           setAddVisibility(true);
         }}

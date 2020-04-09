@@ -1,4 +1,4 @@
-@import '../../../assets/colors/palette';
+@import "../../../assets/colors/palette";
 
 div.add-location-modal {
   width: 100%;
@@ -25,14 +25,14 @@ div.add-location-modal {
   form.add {
     background-color: white;
     z-index: 200;
-    width: 25%;
+    width: 60%;
     padding: 35px;
     border-radius: 5px;
     @media only screen and (max-width: 1000px) {
-      width: 50%;
+      width: 80%;
     }
     @media only screen and (max-width: 600px) {
-      width: 75%;
+      width: 95%;
     }
     h1 {
       margin: 0;
@@ -42,33 +42,29 @@ div.add-location-modal {
       font-size: 25px;
     }
     .btn-container {
-      flex-basis: 100%;
-      display: flex;
-      justify-content: center;
+      text-align: right;
+      margin-top: 20px;
+      @media only screen and (max-width: 600px) {
+        text-align: center;
+      }
       button {
-        display: inline;
-        margin: 15px 20px 10px;
-        @media only screen and (max-width: 1200px) {
-          margin: 7.5px 10px 10px;
-        }
-        @media only screen and (max-width: 600px) {
-          margin: 7.5px 5px 10px;
-        }
+        margin: 0 10px;
         border: none;
-        border-radius: 5px;
-        padding: 7.5px 35px;
-        flex: 1;
+        padding: 7.5px 50px;
         font-size: 22px;
         border-radius: 100px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        background-color: transparent;
         font-family: "NeutraBold", sans-serif;
-        color: $color5;
+        color: $color2;
         cursor: pointer;
-        transition: 280ms ease-in-out background;
-        align-self: center;
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        @media only screen and (max-width: 600px) {
+          padding: 7.5px 25px;
+        }
         &:hover {
-          background-color: #eee;
+          transform: scale(1.1);
+        }
+        &:focus {
+          outline: 0;
         }
       }
     }
@@ -76,6 +72,7 @@ div.add-location-modal {
       margin: 15px 0;
       min-width: 200px;
       flex: 1;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       label {
         font-size: 14px;
         width: 100%;
@@ -98,6 +95,9 @@ div.add-location-modal {
         &::placeholder {
           color: $color5;
         }
+      }
+      &:hover {
+        transform: scale(1.025);
       }
     }
   }

@@ -29,6 +29,7 @@ div.add-stock-modal {
     width: 60%;
     padding: 35px;
     border-radius: 5px;
+    box-sizing: border-box;
     @media only screen and (max-width: 1000px) {
       width: 80%;
     }
@@ -97,7 +98,6 @@ div.add-stock-modal {
           color: $color5;
         }
       }
-
       &:hover {
         transform: scale(1.025);
       }

@@ -26,60 +26,29 @@ div.location-list {
       font-size: 22px;
     }
     .btn-container {
+      text-align: right;
       @media only screen and (min-width: 500px) {
         display: inline;
         float: right;
       }
       button {
-        margin: 0 0 0 7.5px;
+        margin: 0px 7.5px 0 0;
+        display: inline;
         border: none;
-        padding: 6.5px 15px;
+        padding: 6.5px 25px;
+        font-size: 1em;
         border-radius: 100px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background-color: transparent;
-        font: 1em "NeutraBold", sans-serif;
-        color: $color5;
+        font-family: "NeutraBold", sans-serif;
+        color: $color2;
         cursor: pointer;
-        transition: 280ms ease-in-out background;
-        align-self: center;
-        -webkit-appearance: none;
-        @media only screen and (max-width: 500px) {
-          float: none;
-          margin: 7.5px 7.5px 0 0;
-        }
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         &:hover {
-          background-color: #eee;
+          transform: scale(1.1);
+        }
+        &:focus {
+          outline: 0;
         }
       }
     }
-  }
-}
-
-button.add-location-btn {
-  background-color: #d8d8d8;
-  border: none;
-  display: block;
-  margin: 25px auto;
-  border-radius: 3px;
-  font: 20px "NeutraBold";
-  color: $color5;
-  padding: 5px 15px;
-  cursor: pointer;
-}
-
-.no-location {
-  color: $color5;
-  font-family: "NeutraBook", sans-serif;
-  text-transform: uppercase;
-  font-size: 25px;
-  text-align: center;
-  display: block;
-  width: 50%;
-  margin: auto;
-  @media only screen and (max-width: 1000px) {
-    width: 75%;
-  }
-  @media only screen and (max-width: 600px) {
-    width: 90%;
   }
 }

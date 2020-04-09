@@ -1,10 +1,11 @@
-@import '../../../assets/colors/palette';
+@import "../../../assets/colors/palette";
 
 .open-modal {
   cursor: pointer;
 }
 
 .edit-location-modal {
+  text-align: left;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -26,21 +27,15 @@
       background-color: white;
       padding: 35px;
       z-index: 100;
-      width: 35%;
       position: absolute;
       border-radius: 5px;
       box-sizing: border-box;
-
-      @media only screen and (max-width: 1200px) {
-        width: 40%;
-      }
-
+      width: 60%;
       @media only screen and (max-width: 1000px) {
-        width: 60%;
+        width: 80%;
       }
-
       @media only screen and (max-width: 600px) {
-        width: 85%;
+        width: 95%;
       }
 
       .modal-header {
@@ -62,22 +57,13 @@
         .modal-input {
           width: 100%;
           margin-top: 15px;
-
+          transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           @media only screen and (max-width: 1000px) {
             width: 100%;
             margin-top: 15px;
           }
 
-          input {
-            border: none;
-            font-size: 24px;
-            width: 100%;
-            color: $color5;
-            border-bottom: 2px solid $color2;
-            font-family: "NeutraBook", sans-serif;
-            padding: 3px 0 7px 0;
-          }
-          select {
+          input, select {
             border: none;
             font-size: 24px;
             width: 100%;
@@ -94,42 +80,33 @@
             color: $color2;
             text-transform: uppercase;
           }
+          &:hover {
+            transform: scale(1.025);
+          }
         }
       }
 
       .modal-footer {
         text-align: right;
         margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        .btn {
-          margin-left: 10px;
-          padding: 2.5px 10px;
+        button {
+          margin: 0 10px;
           border: none;
-          border-radius: 5px;
-          padding: 7.5px 20px;
-          font-size: 25px;
+          padding: 7.5px 50px;
+          font-size: 22px;
           border-radius: 100px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-          background-color: transparent;
           font-family: "NeutraBold", sans-serif;
-          color: $color5;
+          color: $color2;
           cursor: pointer;
-          transition: 280ms ease-in-out background;
-
-          @media only screen and (min-width: 500px) {
-            padding: 12.5px 30px;
-          }
-          @media only screen and (max-width: 1000px) {
-            margin: 0;
-          }
+          transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
           @media only screen and (max-width: 600px) {
-            margin: 0;
-            font-size: 20px;
+            padding: 7.5px 25px;
           }
           &:hover {
-            background-color: #eee;
+            transform: scale(1.1);
+          }
+          &:focus {
+            outline: 0;
           }
         }
       }
