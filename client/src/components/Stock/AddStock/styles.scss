@@ -1,4 +1,4 @@
-@import "../../../assets/colors/palette";
+@import "../../../assets/variables";
 
 div.add-stock-modal {
   width: 100%;
@@ -58,7 +58,7 @@ div.add-stock-modal {
         font-family: "NeutraBold", sans-serif;
         color: $color2;
         cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: $bezier-transition;
         @media only screen and (max-width: 600px) {
           padding: 7.5px 25px;
         }
@@ -74,7 +74,7 @@ div.add-stock-modal {
       margin: 15px 0;
       min-width: 200px;
       flex: 1;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: $bezier-transition;
       label {
         font-size: 14px;
         width: 100%;

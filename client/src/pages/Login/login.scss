@@ -1,4 +1,4 @@
-@import "../../assets/colors/palette";
+@import "../../assets/variables";
 
 form.login {
   width: 50%;
@@ -30,7 +30,7 @@ form.login {
     margin: 15px 0;
     min-width: 200px;
     flex: 1;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: $bezier-transition;
     label {
       font-size: 14px;
       width: 100%;
@@ -65,7 +65,7 @@ form.login {
       text-decoration: none;
       color: $color4;
       font-family: "NeutraBold";
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: $bezier-transition;
       position: relative;
       &::after {
         content: "";
@@ -74,7 +74,7 @@ form.login {
         left: 0;
         width: 0%;
         height: 2px;
-        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: $bezier-transition;
         background-color: $color4;
       }
       &:hover::after {
@@ -96,7 +96,7 @@ form.login {
       font-family: "NeutraBold", sans-serif;
       color: $color2;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: $bezier-transition;
       @media only screen and (max-width: 1000px) {
         margin: 15px 10px 10px;
       }

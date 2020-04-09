@@ -1,4 +1,4 @@
-@import "../../assets/colors/palette";
+@import "../../assets/variables";
 
 form.signup {
   width: 50%;
@@ -31,7 +31,7 @@ form.signup {
     margin: 15px 0;
     min-width: 200px;
     flex: 1;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: $bezier-transition;
     label {
       font-size: 14px;
       width: 100%;
@@ -73,7 +73,7 @@ form.signup {
         display: inline-block;
         cursor: default;
         transform-origin: 50% 50%;
-        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: $bezier-transition;
         @media only screen and (max-width: 650px) {
           width: 90%;
         }
@@ -97,7 +97,7 @@ form.signup {
       font-family: "NeutraBold", sans-serif;
       color: $color2;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: $bezier-transition;
       @media only screen and (max-width: 1000px) {
         margin: 15px 10px 10px;
       }

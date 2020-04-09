@@ -1,4 +1,4 @@
-@import '../../../assets/colors/palette';
+@import '../../../assets/variables';
 
 div.location-list {
   width: 90%;
@@ -41,7 +41,7 @@ div.location-list {
         font-family: "NeutraBold", sans-serif;
         color: $color2;
         cursor: pointer;
-        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition: $bezier-transition;
         &:hover {
           transform: scale(1.1);
         }

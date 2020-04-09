@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListStocks from "../../components/Stock/ListStock";
 import Navigation from "../../components/Stock/Navigation";
+import './stocks.scss';
 
 const Stocks = ({ isMobile, locationList }) => {
   document.title = "FridgeMan - Stocks";
@@ -25,6 +26,7 @@ const Stocks = ({ isMobile, locationList }) => {
 
   return (
     <div className="stocks page">
+      <h1>Stock List</h1>
       <Navigation
         name={name}
         location={location}

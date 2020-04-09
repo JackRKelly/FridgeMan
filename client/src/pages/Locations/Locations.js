@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ListLocations from "../../components/Location/ListLocations";
 import AddLocation from "../../components/Location/AddLocation";
-import './locations.scss';
+import "./locations.scss";
 
 const Locations = ({ locationList, setLocationList, getLocations }) => {
   document.title = "FridgeMan - Locations";
@@ -10,6 +10,7 @@ const Locations = ({ locationList, setLocationList, getLocations }) => {
 
   return (
     <div className="locations page">
+      <h1>Location List</h1>
       <button
         className="add-location-button"
         onClick={() => {

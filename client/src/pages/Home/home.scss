@@ -1,4 +1,4 @@
-@import "../../assets/colors/palette";
+@import "../../assets/variables";
 
 .home {
   h1 {
@@ -27,7 +27,7 @@
     text-decoration: none;
     color: $color4;
     font-family: "NeutraBold";
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: $bezier-transition;
     position: relative;
     &::after {
       content: "";
@@ -36,7 +36,7 @@
       left: 0;
       width: 0%;
       height: 2px;
-      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: $bezier-transition;
       background-color: $color4;
     }
     &:hover::after {
