@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ListStocks from "../../components/Stock/ListStock";
 import Navigation from "../../components/Stock/Navigation";
-import './stocks.scss';
+import "./stocks.scss";
 
 const Stocks = ({ isMobile, locationList }) => {
   document.title = "FridgeMan - Stocks";

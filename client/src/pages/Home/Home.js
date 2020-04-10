@@ -3,6 +3,9 @@ import "./home.scss";
 import { Link } from "react-router-dom";
 import HeroIcon from "../../assets/images/HeroIcon";
 import MagnifyingGlass from "../../assets/images/MagnifyingGlass";
+import Wrench from "../../assets/images/Wrench";
+import QuestionMark from "../../assets/images/QuestionMark";
+import HourGlass from "../../assets/images/HourGlass";
 
 const Home = () => {
   document.title = "FridgeMan - Home";
@@ -28,26 +31,27 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <svg
-        version="1.1"
-        className="seperator circle"
-        xmlns="http://www.w3.org/2000/svg"
-        x="0px"
-        y="0px"
-        viewBox="0 0 1920 100"
-      >
-        <path d="M1920,0C1152,100,768,100,0,0L1920,0z" />
-      </svg>
-
+      <div className="section-divider">
+        <svg
+          version="1.1"
+          className="separator circle"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          viewBox="0 0 1920 100"
+        >
+          <path d="M1920,0C1152,100,768,100,0,0L1920,0z" />
+        </svg>
+      </div>
       <section className="features">
         <span className="background-text">Features</span>
         <div className="feature-content">
-          <h3>Check Out --</h3>
+          <h3>Check Out</h3>
           <h1>Our Features</h1>
           <ul>
             <li className="card">
               <div className="card-icon">
-                <MagnifyingGlass />
+                <Wrench />
               </div>
 
               <div className="card-text">
@@ -58,16 +62,21 @@ const Home = () => {
               </div>
             </li>
             <li className="card">
-              <img />
+              <div className="card-icon">
+                <MagnifyingGlass />
+              </div>
               <div className="card-text">
                 <h4>Searchability</h4>
                 <p>
-                  Fridge Man allows you to navigate your stock list with ease.
+                  Fridge Man allows you to easily navigate your stock list to
+                  find what you need.
                 </p>
               </div>
             </li>
             <li className="card">
-              <img />
+              <div className="card-icon">
+                <HourGlass />
+              </div>
               <div className="card-text">
                 <h4>Expiration</h4>
                 <p>
@@ -77,7 +86,9 @@ const Home = () => {
               </div>
             </li>
             <li className="card">
-              <img />
+              <div className="card-icon">
+                <QuestionMark />
+              </div>
               <div className="card-text">
                 <h4>Support</h4>
                 <p>
@@ -87,6 +98,62 @@ const Home = () => {
               </div>
             </li>
           </ul>
+        </div>
+      </section>
+      <section className="about">
+        <span className="background-text">About Us</span>
+        <div className="about-content">
+          <h3>Learn More</h3>
+          <h1>About Us</h1>
+          <p>
+            Fridge Man was created by a high schooler who decided there had to
+            be an easier way to manage household food stock. Fridge Man allows
+            users to manage their inventory by efficiently searching and editing
+            their stocks. Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Duis porta lacus eu mi malesuada rutrum. Curabitur tincidunt
+            velit id turpis pellentesque tincidunt. Nullam vitae dolor id massa
+            scelerisque placerat et in dui.
+          </p>
+        </div>
+      </section>
+      <section className="signup">
+        <span className="background-text">Signup</span>
+        <div className="signup-content">
+          <h3>Signup Form</h3>
+          <h1>Join Us</h1>
+          <form className="signup-form">
+            <div className="input-container">
+              <div className="signup-input">
+                <label htmlFor="email">Email</label>
+                <input
+                  placeholder="Enter Email Here"
+                  type="email"
+                  name="email"
+                />
+              </div>
+              <div className="signup-input">
+                <label htmlFor="password">Password</label>
+                <input
+                  placeholder="Enter Password Here"
+                  name="password"
+                  type="password"
+                />
+              </div>
+            </div>
+
+            <div className="requirements">
+              <h5>Password Requirements:</h5>
+              <ul>
+                <li>At least 8 characters</li>
+                <li>At least 1 uppercase letter</li>
+                <li>At least 1 lowercase letter</li>
+                <li>At least 1 number</li>
+              </ul>
+            </div>
+            <div className="button-container">
+              <button type="signup">Signup</button>
+            </div>
+          </form>
         </div>
       </section>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Dashboard = ({email}) => {
+const Dashboard = ({ email }) => {
   document.title = "FridgeMan - Dashboard";
 
   const logOut = async () => {

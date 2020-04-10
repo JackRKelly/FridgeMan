@@ -8,7 +8,9 @@ const AddStock = ({
   addVisible,
 }) => {
   const [name, setName] = useState("");
-  const [location, setLocation] = useState(locationList[0] ? locationList[0].name : "");
+  const [location, setLocation] = useState(
+    locationList[0] ? locationList[0].name : ""
+  );
   const [quantity, setQuantity] = useState("");
   const [expiration, setExpiration] = useState("");
 

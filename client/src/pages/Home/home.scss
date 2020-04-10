@@ -1,8 +1,8 @@
 @import "../../assets/variables";
 
 .home {
-  overflow-x: hidden;
   header.hero {
+    overflow: hidden;
     background-color: $primary;
     position: relative;
     width: 100%;
@@ -154,27 +154,34 @@
         .hero-icon {
           width: 75%;
           margin: 3em auto;
+          transition: $bezier-transition;
           @media only screen and (min-width: 1500px) {
             width: 80%;
+          }
+          &:hover {
+            transform: scale(1.05);
           }
         }
       }
     }
   }
 
-  .seperator.circle path {
-    fill: $primary;
-    width: 100%;
-    stroke: $primary;
+  .section-divider {
+    .separator.circle path {
+      fill: $primary;
+      width: 100%;
+      stroke: $primary;
+    }
   }
 
   section.features {
+    overflow: hidden;
     position: relative;
     width: 100%;
-    padding: 6em 2em 5em 2em;
+    padding: 6em 2em 0em 2em;
     transition: $bezier-transition;
     @media only screen and (max-width: 850px) {
-      padding: 6em 1em 2.5em 1em;
+      padding: 6em 1em 0em 1em;
     }
     .background-text {
       font-family: $neutra-bold-italic;
@@ -204,17 +211,27 @@
 
       h3 {
         margin: 0;
-        display: block;
+        display: inline-block;
         color: $lightprimary;
         font-family: $neutra-bold;
         font-size: 2em;
         text-transform: uppercase;
         transition: $bezier-transition;
+        position: relative;
         @media only screen and (max-width: 1600px) {
           font-size: 1.65em;
         }
         @media only screen and (max-width: 1200px) {
           font-size: 1.25em;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 3px;
+          background-color: $lightprimary;
+          right: -50px;
+          bottom: 45%;
         }
       }
       h1 {
@@ -245,26 +262,49 @@
         li.card {
           background-color: white;
           flex: 1 1 0px;
-          box-shadow: 0 18px 51px rgba(0, 0, 0, 0.07);
+          flex-basis: auto;
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
           padding: 2em;
-          margin: 0 2em 2em 0;
-          max-width: 600px;
-          min-width: 40%;
+          margin-bottom: 3em;
+          max-width: 47%;
           display: flex;
+          transition: $bezier-transition;
           @media only screen and (max-width: 1200px) {
-            padding: 1em;
+            padding: 1.25em;
           }
+          @media only screen and (max-width: 900px) {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1.5em;
+          }
+          &:hover {
+            transform: translateY(-1em) scale(1.05);
+            @media only screen and (max-width: 900px) {
+              transform: scale(1.1);
+            }
+          }
+
           .card-icon {
-            width: 150px;
-            .magnifying-glass {
-              padding-right: 1.5em;
+            width: 15.5%;
+            display: flex;
+            align-items: center;
+            @media (max-width: 900px) and (min-width: 600px) {
+              width: 10%;
             }
           }
 
           .card-text {
             width: 84.5%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-around;
+            flex-direction: column;
+            padding-left: 1.5em;
+            @media (max-width: 900px) and (min-width: 600px) {
+              width: 90%;
+            }
             h4 {
-              font: 2em $neutra-bold;
+              font: 2.25em $neutra-bold;
               margin: 0;
               display: inline-block;
               text-transform: uppercase;
@@ -287,18 +327,28 @@
                 background-color: $primary;
                 right: -50px;
                 bottom: 45%;
+                @media only screen and (max-width: 1000px) {
+                  display: none;
+                }
+                @media only screen and (max-width: 800px) {
+                  display: block;
+                }
+                @media only screen and (max-width: 450px) {
+                  display: none;
+                }
               }
             }
             p {
-              margin: 7.5px 0;
+              margin: 0.2em 0;
               color: $primary;
-              font: 2em $neutra;
+              font: 2.25em $neutra;
               display: block;
               line-height: 1.25;
               transition: $bezier-transition;
 
               @media only screen and (max-width: 1600px) {
                 font-size: 1.65em;
+                margin: 0;
               }
               @media only screen and (max-width: 1200px) {
                 font-size: 1.3em;
@@ -307,6 +357,334 @@
                 max-width: 82%;
                 font: 1.2em $neutra;
               }
+              @media only screen and (max-width: 600px) {
+                max-width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  section.about {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 6em 2em 5em 2em;
+    transition: $bezier-transition;
+    @media only screen and (max-width: 850px) {
+      padding: 6em 1em 2.5em 1em;
+    }
+    .background-text {
+      font-family: $neutra-bold-italic;
+      color: #f8f7ff;
+      font-size: 37em;
+      position: absolute;
+      top: 2vw;
+      left: -5vw;
+      white-space: nowrap;
+      line-height: 0.8;
+      z-index: -1;
+      @media only screen and (min-width: 1500px) {
+        top: -2vw;
+        left: 3vw;
+      }
+      @media only screen and (max-width: 850px) {
+        font-size: 25em;
+        top: 6vw;
+      }
+    }
+    .about-content {
+      width: 80%;
+      margin: auto;
+      @media only screen and (max-width: 1500px) {
+        width: 90%;
+      }
+
+      h3 {
+        margin: 0;
+        display: inline-block;
+        color: $lightprimary;
+        font-family: $neutra-bold;
+        font-size: 2em;
+        text-transform: uppercase;
+        transition: $bezier-transition;
+        position: relative;
+        @media only screen and (max-width: 1600px) {
+          font-size: 1.65em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 1.25em;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 3px;
+          background-color: $lightprimary;
+          right: -50px;
+          bottom: 45%;
+        }
+      }
+      h1 {
+        margin: 0;
+        display: block;
+        color: $primary;
+        font: 6.5em $neutra-bold;
+        transition: $bezier-transition;
+        @media only screen and (max-width: 1600px) {
+          font-size: 5.5em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 4em;
+        }
+        @media only screen and (max-width: 800px) {
+          font-size: 3em;
+        }
+      }
+      p {
+        margin: 0.3em 0;
+        color: #877bff;
+        font: 2.25em $neutra;
+        display: block;
+        line-height: 1.5;
+        transition: $bezier-transition;
+
+        @media only screen and (max-width: 1600px) {
+          font-size: 1.65em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 1.3em;
+        }
+        @media only screen and (max-width: 850px) {
+          font: 1.3em $neutra;
+          line-height: 1.5;
+          margin: 0.4em 0;
+        }
+      }
+    }
+  }
+  section.signup {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 6em 2em 5em 2em;
+    transition: $bezier-transition;
+    @media only screen and (max-width: 850px) {
+      padding: 6em 1em 2.5em 1em;
+    }
+    .background-text {
+      font-family: $neutra-bold-italic;
+      color: #f8f7ff;
+      font-size: 37em;
+      position: absolute;
+      top: 2vw;
+      left: -5vw;
+      white-space: nowrap;
+      line-height: 0.8;
+      z-index: -1;
+      @media only screen and (min-width: 1500px) {
+        top: -2vw;
+        left: 3vw;
+      }
+      @media only screen and (max-width: 850px) {
+        font-size: 25em;
+        top: 6vw;
+      }
+    }
+    .signup-content {
+      width: 80%;
+      margin: auto;
+      @media only screen and (max-width: 1500px) {
+        width: 90%;
+      }
+      h3 {
+        margin: 0;
+        display: inline-block;
+        color: $lightprimary;
+        font-family: $neutra-bold;
+        font-size: 2em;
+        text-transform: uppercase;
+        transition: $bezier-transition;
+        position: relative;
+        @media only screen and (max-width: 1600px) {
+          font-size: 1.65em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 1.25em;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 3px;
+          background-color: $lightprimary;
+          right: -50px;
+          bottom: 45%;
+        }
+      }
+      h1 {
+        margin: 0;
+        display: block;
+        color: $primary;
+        font: 6.5em $neutra-bold;
+        transition: $bezier-transition;
+        @media only screen and (max-width: 1600px) {
+          font-size: 5.5em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 4em;
+        }
+        @media only screen and (max-width: 800px) {
+          font-size: 3em;
+        }
+      }
+      p {
+        margin: 0.3em 0;
+        color: #877bff;
+        font: 2.25em $neutra;
+        display: block;
+        line-height: 1.5;
+        transition: $bezier-transition;
+
+        @media only screen and (max-width: 1600px) {
+          font-size: 1.65em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 1.3em;
+        }
+        @media only screen and (max-width: 850px) {
+          font: 1.3em $neutra;
+          line-height: 1.5;
+          margin: 0.4em 0;
+        }
+      }
+      form.signup-form {
+        background-color: $secondary;
+        padding: 3em 6em;
+        border-radius: 7.5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin-top: 0.75em;
+        @media only screen and (max-width: 1400px) {
+          padding: 2em 4em;
+        }
+        @media only screen and (max-width: 800px) {
+          padding: 1em 2em;
+        }
+        .input-container {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          .signup-input {
+            padding: 1em 0;
+            width: 46%;
+            @media only screen and (max-width: 800px) {
+              width: 100%;
+            }
+            transition: $bezier-transition;
+            &:hover {
+              transform: scale(1.025);
+            }
+            label {
+              font-size: 1.1em;
+              width: 100%;
+              display: block;
+              font-family: $neutra-bold;
+              color: $primary;
+              text-transform: uppercase;
+              @media only screen and (min-width: 1500px) {
+                font-size: 1.5em;
+              }
+            }
+            input {
+              border: none;
+              font-size: 1.5em;
+              width: 100%;
+              color: $primary;
+              border-bottom: 2px solid $primary;
+              font-family: $neutra;
+              padding: 3px 0 7px 0;
+              -webkit-appearance: none;
+              border-radius: 0;
+              &::placeholder {
+                color: $darkpurple;
+              }
+              @media only screen and (min-width: 1500px) {
+                font-size: 2.25em;
+              }
+            }
+            input::placeholder {
+              font: 1em $neutra-bold-italic;
+              color: $lightprimary;
+            }
+          }
+        }
+        .requirements {
+          h5 {
+            margin: 10px 0 0;
+            font-size: 1.25em;
+            width: 100%;
+            display: block;
+            font-family: $neutra-bold;
+            color: $primary;
+            text-transform: uppercase;
+            @media only screen and (min-width: 1500px) {
+              font-size: 1.5em;
+            }
+          }
+          ul {
+            margin: 0.5em;
+            color: $primary;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            @media only screen and (max-width: 600px) {
+              padding: 0.25em;
+              margin: 0;
+              justify-content: left;
+            }
+            li {
+              display: inline;
+              font-size: 1.25em;
+              position: relative;
+              padding: 5px 20px;
+              @media only screen and (min-width: 1500px) {
+                font-size: 1.5em;
+              }
+              &:before {
+                content: "";
+                width: 12.5px;
+                height: 2px;
+                background-color: $primary;
+                position: absolute;
+                left: 0px;
+                bottom: 45%;
+              }
+            }
+          }
+        }
+        .button-container {
+          text-align: center;
+          padding: 1.5em 0 1em;
+          button {
+            cursor: pointer;
+            font: 1.5em $neutra-bold;
+            padding: 0.35em 2em;
+            border: none;
+            border-radius: 30px;
+            background-color: $secondary;
+            color: $primary;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.07);
+            transition: $bezier-transition;
+            text-transform: uppercase;
+            &:hover {
+              transform: scale(1.1);
+            }
+            @media only screen and (min-width: 1000px) {
+              font-size: 1.75em;
+            }
+            @media only screen and (min-width: 1500px) {
+              font-size: 2.25em;
             }
           }
         }

@@ -23,6 +23,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
+  const [navColor, setNavColor] = useState("transparent");
 
   //Component Functions
   const checkMobile = () => {
@@ -30,6 +31,13 @@ const App = () => {
       setIsMobile(true);
     } else {
       setIsMobile(false);
+    }
+  };
+  const checkScroll = () => {
+    if (window.scrollY > 400) {
+      setNavColor("#7453ff");
+    } else {
+      setNavColor("#7453ff60");
     }
   };
   const getLocations = async () => {
@@ -66,13 +74,15 @@ const App = () => {
     getLocations();
     checkMobile();
     authenticateUser();
+    checkScroll();
   }, []);
 
+  window.addEventListener("scroll", checkScroll);
   window.addEventListener("resize", checkMobile);
 
   return (
     <Router>
-      <nav>
+      <nav style={{ backgroundColor: navColor }}>
         <ul>
           <div className="left">
             <li>

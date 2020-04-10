@@ -7,6 +7,7 @@ nav {
   top: 0;
   left: 0;
   z-index: 100;
+  transition: 0.2s ease-in-out all;
   ul {
     margin: 0;
     padding: 0;
@@ -29,35 +30,27 @@ nav {
       &:hover {
         transform: scale(1.15);
       }
-      &::after {
-        content: "x";
-        color: $lightprimary;
-        position: absolute;
-        left: -25px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
       &:first-child::after {
         content: "";
       }
       a {
         display: block;
         letter-spacing: 0.75px;
-        padding: 20px 18px;
+        padding: 25px 25px;
         text-decoration: none;
         color: $secondary;
         font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        @include bar(11px, 90%, true);
+        @include bar(16px, 90%, true);
       }
       a.active {
         text-decoration: none;
-        color: $pink;
+        color: $secondary;
         font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        @include bar(11px, 90%, true);
+        @include bar(16px, 90%, true);
       }
     }
   }
