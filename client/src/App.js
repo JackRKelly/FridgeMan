@@ -74,12 +74,15 @@ const App = () => {
     <Router>
       <nav>
         <ul>
-          <li>
-            <NavLink activeClassName="active" to="/home">
-              Home
-            </NavLink>
-          </li>
-          {isAuthenticated ? (
+          <div className="left">
+            <li>
+              <NavLink activeClassName="active" to="/home">
+                Fridge Man
+              </NavLink>
+            </li>
+          </div>
+
+          {/* {isAuthenticated ? (
             <li>
               <NavLink activeClassName="active" to="/stocks">
                 Stocks
@@ -96,25 +99,24 @@ const App = () => {
             </li>
           ) : (
             <></>
-          )}
-          {!isAuthenticated ? (
+          )} */}
+          <div className="right">
             <li>
               <NavLink activeClassName="active" to="/login">
                 Login
               </NavLink>
             </li>
-          ) : (
-            <></>
-          )}
-          {isAuthenticated ? (
+            <li>
+              <NavLink activeClassName="active" to="/signup">
+                Signup
+              </NavLink>
+            </li>
             <li>
               <NavLink activeClassName="active" to="/dashboard">
                 Dashboard
               </NavLink>
             </li>
-          ) : (
-            <></>
-          )}
+          </div>
         </ul>
       </nav>
       <Route
@@ -124,7 +126,9 @@ const App = () => {
               <Switch location={location}>
                 <Route path="/signup">
                   {isLoading ? (
-                    <h1 className="loading">Loading</h1>
+                    <div className="loading page">
+                      <h1 className="loading">Loading...</h1>
+                    </div>
                   ) : !isAuthenticated ? (
                     <Signup />
                   ) : (
@@ -133,7 +137,9 @@ const App = () => {
                 </Route>
                 <Route path="/login">
                   {isLoading ? (
-                    <h1 className="loading">Loading</h1>
+                    <div className="loading page">
+                      <h1 className="loading">Loading...</h1>
+                    </div>
                   ) : !isAuthenticated ? (
                     <Login />
                   ) : (
@@ -142,7 +148,9 @@ const App = () => {
                 </Route>
                 <Route path="/locations">
                   {isLoading ? (
-                    <h1 className="loading">Loading</h1>
+                    <div className="loading page">
+                      <h1 className="loading">Loading...</h1>
+                    </div>
                   ) : isAuthenticated ? (
                     <Locations
                       locationList={locationList}
@@ -155,7 +163,9 @@ const App = () => {
                 </Route>
                 <Route path="/stocks">
                   {isLoading ? (
-                    <h1 className="loading">Loading</h1>
+                    <div className="loading page">
+                      <h1 className="loading">Loading...</h1>
+                    </div>
                   ) : isAuthenticated ? (
                     <Stocks locationList={locationList} isMobile={isMobile} />
                   ) : (
@@ -164,7 +174,9 @@ const App = () => {
                 </Route>
                 <Route path="/dashboard">
                   {isLoading ? (
-                    <h1 className="loading">Loading</h1>
+                    <div className="loading page">
+                      <h1 className="loading">Loading...</h1>
+                    </div>
                   ) : isAuthenticated ? (
                     <Dashboard email={email} />
                   ) : (

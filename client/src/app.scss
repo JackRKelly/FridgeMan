@@ -2,15 +2,22 @@
 
 nav {
   width: 100%;
-  background-color: white;
-  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.2);
+  background-color: $primary;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 100;
-  position: relative;
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: center;
+    .left {
+      float: left;
+    }
+    .right {
+      float: right;
+    }
     li {
       margin: 0 20px;
       display: inline-block;
@@ -18,18 +25,31 @@ nav {
       font-family: $neutra-bold;
       font-size: 20px;
       transition: $bezier-transition;
+      position: relative;
       &:hover {
         transform: scale(1.15);
       }
+      &::after {
+        content: "x";
+        color: $lightprimary;
+        position: absolute;
+        left: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &:first-child::after {
+        content: "";
+      }
       a {
         display: block;
-        padding: 14px 16px;
+        letter-spacing: 0.75px;
+        padding: 20px 18px;
         text-decoration: none;
-        color: $darkpurple;
+        color: $secondary;
         font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        @include bar(9px, 90%, true);
+        @include bar(11px, 90%, true);
       }
       a.active {
         text-decoration: none;
@@ -37,7 +57,7 @@ nav {
         font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        @include bar(9px, 90%, true);
+        @include bar(11px, 90%, true);
       }
     }
   }

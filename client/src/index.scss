@@ -5,6 +5,10 @@
   src: url("./assets/fonts/NeutraText-Bold.otf");
 }
 @font-face {
+  font-family: NeutraBoldItalic;
+  src: url("./assets/fonts/NeutraText-BoldItalic.otf");
+}
+@font-face {
   font-family: NeutraBook;
   src: url("./assets/fonts/NeutraText-Book.otf");
 }
@@ -15,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $darkpurple;
+  overflow-x: hidden;
 }
 
 input:focus,

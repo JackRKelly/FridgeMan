@@ -6,7 +6,12 @@ $pink: rgba(255, 71, 123, 1);
 $darkpurple: rgba(29, 17, 40, 1);
 $lightgray: rgba(240, 240, 240, 1);
 
+$primary: #7453ff;
+$lightprimary: #d6ccff;
+$secondary: #fff;
+
 //Fonts
+$neutra-bold-italic: "NeutraBoldItalic", sans-serif;
 $neutra-bold: "NeutraBold", sans-serif;
 $neutra: "NeutraBook", sans-serif;
 
@@ -25,7 +30,7 @@ $bezier-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 3px;
     transition: $bezier-transition;
     @if $is-nav {
-      background-color: $darkpurple;
+      background-color: $secondary;
     } @else {
       background-color: $pink;
     }
