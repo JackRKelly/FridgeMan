@@ -1,5 +1,9 @@
 @import "./assets/variables";
 
+* {
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: NeutraBold;
   src: url("./assets/fonts/NeutraText-Bold.otf");
@@ -19,7 +23,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $darkpurple;
-  overflow-x: hidden;
 }
 
 input:focus,

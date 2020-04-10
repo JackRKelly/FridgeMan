@@ -1,6 +1,7 @@
 @import "../../assets/variables";
 
 .home {
+  overflow-x: hidden;
   header.hero {
     background-color: $primary;
     position: relative;
@@ -27,7 +28,7 @@
       }
       @media only screen and (max-width: 850px) {
         font-size: 25em;
-        top: 6vw;
+        top: 1vw;
       }
     }
     .hero-content {
@@ -35,13 +36,14 @@
       justify-content: center;
       flex-direction: row;
       flex-wrap: wrap;
-      @media only screen and (min-width: 1600px) {
+      width: 90%;
+      margin: auto;
+      @media only screen and (min-width: 1500px) {
         width: 80%;
         margin: auto;
       }
       @media only screen and (max-width: 850px) {
         width: 90%;
-        margin: auto;
       }
 
       .left {
@@ -52,13 +54,10 @@
         z-index: 1;
         @media only screen and (max-width: 850px) {
           width: 100%;
+          justify-content: left;
         }
         &-content {
           text-align: left;
-          padding: 2em;
-          @media only screen and (max-width: 850px) {
-            padding: 1em;
-          }
           h3 {
             margin: 0;
             display: block;
@@ -73,6 +72,9 @@
             @media only screen and (max-width: 1200px) {
               font-size: 1.25em;
             }
+            @media only screen and (max-width: 800px) {
+              font-size: 1.125em;
+            }
           }
           h1 {
             margin: 0;
@@ -86,6 +88,9 @@
             @media only screen and (max-width: 1200px) {
               font-size: 4em;
             }
+            @media only screen and (max-width: 800px) {
+              font-size: 3.5em;
+            }
           }
           p {
             margin: 5px 0;
@@ -94,19 +99,24 @@
             display: block;
             line-height: 1.5;
             transition: $bezier-transition;
-            @media only screen and (max-width: 1200px) {
-              font-size: 1.25em;
-            }
+
             @media only screen and (max-width: 1600px) {
               font-size: 1.65em;
+            }
+            @media only screen and (max-width: 1200px) {
+              font-size: 1.3em;
+            }
+            @media only screen and (max-width: 850px) {
+              max-width: 58%;
+              font: 1.2em $neutra-bold;
             }
             @media only screen and (min-width: 1800px) {
               max-width: 80%;
             }
-            @media only screen and (max-width: 850px) {
-              max-width: 60%;
+            @media only screen and (max-width: 670px) {
+              max-width: 75%;
             }
-            @media only screen and (max-width: 600px) {
+            @media only screen and (max-width: 500px) {
               max-width: 100%;
             }
           }
@@ -141,7 +151,7 @@
         @media only screen and (max-width: 850px) {
           display: none;
         }
-        .hero.icon.svg {
+        .hero-icon {
           width: 75%;
           margin: 3em auto;
           @media only screen and (min-width: 1500px) {
@@ -158,30 +168,148 @@
     stroke: $primary;
   }
 
-  section.about {
-    h1 {
-      width: 65%;
-      margin: 15px auto 15px;
-      padding-bottom: 4000px;
-      text-align: center;
-      color: $darkpurple;
-      font-family: $neutra-bold;
-      font-size: 2em;
-      @media only screen and (max-width: 600px) {
-        font-size: 1.5em;
+  section.features {
+    position: relative;
+    width: 100%;
+    padding: 6em 2em 5em 2em;
+    transition: $bezier-transition;
+    @media only screen and (max-width: 850px) {
+      padding: 6em 1em 2.5em 1em;
+    }
+    .background-text {
+      font-family: $neutra-bold-italic;
+      color: #f8f7ff;
+      font-size: 37em;
+      position: absolute;
+      top: 2vw;
+      left: -5vw;
+      white-space: nowrap;
+      line-height: 0.8;
+      z-index: -1;
+      @media only screen and (min-width: 1500px) {
+        top: -2vw;
+        left: 3vw;
+      }
+      @media only screen and (max-width: 850px) {
+        font-size: 25em;
+        top: 6vw;
       }
     }
-    p {
-      width: 65%;
+    .feature-content {
+      width: 80%;
       margin: auto;
-      font-size: 1.25em;
-      text-indent: 4em;
-      color: $darkpurple;
-      line-height: 1.25;
-      @media only screen and (max-width: 1000px) {
-        text-indent: 2em;
-        line-height: 1;
-        width: 85%;
+      @media only screen and (max-width: 1500px) {
+        width: 90%;
+      }
+
+      h3 {
+        margin: 0;
+        display: block;
+        color: $lightprimary;
+        font-family: $neutra-bold;
+        font-size: 2em;
+        text-transform: uppercase;
+        transition: $bezier-transition;
+        @media only screen and (max-width: 1600px) {
+          font-size: 1.65em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 1.25em;
+        }
+      }
+      h1 {
+        margin: 0;
+        display: block;
+        color: $primary;
+        font: 6.5em $neutra-bold;
+        transition: $bezier-transition;
+        @media only screen and (max-width: 1600px) {
+          font-size: 5.5em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 4em;
+        }
+        @media only screen and (max-width: 800px) {
+          font-size: 3em;
+        }
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 1em 0 1em 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        li.card {
+          background-color: white;
+          flex: 1 1 0px;
+          box-shadow: 0 18px 51px rgba(0, 0, 0, 0.07);
+          padding: 2em;
+          margin: 0 2em 2em 0;
+          max-width: 600px;
+          min-width: 40%;
+          display: flex;
+          @media only screen and (max-width: 1200px) {
+            padding: 1em;
+          }
+          .card-icon {
+            width: 150px;
+            .magnifying-glass {
+              padding-right: 1.5em;
+            }
+          }
+
+          .card-text {
+            width: 84.5%;
+            h4 {
+              font: 2em $neutra-bold;
+              margin: 0;
+              display: inline-block;
+              text-transform: uppercase;
+              color: $primary;
+              position: relative;
+              @media only screen and (max-width: 1600px) {
+                font-size: 1.75em;
+              }
+              @media only screen and (max-width: 1200px) {
+                font-size: 1.5em;
+              }
+              @media only screen and (max-width: 800px) {
+                font-size: 1.25em;
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                width: 40px;
+                height: 3px;
+                background-color: $primary;
+                right: -50px;
+                bottom: 45%;
+              }
+            }
+            p {
+              margin: 7.5px 0;
+              color: $primary;
+              font: 2em $neutra;
+              display: block;
+              line-height: 1.25;
+              transition: $bezier-transition;
+
+              @media only screen and (max-width: 1600px) {
+                font-size: 1.65em;
+              }
+              @media only screen and (max-width: 1200px) {
+                font-size: 1.3em;
+              }
+              @media only screen and (max-width: 850px) {
+                max-width: 82%;
+                font: 1.2em $neutra;
+              }
+            }
+          }
+        }
       }
     }
   }

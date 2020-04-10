@@ -2,6 +2,7 @@ import React from "react";
 import "./home.scss";
 import { Link } from "react-router-dom";
 import HeroIcon from "../../assets/images/HeroIcon";
+import MagnifyingGlass from "../../assets/images/MagnifyingGlass";
 
 const Home = () => {
   document.title = "FridgeMan - Home";
@@ -27,7 +28,6 @@ const Home = () => {
           </div>
         </div>
       </header>
-
       <svg
         version="1.1"
         className="seperator circle"
@@ -39,25 +39,55 @@ const Home = () => {
         <path d="M1920,0C1152,100,768,100,0,0L1920,0z" />
       </svg>
 
-      <section className="about">
-        <h1>About Fridge Man</h1>
-        <p>
-          Ornare massa eget egestas purus viverra accumsan in nisl. Dapibus
-          ultrices in iaculis nunc sed augue lacus viverra. Adipiscing elit ut
-          aliquam purus sit amet luctus venenatis lectus. Odio aenean sed
-          adipiscing diam donec adipiscing tristique risus. Iaculis eu non diam
-          phasellus vestibulum. Arcu non sodales neque sodales ut etiam. Tellus
-          in hac habitasse platea dictumst vestibulum. Sagittis aliquam
-          malesuada bibendum arcu vitae elementum curabitur vitae nunc. Tellus
-          mauris a diam maecenas sed enim ut sem. Amet facilisis magna etiam
-          tempor orci eu lobortis elementum. Volutpat est velit egestas dui id
-          ornare arcu. In nisl nisi scelerisque eu ultrices vitae auctor eu
-          augue. Leo urna molestie at elementum eu facilisis. Eu mi bibendum
-          neque egestas congue quisque. Est sit amet facilisis magna etiam
-          tempor. Lorem ipsum dolor sit amet consectetur adipiscing. Mattis
-          molestie a iaculis at erat pellentesque. Sit amet risus nullam eget
-          felis. Leo duis ut diam quam nulla.
-        </p>
+      <section className="features">
+        <span className="background-text">Features</span>
+        <div className="feature-content">
+          <h3>Check Out --</h3>
+          <h1>Our Features</h1>
+          <ul>
+            <li className="card">
+              <div className="card-icon">
+                <MagnifyingGlass />
+              </div>
+
+              <div className="card-text">
+                <h4>Customizability</h4>
+                <p>
+                  Fridge Man allows you to customize your experience with ease.
+                </p>
+              </div>
+            </li>
+            <li className="card">
+              <img />
+              <div className="card-text">
+                <h4>Searchability</h4>
+                <p>
+                  Fridge Man allows you to navigate your stock list with ease.
+                </p>
+              </div>
+            </li>
+            <li className="card">
+              <img />
+              <div className="card-text">
+                <h4>Expiration</h4>
+                <p>
+                  Manage the expiration dates on your stocks to make sure no
+                  food is wasted.
+                </p>
+              </div>
+            </li>
+            <li className="card">
+              <img />
+              <div className="card-text">
+                <h4>Support</h4>
+                <p>
+                  Fridge Man's support team allows you to quickly resolve your
+                  issues.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </div>
   );

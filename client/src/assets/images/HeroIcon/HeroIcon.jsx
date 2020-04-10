@@ -3,7 +3,7 @@ import "./styles.scss";
 
 const HeroIcon = () => {
   return (
-    <div className="hero icon svg">
+    <div className="hero-icon">
       <svg
         id="Layer_1"
         data-name="Layer 1"
