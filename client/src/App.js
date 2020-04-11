@@ -15,7 +15,9 @@ import Locations from "./pages/Locations/Locations";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Dashboard from "./pages/Dashboard/Dashboard";
+//Icons
 import Hamburger from "./assets/images/Hamburger";
+import CloseMenu from "./assets/images/CloseMenu";
 
 const App = () => {
   //State
@@ -115,11 +117,11 @@ const App = () => {
             <div
               className="circle"
               style={{
-                width: navOpen ? "100vw" : "160px",
-                height: navOpen ? "100vh" : "160px",
+                width: navOpen ? "100vw" : "140px",
+                height: navOpen ? "100vh" : "140px",
                 borderRadius: navOpen ? "0" : "100px",
-                top: navOpen ? "0" : "-80px",
-                right: navOpen ? "0" : "-80px",
+                top: navOpen ? "0" : "-70px",
+                right: navOpen ? "0" : "-70px",
               }}
               onClick={navOpen ? closeNavigation : openNavigation}
             >
@@ -129,13 +131,14 @@ const App = () => {
           <nav
             className="mobile-full"
             style={{
+              transitionDelay: navOpen ? ".2s" : "0s",
               opacity: navOpen ? 1 : 0,
               pointerEvents: navOpen ? "auto" : "none",
             }}
           >
             <ul>
               <li>
-                <button onClick={closeNavigation}>Close Menu</button>
+                <CloseMenu closeNavigation={closeNavigation} />
               </li>
               <li>
                 <NavLink

@@ -6,12 +6,18 @@ const Hamburger = ({ navOpen }) => {
     <div className="hamburger" style={{ opacity: navOpen ? "0" : "1" }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="30%"
-        viewBox="0 0 284.35 196.54"
+        width="44"
+        viewBox="0 0 284.35 144.46"
       >
-        <rect class="cls-1" width="284.35" height="36" />
-        <rect class="cls-1" x="38.89" y="80.73" width="206.56" height="36.03" />
-        <rect class="cls-1" x="89.1" y="160.51" width="106.16" height="36.03" />
+        <rect class="cls-1" width="284.35" height="26.46" />
+        <rect class="cls-1" x="34.1" y="59.34" width="216.15" height="26.48" />
+        <rect
+          class="cls-1"
+          x="71.58"
+          y="117.98"
+          width="141.19"
+          height="26.48"
+        />
       </svg>
     </div>
   );
