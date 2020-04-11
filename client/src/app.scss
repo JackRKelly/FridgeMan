@@ -1,8 +1,33 @@
 @import "./assets/variables";
 
-nav.desktop {
+.navigation-background {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background-color: $primary;
+  z-index: 100;
+  .navigation-background-top {
+    width: 100%;
+    height: 1em;
+    background-color: $primary;
+    transition: 0.4s ease-in-out all;
+    @media only screen and (max-width: 1600px) {
+      height: 2em;
+    }
+    @media only screen and (max-width: 1200px) {
+      height: 3em;
+    }
+    @media only screen and (max-width: 1000px) {
+      height: 4em;
+    }
+  }
+  .navigation-curve {
+    fill: #7453ff;
+  }
+}
+
+nav.desktop {
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,12 +37,6 @@ nav.desktop {
     padding: 0;
     list-style: none;
     text-align: center;
-    .left {
-      float: left;
-    }
-    .right {
-      float: right;
-    }
     li {
       margin: 0 20px;
       display: inline-block;
@@ -35,13 +54,22 @@ nav.desktop {
       a {
         display: block;
         letter-spacing: 0.75px;
-        padding: 25px 25px;
+        padding: 25px 25px 25px 55px;
         text-decoration: none;
         color: $secondary;
         font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
         @include bar(16px, 90%, true);
+        div {
+          svg {
+            height: 1em;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
       }
       a.active {
         text-decoration: none;
@@ -67,6 +95,7 @@ nav.mobile {
     border-radius: 100px;
     z-index: 100;
     transition: 0.4s ease-in-out all;
+    cursor: pointer;
     .hamburger {
       svg {
         bottom: 19%;
@@ -87,50 +116,70 @@ nav.mobile-full {
   display: block;
   left: 0;
   transition: 0.3s ease-in-out all;
-  ul {
-    margin: 0;
-    padding: 6em 2em;
-    width: 100%;
+  div.navigation-content {
+    position: relative;
     height: 100%;
-    list-style: none;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    li {
-      margin: 0 20px;
-      display: block;
-      cursor: pointer;
-      font-family: $neutra-bold;
-      font-size: 2em;
-      transition: $bezier-transition;
-      position: relative;
-      &:hover {
-        transform: scale(1.15);
-      }
-      &:first-child::after {
-        content: "";
-      }
-      a {
+    .background-text {
+      font-family: $neutra-bold-italic;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 37em;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -29vw;
+      opacity: 0.07;
+      white-space: nowrap;
+      line-height: 0.8;
+      z-index: 0;
+      transform: rotate(-90deg);
+      z-index: 101;
+      pointer-events: none;
+    }
+    ul {
+      margin: 0;
+      padding: 10em 2em;
+      width: 100%;
+      height: 100%;
+      list-style: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      li {
+        margin: 0 20px;
         display: block;
-        letter-spacing: 0.75px;
-        padding: 25px 25px;
-        text-decoration: none;
-        color: $secondary;
+        cursor: pointer;
         font-family: $neutra-bold;
+        font-size: 2em;
         transition: $bezier-transition;
         position: relative;
-      }
-      a.active {
-        text-decoration: none;
-        color: $secondary;
-        font-family: $neutra-bold;
-        transition: $bezier-transition;
-        position: relative;
-      }
-      .close-menu {
-        width: 3em;
-        display: inline-block;
+        &:hover {
+          transform: scale(1.15);
+        }
+        &:first-child::after {
+          content: "";
+        }
+        a {
+          display: block;
+          letter-spacing: 0.75px;
+          padding: 25px 25px;
+          text-decoration: none;
+          color: $secondary;
+          font-family: $neutra-bold;
+          transition: $bezier-transition;
+          position: relative;
+        }
+        a.active {
+          text-decoration: none;
+          color: $secondary;
+          font-family: $neutra-bold;
+          transition: $bezier-transition;
+          position: relative;
+        }
+        .close-menu {
+          width: 2.5em;
+          display: inline-block;
+        }
       }
     }
   }

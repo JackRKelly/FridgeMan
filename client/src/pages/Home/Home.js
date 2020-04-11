@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./home.scss";
 import { Link } from "react-router-dom";
+//Icons
 import HeroIcon from "../../assets/images/HeroIcon";
 import MagnifyingGlass from "../../assets/images/MagnifyingGlass";
 import Wrench from "../../assets/images/Wrench";
 import QuestionMark from "../../assets/images/QuestionMark";
 import HourGlass from "../../assets/images/HourGlass";
+import EyeIcon from "../../assets/images/EyeIcon";
 
-const Home = () => {
+const Home = ({ isMobile }) => {
   document.title = "FridgeMan - Home";
+
+  const [showPass, setShowPass] = useState(false);
 
   return (
     <div className="home page">
@@ -126,7 +130,7 @@ const Home = () => {
               <div className="signup-input">
                 <label htmlFor="email">Email</label>
                 <input
-                  placeholder="Enter Email Here"
+                  placeholder="example@example.com"
                   type="email"
                   name="email"
                 />
@@ -134,10 +138,15 @@ const Home = () => {
               <div className="signup-input">
                 <label htmlFor="password">Password</label>
                 <input
-                  placeholder="Enter Password Here"
+                  placeholder="Example123"
                   name="password"
-                  type="password"
+                  type={showPass ? "text" : "password"}
                 />
+                {!isMobile ? (
+                  <EyeIcon setShowPass={setShowPass} showPass={showPass} />
+                ) : (
+                  <></>
+                )}
               </div>
             </div>
 

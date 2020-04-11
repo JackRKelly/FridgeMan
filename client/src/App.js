@@ -18,6 +18,10 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 //Icons
 import Hamburger from "./assets/images/Hamburger";
 import CloseMenu from "./assets/images/CloseMenu";
+import DashboardIcon from "./assets/images/Dashboard";
+import LoginIcon from "./assets/images/LogIn";
+import SignupIcon from "./assets/images/Signup";
+import HomeIcon from "./assets/images/Home";
 
 const App = () => {
   //State
@@ -83,34 +87,49 @@ const App = () => {
   return (
     <Router>
       {!isMobile ? (
-        <nav className="desktop">
-          <ul>
-            <div className="left">
+        <>
+          <div className="navigation-background">
+            <div className="navigation-background-top"></div>
+            <svg
+              version="1.1"
+              className="navigation-curve"
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              viewBox="0 0 1920 100"
+            >
+              <path d="M1920,0C1152,100,768,100,0,0L1920,0z" />
+            </svg>
+          </div>
+          <nav className="desktop">
+            <ul>
               <li>
                 <NavLink activeClassName="active" to="/home">
-                  Fridge Man
+                  <HomeIcon />
+                  Home
                 </NavLink>
               </li>
-            </div>
-            <div className="right">
               <li>
                 <NavLink activeClassName="active" to="/login">
+                  <LoginIcon />
                   Login
                 </NavLink>
               </li>
               <li>
                 <NavLink activeClassName="active" to="/signup">
+                  <SignupIcon />
                   Signup
                 </NavLink>
               </li>
               <li>
                 <NavLink activeClassName="active" to="/dashboard">
+                  <DashboardIcon />
                   Dashboard
                 </NavLink>
               </li>
-            </div>
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        </>
       ) : (
         <>
           <nav className="mobile">
@@ -136,47 +155,54 @@ const App = () => {
               pointerEvents: navOpen ? "auto" : "none",
             }}
           >
-            <ul>
-              <li>
-                <CloseMenu closeNavigation={closeNavigation} />
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="active"
-                  to="/home"
-                  onClick={closeNavigation}
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="active"
-                  to="/login"
-                  onClick={closeNavigation}
-                >
-                  Login
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="active"
-                  to="/signup"
-                  onClick={closeNavigation}
-                >
-                  Signup
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  activeClassName="active"
-                  to="/dashboard"
-                  onClick={closeNavigation}
-                >
-                  Dashboard
-                </NavLink>
-              </li>
-            </ul>
+            <div className="navigation-content">
+              <span className="background-text">Navigation</span>
+              <ul>
+                <li>
+                  <CloseMenu closeNavigation={closeNavigation} />
+                </li>
+                <li>
+                  <NavLink
+                    activeClassName="active"
+                    to="/home"
+                    onClick={closeNavigation}
+                  >
+                    <HomeIcon />
+                    Home
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    activeClassName="active"
+                    to="/login"
+                    onClick={closeNavigation}
+                  >
+                    <LoginIcon />
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    activeClassName="active"
+                    to="/signup"
+                    onClick={closeNavigation}
+                  >
+                    <SignupIcon />
+                    Signup
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    activeClassName="active"
+                    to="/dashboard"
+                    onClick={closeNavigation}
+                  >
+                    <DashboardIcon />
+                    Dashboard
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
           </nav>
         </>
       )}
@@ -187,26 +213,26 @@ const App = () => {
             <CSSTransition key={location.key} timeout={300} classNames="fade">
               <Switch location={location}>
                 <Route path="/signup">
-                  {isLoading ? (
+                  {/* {isLoading ? (
                     <div className="loading page">
                       <h1 className="loading">Loading...</h1>
                     </div>
-                  ) : !isAuthenticated ? (
-                    <Signup />
-                  ) : (
+                  ) : !isAuthenticated ? ( */}
+                  <Signup />
+                  {/* ) : (
                     <Redirect to="/home" />
-                  )}
+                  )} */}
                 </Route>
                 <Route path="/login">
-                  {isLoading ? (
+                  {/* {isLoading ? (
                     <div className="loading page">
                       <h1 className="loading">Loading...</h1>
                     </div>
-                  ) : !isAuthenticated ? (
-                    <Login />
-                  ) : (
+                  ) : !isAuthenticated ? ( */}
+                  <Login />
+                  {/* ) : (
                     <Redirect to="/home" />
-                  )}
+                  )} */}
                 </Route>
                 <Route path="/locations">
                   {isLoading ? (
@@ -246,7 +272,7 @@ const App = () => {
                   )}
                 </Route>
                 <Route path="/home">
-                  <Home />
+                  <Home isMobile={isMobile} />
                 </Route>
                 <Route path="/">
                   <Redirect to="/home" />

@@ -10,7 +10,7 @@ const CloseMenu = ({ closeNavigation }) => {
         viewBox="0 0 243.2 243.2"
       >
         <polygon
-          class="cls-1"
+          className="cls-1"
           points="243.2 29.7 213.5 0 121.6 91.9 29.7 0 0 29.7 91.9 121.6 0 213.5 29.7 243.2 121.6 151.3 213.5 243.2 243.2 213.5 151.3 121.6 243.2 29.7"
         />
       </svg>
