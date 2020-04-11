@@ -14,7 +14,7 @@
     @media only screen and (max-width: 1600px) {
       height: 2em;
     }
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1300px) {
       height: 3em;
     }
     @media only screen and (max-width: 1000px) {
@@ -52,6 +52,10 @@ nav.desktop {
         content: "";
       }
       a {
+        &::selection {
+          background-color: $secondary;
+          color: $primary;
+        }
         display: block;
         letter-spacing: 0.75px;
         padding: 25px 25px 25px 55px;
@@ -137,7 +141,7 @@ nav.mobile-full {
     }
     ul {
       margin: 0;
-      padding: 10em 2em;
+      padding: 7em 2em;
       width: 100%;
       height: 100%;
       list-style: none;
@@ -160,14 +164,23 @@ nav.mobile-full {
           content: "";
         }
         a {
-          display: block;
+          display: inline-block;
           letter-spacing: 0.75px;
-          padding: 25px 25px;
+          padding: 25px 25px 25px 60px;
           text-decoration: none;
           color: $secondary;
           font-family: $neutra-bold;
           transition: $bezier-transition;
           position: relative;
+          div {
+            svg {
+              height: 1em;
+              position: absolute;
+              left: 0px;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+          }
         }
         a.active {
           text-decoration: none;

@@ -8,11 +8,53 @@ import Wrench from "../../assets/images/Wrench";
 import QuestionMark from "../../assets/images/QuestionMark";
 import HourGlass from "../../assets/images/HourGlass";
 import EyeIcon from "../../assets/images/EyeIcon";
+import CheckMark from "../../assets/images/CheckMark";
+import XMark from "../../assets/images/XMark";
 
 const Home = ({ isMobile }) => {
   document.title = "FridgeMan - Home";
 
   const [showPass, setShowPass] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkPassword, setCheckPassword] = useState({
+    charCount: false,
+    upperCase: false,
+    lowerCase: false,
+    number: false,
+  });
+
+  const uppercaseCheck = RegExp("(?=.*[A-Z])");
+  const numberCheck = RegExp("(?=.*[0-9])");
+  const lowercaseCheck = RegExp("(?=.*[a-z])");
+
+  const verifyPassword = (pass) => {
+    setCheckPassword({
+      charCount: pass.length > 8,
+      upperCase: uppercaseCheck.test(pass),
+      lowerCase: lowercaseCheck.test(pass),
+      number: numberCheck.test(pass),
+    });
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    const body = { email, password };
+    await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        if (response.redirected) {
+          window.location.href = response.url;
+        }
+        return response.json();
+      })
+      .catch((err) => {
+        //setErrorMessage(err);
+      });
+  };
 
   return (
     <div className="home page">
@@ -125,7 +167,12 @@ const Home = ({ isMobile }) => {
         <div className="signup-content">
           <h3>Signup Form</h3>
           <h1>Join Us</h1>
-          <form className="signup-form">
+          <form
+            className="signup-form"
+            onSubmit={(e) => {
+              handleSignup(e);
+            }}
+          >
             <div className="input-container">
               <div className="signup-input">
                 <label htmlFor="email">Email</label>
@@ -133,6 +180,11 @@ const Home = ({ isMobile }) => {
                   placeholder="example@example.com"
                   type="email"
                   name="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  required
                 />
               </div>
               <div className="signup-input">
@@ -141,6 +193,12 @@ const Home = ({ isMobile }) => {
                   placeholder="Example123"
                   name="password"
                   type={showPass ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => {
+                    verifyPassword(e.target.value);
+                    setPassword(e.target.value);
+                  }}
+                  required
                 />
                 {!isMobile ? (
                   <EyeIcon setShowPass={setShowPass} showPass={showPass} />
@@ -153,10 +211,26 @@ const Home = ({ isMobile }) => {
             <div className="requirements">
               <h5>Password Requirements:</h5>
               <ul>
-                <li>At least 8 characters</li>
-                <li>At least 1 uppercase letter</li>
-                <li>At least 1 lowercase letter</li>
-                <li>At least 1 number</li>
+                <li>
+                  <CheckMark value={checkPassword.charCount} />
+                  <XMark value={checkPassword.charCount} />
+                  At least 8 characters
+                </li>
+                <li>
+                  <CheckMark value={checkPassword.upperCase} />
+                  <XMark value={checkPassword.upperCase} />
+                  At least 1 uppercase letter
+                </li>
+                <li>
+                  <CheckMark value={checkPassword.lowerCase} />
+                  <XMark value={checkPassword.lowerCase} />
+                  At least 1 lowercase letter
+                </li>
+                <li>
+                  <CheckMark value={checkPassword.number} />
+                  <XMark value={checkPassword.number} />
+                  At least 1 number
+                </li>
               </ul>
             </div>
             <div className="button-container">
@@ -165,6 +239,20 @@ const Home = ({ isMobile }) => {
           </form>
         </div>
       </section>
+      <div className="footer-seperator">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          viewBox="0 0 1920 100"
+        >
+          <path d="M1920,0C1152,100,768,100,0,0L1920,0z" />
+        </svg>
+      </div>
+      <footer className="home-footer">
+        <span className="background-text">Fridge Man</span>
+        <div className="footer-content"></div>
+      </footer>
     </div>
   );
 };

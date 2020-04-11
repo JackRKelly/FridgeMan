@@ -22,6 +22,8 @@
       white-space: nowrap;
       line-height: 0.8;
       z-index: 0;
+      user-select: none;
+      transition: 0.4s ease-in-out all;
       @media only screen and (min-width: 1500px) {
         top: 3vw;
         left: 4vw;
@@ -58,6 +60,7 @@
         }
         &-content {
           text-align: left;
+
           h3 {
             margin: 0;
             display: block;
@@ -66,6 +69,10 @@
             font-size: 2em;
             text-transform: uppercase;
             transition: $bezier-transition;
+            &::selection {
+              background-color: $secondary;
+              color: $primary;
+            }
             @media only screen and (max-width: 1600px) {
               font-size: 1.65em;
             }
@@ -82,6 +89,10 @@
             color: $secondary;
             font: 6.5em $neutra-bold;
             transition: $bezier-transition;
+            &::selection {
+              background-color: $secondary;
+              color: $primary;
+            }
             @media only screen and (max-width: 1600px) {
               font-size: 5.5em;
             }
@@ -99,12 +110,21 @@
             display: block;
             line-height: 1.5;
             transition: $bezier-transition;
-
+            &::selection {
+              background-color: $secondary;
+              color: $primary;
+            }
             @media only screen and (max-width: 1600px) {
               font-size: 1.65em;
             }
+            @media (max-width: 1600px) and (min-width: 1400px) {
+              max-width: 80%;
+            }
             @media only screen and (max-width: 1200px) {
               font-size: 1.3em;
+            }
+            @media (max-width: 1200px) and (min-width: 1000px) {
+              max-width: 80%;
             }
             @media only screen and (max-width: 850px) {
               max-width: 58%;
@@ -168,6 +188,7 @@
   }
 
   .section-divider {
+    transform: translateY(-1px);
     .separator.circle path {
       fill: $primary;
       width: 100%;
@@ -194,6 +215,8 @@
       white-space: nowrap;
       line-height: 0.8;
       z-index: -1;
+      user-select: none;
+      transition: 0.4s ease-in-out all;
       @media only screen and (min-width: 1500px) {
         top: -2vw;
         left: 3vw;
@@ -264,7 +287,7 @@
           background-color: white;
           flex: 1 1 0px;
           flex-basis: auto;
-          box-shadow: 0 0 25px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0 25px #7453ff25;
           padding: 2em;
           margin-bottom: 3em;
           max-width: 47%;
@@ -386,6 +409,8 @@
       white-space: nowrap;
       line-height: 0.8;
       z-index: -1;
+      user-select: none;
+      transition: 0.4s ease-in-out all;
       @media only screen and (min-width: 1500px) {
         top: -2vw;
         left: 3vw;
@@ -484,6 +509,8 @@
       white-space: nowrap;
       line-height: 0.8;
       z-index: -1;
+      user-select: none;
+      transition: 0.4s ease-in-out all;
       @media only screen and (min-width: 1500px) {
         top: -2vw;
         left: 3vw;
@@ -564,13 +591,13 @@
         background-color: $secondary;
         padding: 3em 6em;
         border-radius: 7.5px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px #7453ff25;
         margin-top: 0.75em;
         @media only screen and (max-width: 1400px) {
           padding: 2em 4em;
         }
         @media only screen and (max-width: 800px) {
-          padding: 1em 2em;
+          padding: 1em 1.75em;
         }
         .input-container {
           display: flex;
@@ -653,18 +680,23 @@
               display: inline;
               font-size: 1.25em;
               position: relative;
-              padding: 5px 0 5px 20px;
+              padding: 5px 0 5px 27px;
               @media only screen and (min-width: 1500px) {
                 font-size: 1.5em;
               }
-              &:before {
-                content: "";
-                width: 12.5px;
-                height: 2px;
-                background-color: $primary;
-                position: absolute;
-                left: 0px;
-                bottom: 45%;
+              @media only screen and (max-width: 800px) {
+                padding: 7px 0 7px 27px;
+              }
+              div {
+                transition: 0.3s ease-in-out all;
+                svg {
+                  height: 1em;
+                  position: absolute;
+                  left: -4px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  transition: 0.3s ease-in-out all;
+                }
               }
             }
           }
@@ -694,6 +726,51 @@
             }
           }
         }
+      }
+    }
+  }
+  .footer-seperator {
+    transform: rotate(180deg) translateY(-1px);
+    svg {
+      path {
+        fill: $primary;
+        width: 100%;
+        stroke: $primary;
+      }
+    }
+  }
+  footer.home-footer {
+    overflow: hidden;
+    background-color: $primary;
+    padding: 20em 0;
+    position: relative;
+    .background-text {
+      font-family: $neutra-bold-italic;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 37em;
+      position: absolute;
+      top: 2vw;
+      left: -5vw;
+      opacity: 0.07;
+      white-space: nowrap;
+      line-height: 0.8;
+      z-index: 0;
+      user-select: none;
+      transition: 0.4s ease-in-out all;
+      @media only screen and (min-width: 1500px) {
+        top: 3vw;
+        left: 4vw;
+      }
+      @media only screen and (max-width: 850px) {
+        font-size: 25em;
+        top: 1vw;
+      }
+    }
+    footer.content {
+      width: 80%;
+      margin: auto;
+      @media only screen and (max-width: 1500px) {
+        width: 90%;
       }
     }
   }

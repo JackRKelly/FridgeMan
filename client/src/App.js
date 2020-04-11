@@ -30,7 +30,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
-  const [navOpen, setNavOpen] = useState("");
+  const [navOpen, setNavOpen] = useState(false);
 
   //Component Functions
   const openNavigation = () => {

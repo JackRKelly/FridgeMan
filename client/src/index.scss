@@ -41,6 +41,23 @@ h1.loading {
     font-size: 2em;
   }
 }
+::selection {
+  background-color: $primary;
+  color: $secondary;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  transition: 0.3s ease-in-out all;
+}
 
 .page {
   position: absolute;
