@@ -74,6 +74,16 @@ const App = () => {
       });
     });
   };
+  const LoadingPage = () => (
+    <div className="loading page">
+      <section className="loading">
+        <span className="background-text">Loading...</span>
+        <div className="loading-content">
+          <h1>Loading...</h1>
+        </div>
+      </section>
+    </div>
+  );
 
   //Listeners
   useEffect(() => {
@@ -218,7 +228,7 @@ const App = () => {
                       <h1 className="loading">Loading...</h1>
                     </div>
                   ) : !isAuthenticated ? ( */}
-                  <Signup />
+                  <Signup isMobile={isMobile} />
                   {/* ) : (
                     <Redirect to="/home" />
                   )} */}
@@ -229,16 +239,14 @@ const App = () => {
                       <h1 className="loading">Loading...</h1>
                     </div>
                   ) : !isAuthenticated ? ( */}
-                  <Login />
+                  <Login isMobile={isMobile} />
                   {/* ) : (
                     <Redirect to="/home" />
                   )} */}
                 </Route>
                 <Route path="/locations">
                   {isLoading ? (
-                    <div className="loading page">
-                      <h1 className="loading">Loading...</h1>
-                    </div>
+                    <LoadingPage />
                   ) : isAuthenticated ? (
                     <Locations
                       locationList={locationList}
@@ -251,9 +259,7 @@ const App = () => {
                 </Route>
                 <Route path="/stocks">
                   {isLoading ? (
-                    <div className="loading page">
-                      <h1 className="loading">Loading...</h1>
-                    </div>
+                    <LoadingPage />
                   ) : isAuthenticated ? (
                     <Stocks locationList={locationList} isMobile={isMobile} />
                   ) : (
@@ -262,9 +268,7 @@ const App = () => {
                 </Route>
                 <Route path="/dashboard">
                   {isLoading ? (
-                    <div className="loading page">
-                      <h1 className="loading">Loading...</h1>
-                    </div>
+                    <LoadingPage />
                   ) : isAuthenticated ? (
                     <Dashboard email={email} />
                   ) : (

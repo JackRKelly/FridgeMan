@@ -1,112 +1,367 @@
 @import "../../assets/variables";
 
-form.signup {
-  width: 50%;
-  display: block;
-  margin: auto;
-  h1 {
-    margin: 25px 0 10px;
-    display: block;
-    text-align: center;
-    color: $darkpurple;
-    font-family: $neutra-bold;
-  }
-  .error {
-    text-align: center;
-    p.error-message {
-      background-color: $pink;
-      padding: 10px;
-      font-size: 18px;
-      margin: 5px;
-      color: $darkpurple;
-    }
-  }
-  @media only screen and (max-width: 1000px) {
-    width: 75%;
-  }
-  @media only screen and (max-width: 600px) {
-    width: 90%;
-  }
-  .signup-input {
-    margin: 15px 0;
-    min-width: 200px;
-    flex: 1;
+.signup.page {
+  height: 100vh;
+  overflow: hidden;
+  section.signup {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 6em 2em 5em 2em;
+    margin-top: calc(3em + 5%);
     transition: $bezier-transition;
-    label {
-      font-size: 14px;
-      width: 100%;
-      display: block;
-      font-family: $neutra-bold;
-      color: $bluepurple;
-      text-transform: uppercase;
+    @media only screen and (max-width: 850px) {
+      padding: 6em 1em 2.5em 1em;
     }
-    input,
-    select {
-      border: none;
-      font-size: 24px;
-      width: 100%;
-      color: $darkpurple;
-      border-bottom: 2px solid $bluepurple;
-      font-family: $neutra;
-      padding: 3px 0 7px 0;
-      -webkit-appearance: none;
-      border-radius: 0;
-      &::placeholder {
-        color: $darkpurple;
+    .background-text {
+      cursor: default;
+      font-family: $neutra-bold-italic;
+      color: #f8f7ff;
+      font-size: 100vh;
+      position: absolute;
+      top: -3vw;
+      left: -5vw;
+      white-space: nowrap;
+      line-height: 0.8;
+      z-index: -1;
+      user-select: none;
+      transition: 0.4s ease-in-out all;
+      @media only screen and (min-width: 1500px) {
+        top: -2vw;
+        left: 3vw;
+        font-size: 40em;
+      }
+      @media only screen and (max-width: 800px) {
+        font-size: 25em;
+        left: 0;
+        right: 0;
+        bottom: 5vh;
+        top: unset;
+        transform: rotate(-90deg);
       }
     }
-    &:hover {
-      transform: scale(1.025);
-    }
-  }
-  .password-requirements {
-    h3 {
-      font-family: $neutra-bold;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      li {
-        width: 50%;
-        transition: 0.2s all ease-in-out;
-        font-size: 20px;
+    .signup-content {
+      width: 80%;
+      margin: auto;
+      @media only screen and (max-width: 1500px) {
+        width: 90%;
+      }
+      h3 {
+        margin: 0;
         display: inline-block;
-        cursor: default;
-        transform-origin: 50% 50%;
+        color: $lightprimary;
+        font-family: $neutra-bold;
+        font-size: 2em;
+        text-transform: uppercase;
         transition: $bezier-transition;
-        @media only screen and (max-width: 650px) {
-          width: 90%;
+        position: relative;
+        @media only screen and (max-width: 1600px) {
+          font-size: 1.65em;
         }
-        &:hover {
-          transform: scale(1.05);
+        @media only screen and (max-width: 1200px) {
+          font-size: 1.25em;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 3px;
+          background-color: $lightprimary;
+          right: -50px;
+          bottom: 45%;
         }
       }
-    }
-  }
+      h1 {
+        margin: 0;
+        display: block;
+        color: $primary;
+        font: 6.5em $neutra-bold;
+        transition: $bezier-transition;
+        @media only screen and (max-width: 1600px) {
+          font-size: 5.5em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 4em;
+        }
+        @media only screen and (max-width: 800px) {
+          font-size: 3em;
+        }
+      }
+      p {
+        margin: 0.3em 0;
+        color: #877bff;
+        font: 2.25em $neutra;
+        display: block;
+        line-height: 1.5;
+        transition: $bezier-transition;
 
-  .btn-container {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-    button {
-      margin: 15px 30px 10px;
-      border: none;
-      padding: 7.5px 50px;
-      font-size: 22px;
-      border-radius: 100px;
-      font-family: $neutra-bold;
-      color: $bluepurple;
-      cursor: pointer;
-      transition: $bezier-transition;
-      @media only screen and (max-width: 1000px) {
-        margin: 15px 10px 10px;
+        @media only screen and (max-width: 1600px) {
+          font-size: 1.65em;
+        }
+        @media only screen and (max-width: 1200px) {
+          font-size: 1.3em;
+        }
+        @media only screen and (max-width: 850px) {
+          font: 1.3em $neutra;
+          line-height: 1.5;
+          margin: 0.4em 0;
+        }
       }
-      @media only screen and (max-width: 600px) {
-        margin: 15px 5px 10px;
-      }
-      &:hover {
-        transform: scale(1.1);
+      form.signup-form {
+        background-color: $secondary;
+        padding: 3em 6em;
+        border-radius: 7.5px;
+        box-shadow: 0px 0px 25px rgba(116, 83, 255, 0.1);
+        margin-top: 0.75em;
+        @media only screen and (max-width: 1400px) {
+          padding: 2em 4em;
+        }
+        @media only screen and (max-width: 800px) {
+          padding: 1em 1.75em;
+        }
+        .input-container {
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          .signup-input {
+            padding: 1em 0;
+            width: 46%;
+            position: relative;
+            @media only screen and (max-width: 800px) {
+              width: 100%;
+            }
+            transition: $bezier-transition;
+            &:hover {
+              transform: scale(1.05);
+            }
+            .eye-icon {
+              position: absolute;
+              bottom: 24px;
+              right: 11px;
+              width: 32px;
+              cursor: pointer;
+            }
+            label {
+              font-size: 1.1em;
+              width: 100%;
+              display: block;
+              font-family: $neutra-bold;
+              color: $primary;
+              text-transform: uppercase;
+              @media only screen and (min-width: 1500px) {
+                font-size: 1.5em;
+              }
+            }
+            input {
+              border: none;
+              font-size: 1.5em;
+              width: 100%;
+              color: $medprimary;
+              border-bottom: 2px solid $primary;
+              font-family: $neutra;
+              padding: 3px 0 7px 0;
+              -webkit-appearance: none;
+              border-radius: 0;
+              &::placeholder {
+                font: 1em $neutra;
+                color: $medprimary;
+              }
+              &::-ms-input-placeholder {
+                font: 1em $neutra;
+                color: $medprimary;
+              }
+              @media only screen and (min-width: 1500px) {
+                font-size: 2.25em;
+              }
+            }
+          }
+        }
+        .requirements {
+          h5 {
+            margin: 10px 0 0;
+            font-size: 1.25em;
+            width: 100%;
+            display: block;
+            font-family: $neutra-bold;
+            color: $primary;
+            text-transform: uppercase;
+            @media only screen and (min-width: 1500px) {
+              font-size: 1.5em;
+            }
+          }
+          ul {
+            padding: 0;
+            margin: 0.5em;
+            color: $primary;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            @media only screen and (max-width: 600px) {
+              padding: 0.25em;
+              margin: 0;
+              justify-content: left;
+            }
+            li {
+              display: inline;
+              font-size: 1.25em;
+              position: relative;
+              padding: 5px 0 5px 35px;
+              @media only screen and (min-width: 1500px) {
+                font-size: 1.5em;
+                padding: 5px 0 5px 45px;
+              }
+              div {
+                transition: 0.3s ease-in-out all;
+                svg {
+                  height: 1em;
+                  position: absolute;
+                  left: 10px;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  transition: 0.3s ease-in-out all;
+                }
+              }
+            }
+          }
+        }
+        .button-container {
+          text-align: center;
+          padding: 1.5em 0 1em;
+          button {
+            user-select: none;
+            cursor: pointer;
+            font: 1.5em $neutra-bold;
+            padding: 0.35em 2em;
+            border: none;
+            border-radius: 30px;
+            background-color: $primary;
+            color: $secondary;
+            transition: $bezier-transition;
+            text-transform: uppercase;
+            &:hover {
+              transform: scale(1.1);
+            }
+            @media only screen and (min-width: 1000px) {
+              font-size: 1.75em;
+            }
+            @media only screen and (min-width: 1500px) {
+              font-size: 2.25em;
+            }
+          }
+        }
       }
     }
   }
 }
+
+// form.signup {
+//   width: 50%;
+//   display: block;
+//   margin: auto;
+//   h1 {
+//     margin: 25px 0 10px;
+//     display: block;
+//     text-align: center;
+//     color: $darkpurple;
+//     font-family: $neutra-bold;
+//   }
+//   .error {
+//     text-align: center;
+//     p.error-message {
+//       background-color: $pink;
+//       padding: 10px;
+//       font-size: 18px;
+//       margin: 5px;
+//       color: $darkpurple;
+//     }
+//   }
+//   @media only screen and (max-width: 1000px) {
+//     width: 75%;
+//   }
+//   @media only screen and (max-width: 600px) {
+//     width: 90%;
+//   }
+//   .signup-input {
+//     margin: 15px 0;
+//     min-width: 200px;
+//     flex: 1;
+//     transition: $bezier-transition;
+//     label {
+//       font-size: 14px;
+//       width: 100%;
+//       display: block;
+//       font-family: $neutra-bold;
+//       color: $bluepurple;
+//       text-transform: uppercase;
+//     }
+//     input,
+//     select {
+//       border: none;
+//       font-size: 24px;
+//       width: 100%;
+//       color: $darkpurple;
+//       border-bottom: 2px solid $bluepurple;
+//       font-family: $neutra;
+//       padding: 3px 0 7px 0;
+//       -webkit-appearance: none;
+//       border-radius: 0;
+//       &::placeholder {
+//         color: $darkpurple;
+//       }
+//     }
+//     &:hover {
+//       transform: scale(1.025);
+//     }
+//   }
+//   .password-requirements {
+//     h3 {
+//       font-family: $neutra-bold;
+//     }
+//     ul {
+//       list-style: none;
+//       padding: 0;
+//       li {
+//         width: 50%;
+//         transition: 0.2s all ease-in-out;
+//         font-size: 20px;
+//         display: inline-block;
+//         cursor: default;
+//         transform-origin: 50% 50%;
+//         transition: $bezier-transition;
+//         @media only screen and (max-width: 650px) {
+//           width: 90%;
+//         }
+//         &:hover {
+//           transform: scale(1.05);
+//         }
+//       }
+//     }
+//   }
+
+//   .btn-container {
+//     flex-basis: 100%;
+//     display: flex;
+//     justify-content: center;
+//     button {
+//       margin: 15px 30px 10px;
+//       border: none;
+//       padding: 7.5px 50px;
+//       font-size: 22px;
+//       border-radius: 100px;
+//       font-family: $neutra-bold;
+//       color: $bluepurple;
+//       cursor: pointer;
+//       transition: $bezier-transition;
+//       @media only screen and (max-width: 1000px) {
+//         margin: 15px 10px 10px;
+//       }
+//       @media only screen and (max-width: 600px) {
+//         margin: 15px 5px 10px;
+//       }
+//       &:hover {
+//         transform: scale(1.1);
+//       }
+//     }
+//   }
+// }

@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./signup.scss";
+//Icons
+import EyeIcon from "../../assets/images/EyeIcon";
+import CheckMark from "../../assets/images/CheckMark";
+import XMark from "../../assets/images/XMark";
 
-const Signup = () => {
+const Signup = ({ isMobile }) => {
   document.title = "FridgeMan - Signup";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [showPass, setShowPass] = useState(false);
   const [checkPassword, setCheckPassword] = useState({
     charCount: false,
     upperCase: false,
@@ -42,80 +46,89 @@ const Signup = () => {
         return response.json();
       })
       .catch((err) => {
-        setErrorMessage(err);
+        //setErrorMessage(err);
       });
   };
 
   return (
     <div className="signup page">
-      <form
-        onSubmit={(e) => {
-          handleSignup(e);
-        }}
-        className="signup"
-      >
-        <h1>Signup</h1>
-        <div className="error">
-          <p
-            className="error-message"
-            style={{ display: errorMessage ? "inline-block" : "none" }}
+      <section className="signup">
+        <span className="background-text">Signup</span>
+        <div className="signup-content">
+          <h3>Signup Form</h3>
+          <h1>Signup</h1>
+          <form
+            className="signup-form"
+            onSubmit={(e) => {
+              handleSignup(e);
+            }}
           >
-            {errorMessage}
-          </p>
-        </div>
+            <div className="input-container">
+              <div className="signup-input">
+                <label htmlFor="email">Email</label>
+                <input
+                  placeholder="example@example.com"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  required
+                />
+              </div>
+              <div className="signup-input">
+                <label htmlFor="password">Password</label>
+                <input
+                  placeholder="Example123"
+                  name="password"
+                  type={showPass ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => {
+                    verifyPassword(e.target.value);
+                    setPassword(e.target.value);
+                  }}
+                  required
+                />
+                {!isMobile ? (
+                  <EyeIcon setShowPass={setShowPass} showPass={showPass} />
+                ) : (
+                  <></>
+                )}
+              </div>
+            </div>
 
-        <div className="signup-input">
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            required
-          />
+            <div className="requirements">
+              <h5>Password Requirements:</h5>
+              <ul>
+                <li>
+                  <CheckMark value={checkPassword.charCount} />
+                  <XMark value={checkPassword.charCount} />
+                  At least 8 characters
+                </li>
+                <li>
+                  <CheckMark value={checkPassword.upperCase} />
+                  <XMark value={checkPassword.upperCase} />
+                  At least 1 uppercase letter
+                </li>
+                <li>
+                  <CheckMark value={checkPassword.lowerCase} />
+                  <XMark value={checkPassword.lowerCase} />
+                  At least 1 lowercase letter
+                </li>
+                <li>
+                  <CheckMark value={checkPassword.number} />
+                  <XMark value={checkPassword.number} />
+                  At least 1 number
+                </li>
+              </ul>
+            </div>
+            <div className="button-container">
+              <button type="signup">Signup</button>
+            </div>
+          </form>
         </div>
-        <div className="signup-input">
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => {
-              verifyPassword(e.target.value);
-              setPassword(e.target.value);
-            }}
-            required
-          />
-        </div>
-        <div className="password-requirements">
-          <h3>Password Requirements:</h3>
-          <ul>
-            <li
-              style={{ color: checkPassword.charCount ? "green" : "#ff477b" }}
-            >
-              - More Than 8 Characters
-            </li>
-            <li style={{ color: checkPassword.number ? "green" : "#ff477b" }}>
-              - At Least 1 Number
-            </li>
-            <li
-              style={{ color: checkPassword.upperCase ? "green" : "#ff477b" }}
-            >
-              - At Least 1 Capitol Letter
-            </li>
-            <li
-              style={{ color: checkPassword.lowerCase ? "green" : "#ff477b" }}
-            >
-              - At Least 1 Lowercase Letter
-            </li>
-          </ul>
-        </div>
-        <div className="btn-container">
-          <button>Signup</button>
-        </div>
-      </form>
+      </section>
     </div>
   );
 };

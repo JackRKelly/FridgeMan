@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.scss";
+//Icons
+import EyeIcon from "../../assets/images/EyeIcon";
 
-const Login = () => {
+const Login = ({ isMobile }) => {
   document.title = "FridgeMan - Login";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [showPass, setShowPass] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,60 +28,120 @@ const Login = () => {
       })
       .then((data) => {
         if (data) {
-          setErrorMessage(data.error);
+          //setErrorMessage(data.error);
         }
       });
   };
 
   return (
     <div className="login page">
-      <form
-        onSubmit={(e) => {
-          handleLogin(e);
-        }}
-        className="login"
-      >
-        <div className="error">
-          <p
-            className="error-message"
-            style={{ display: errorMessage ? "inline-block" : "none" }}
+      <section className="login">
+        <span className="background-text">Login</span>
+        <div className="login-content">
+          <h3>Login Form</h3>
+          <h1>Login</h1>
+          <form
+            className="login-form"
+            onSubmit={(e) => {
+              handleLogin(e);
+            }}
           >
-            {errorMessage}
-          </p>
+            <div className="input-container">
+              <div className="login-input">
+                <label htmlFor="email">Email</label>
+                <input
+                  placeholder="example@example.com"
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  required
+                />
+              </div>
+              <div className="login-input">
+                <label htmlFor="password">Password</label>
+                <input
+                  placeholder="Example123"
+                  name="password"
+                  type={showPass ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  required
+                />
+                {!isMobile ? (
+                  <EyeIcon setShowPass={setShowPass} showPass={showPass} />
+                ) : (
+                  <></>
+                )}
+              </div>
+            </div>
+
+            <div className="no-login">
+              <p>
+                No Login? <Link to="signup">Signup</Link>
+              </p>
+            </div>
+
+            <div className="button-container">
+              <button type="login">login</button>
+            </div>
+          </form>
         </div>
-        <h1>Login</h1>
-        <div className="login-input">
-          <label htmlFor="email">Email</label>
-          <input
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            required
-          />
-        </div>
-        <div className="login-input">
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            required
-          />
-        </div>
-        <p className="no-login">
-          No login? <Link to="/signup">Signup</Link>.
-        </p>
-        <div className="btn-container">
-          <button>Login</button>
-        </div>
-      </form>
+      </section>
     </div>
+
+    // <div className="login page">
+    //   <form
+    //     onSubmit={(e) => {
+    //       handleLogin(e);
+    //     }}
+    //     className="login"
+    //   >
+    //     <div className="error">
+    //       <p
+    //         className="error-message"
+    //         style={{ display: errorMessage ? "inline-block" : "none" }}
+    //       >
+    //         {errorMessage}
+    //       </p>
+    //     </div>
+    //     <h1>Login</h1>
+    //     <div className="login-input">
+    //       <label htmlFor="email">Email</label>
+    //       <input
+    //         name="email"
+    //         type="email"
+    //         value={email}
+    //         onChange={(e) => {
+    //           setEmail(e.target.value);
+    //         }}
+    //         required
+    //       />
+    //     </div>
+    //     <div className="login-input">
+    //       <label htmlFor="password">Password</label>
+    //       <input
+    //         name="password"
+    //         type="password"
+    //         value={password}
+    //         onChange={(e) => {
+    //           setPassword(e.target.value);
+    //         }}
+    //         required
+    //       />
+    //     </div>
+    //     <p className="no-login">
+    //       No login? <Link to="/login">login</Link>.
+    //     </p>
+    //     <div className="btn-container">
+    //       <button>Login</button>
+    //     </div>
+    //   </form>
+    // </div>
   );
 };
 
