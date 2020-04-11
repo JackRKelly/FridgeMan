@@ -15,6 +15,7 @@ import Locations from "./pages/Locations/Locations";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Hamburger from "./assets/images/Hamburger";
 
 const App = () => {
   //State
@@ -23,21 +24,20 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
-  const [navColor, setNavColor] = useState("transparent");
+  const [navOpen, setNavOpen] = useState("");
 
   //Component Functions
+  const openNavigation = () => {
+    setNavOpen(true);
+  };
+  const closeNavigation = () => {
+    setNavOpen(false);
+  };
   const checkMobile = () => {
     if (window.innerWidth <= 800) {
       setIsMobile(true);
     } else {
       setIsMobile(false);
-    }
-  };
-  const checkScroll = () => {
-    if (window.scrollY > 400) {
-      setNavColor("#7453ff");
-    } else {
-      setNavColor("#7453ff60");
     }
   };
   const getLocations = async () => {
@@ -74,61 +74,110 @@ const App = () => {
     getLocations();
     checkMobile();
     authenticateUser();
-    checkScroll();
   }, []);
 
-  window.addEventListener("scroll", checkScroll);
   window.addEventListener("resize", checkMobile);
 
   return (
     <Router>
-      <nav style={{ backgroundColor: navColor }}>
-        <ul>
-          <div className="left">
-            <li>
-              <NavLink activeClassName="active" to="/home">
-                Fridge Man
-              </NavLink>
-            </li>
-          </div>
+      {!isMobile ? (
+        <nav className="desktop">
+          <ul>
+            <div className="left">
+              <li>
+                <NavLink activeClassName="active" to="/home">
+                  Fridge Man
+                </NavLink>
+              </li>
+            </div>
+            <div className="right">
+              <li>
+                <NavLink activeClassName="active" to="/login">
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink activeClassName="active" to="/signup">
+                  Signup
+                </NavLink>
+              </li>
+              <li>
+                <NavLink activeClassName="active" to="/dashboard">
+                  Dashboard
+                </NavLink>
+              </li>
+            </div>
+          </ul>
+        </nav>
+      ) : (
+        <>
+          <nav className="mobile">
+            <div
+              className="circle"
+              style={{
+                width: navOpen ? "100vw" : "160px",
+                height: navOpen ? "100vh" : "160px",
+                borderRadius: navOpen ? "0" : "100px",
+                top: navOpen ? "0" : "-80px",
+                right: navOpen ? "0" : "-80px",
+              }}
+              onClick={navOpen ? closeNavigation : openNavigation}
+            >
+              <Hamburger navOpen={navOpen}></Hamburger>
+            </div>
+          </nav>
+          <nav
+            className="mobile-full"
+            style={{
+              opacity: navOpen ? 1 : 0,
+              pointerEvents: navOpen ? "auto" : "none",
+            }}
+          >
+            <ul>
+              <li>
+                <button onClick={closeNavigation}>Close Menu</button>
+              </li>
+              <li>
+                <NavLink
+                  activeClassName="active"
+                  to="/home"
+                  onClick={closeNavigation}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  activeClassName="active"
+                  to="/login"
+                  onClick={closeNavigation}
+                >
+                  Login
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  activeClassName="active"
+                  to="/signup"
+                  onClick={closeNavigation}
+                >
+                  Signup
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  activeClassName="active"
+                  to="/dashboard"
+                  onClick={closeNavigation}
+                >
+                  Dashboard
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </>
+      )}
 
-          {/* {isAuthenticated ? (
-            <li>
-              <NavLink activeClassName="active" to="/stocks">
-                Stocks
-              </NavLink>
-            </li>
-          ) : (
-            <></>
-          )}
-          {isAuthenticated ? (
-            <li>
-              <NavLink activeClassName="active" to="/locations">
-                Locations
-              </NavLink>
-            </li>
-          ) : (
-            <></>
-          )} */}
-          <div className="right">
-            <li>
-              <NavLink activeClassName="active" to="/login">
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink activeClassName="active" to="/signup">
-                Signup
-              </NavLink>
-            </li>
-            <li>
-              <NavLink activeClassName="active" to="/dashboard">
-                Dashboard
-              </NavLink>
-            </li>
-          </div>
-        </ul>
-      </nav>
       <Route
         render={({ location }) => (
           <TransitionGroup>
