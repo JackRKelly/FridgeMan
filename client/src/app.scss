@@ -74,6 +74,13 @@ nav.desktop {
             transform: translateY(-50%);
           }
         }
+        div.recipe-icon,
+        div.locations-icon,
+        div.stocks-icon {
+          svg {
+            height: 1.25em;
+          }
+        }
       }
       a.active {
         text-decoration: none;
@@ -179,6 +186,13 @@ nav.mobile-full {
               left: 0px;
               top: 50%;
               transform: translateY(-50%);
+            }
+          }
+          div.recipe-icon,
+          div.locations-icon,
+          div.stocks-icon {
+            svg {
+              height: 1.25em;
             }
           }
         }

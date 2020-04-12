@@ -7,14 +7,17 @@
 @font-face {
   font-family: NeutraBold;
   src: url("./assets/fonts/NeutraText-Bold.otf");
+  font-display: swap;
 }
 @font-face {
   font-family: NeutraBoldItalic;
   src: url("./assets/fonts/NeutraText-BoldItalic.otf");
+  font-display: swap;
 }
 @font-face {
   font-family: NeutraBook;
   src: url("./assets/fonts/NeutraText-Book.otf");
+  font-display: swap;
 }
 
 body {

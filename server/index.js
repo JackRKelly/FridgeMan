@@ -8,6 +8,7 @@ const app = express();
 const cors = require("cors");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const compression = require("compression");
 
 //Routes
 const stocks = require("./routes/stocks");
@@ -22,6 +23,7 @@ app.use(
     extended: true,
   })
 );
+app.use(compression());
 app.use(express.json());
 app.use(
   session({

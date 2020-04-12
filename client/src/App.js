@@ -23,6 +23,9 @@ import DashboardIcon from "./assets/images/Dashboard";
 import LoginIcon from "./assets/images/LogIn";
 import SignupIcon from "./assets/images/Signup";
 import HomeIcon from "./assets/images/Home";
+import RecipeIcon from "./assets/images/Recipe";
+import StocksIcon from "./assets/images/Stocks";
+import LocationsIcon from "./assets/images/Locations";
 
 const App = () => {
   //State
@@ -124,6 +127,7 @@ const App = () => {
               ) : (
                 <li>
                   <NavLink activeClassName="active" to="/stocks">
+                    <StocksIcon />
                     Stocks
                   </NavLink>
                 </li>
@@ -139,6 +143,7 @@ const App = () => {
               ) : (
                 <li>
                   <NavLink activeClassName="active" to="/locations">
+                    <LocationsIcon />
                     Locations
                   </NavLink>
                 </li>
@@ -153,6 +158,7 @@ const App = () => {
               ) : (
                 <li>
                   <NavLink activeClassName="active" to="/recipes">
+                    <RecipeIcon />
                     Recipes
                   </NavLink>
                 </li>
@@ -216,6 +222,7 @@ const App = () => {
                       to="/stocks"
                       onClick={closeNavigation}
                     >
+                      <StocksIcon />
                       Stocks
                     </NavLink>
                   </li>
@@ -238,6 +245,7 @@ const App = () => {
                       to="/locations"
                       onClick={closeNavigation}
                     >
+                      <LocationsIcon />
                       Locations
                     </NavLink>
                   </li>
@@ -260,6 +268,7 @@ const App = () => {
                       to="/recipes"
                       onClick={closeNavigation}
                     >
+                      <RecipeIcon />
                       Recipes
                     </NavLink>
                   </li>
@@ -327,13 +336,13 @@ const App = () => {
                   )}
                 </Route>
                 <Route path="/stocks">
-                  {isLoading ? (
+                  {/* {isLoading ? (
                     <LoadingPage />
-                  ) : isAuthenticated ? (
-                    <Stocks locationList={locationList} isMobile={isMobile} />
-                  ) : (
+                  ) : isAuthenticated ? ( */}
+                  <Stocks locationList={locationList} isMobile={isMobile} />
+                  {/* ) : (
                     <Redirect to="/login" />
-                  )}
+                  )} */}
                 </Route>
                 <Route path="/dashboard">
                   {isLoading ? (

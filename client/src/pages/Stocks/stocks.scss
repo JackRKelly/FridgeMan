@@ -1,31 +1,76 @@
 @import "../../assets/variables";
 
 .stocks.page {
-  h1 {
-    margin: 25px 0 0;
-    display: block;
-    text-align: center;
-    color: $darkpurple;
-    font-family: "NeutraBold", sans-serif;
-    font-size: 3em;
-    @media only screen and (max-width: 600px) {
-      font-size: 2em;
+  padding-top: 6em;
+  position: relative;
+  transition: 0.3s ease-in-out all;
+  @media only screen and (max-width: 800px) {
+    padding-top: 0em;
+  }
+  .background-text {
+    cursor: default;
+    font-family: $neutra-bold-italic;
+    color: black;
+    font-size: 37em;
+    position: absolute;
+    top: 2vw;
+    left: 2vw;
+    opacity: 0.04;
+    white-space: nowrap;
+    line-height: 0.8;
+    z-index: -1;
+    user-select: none;
+    transition: 0.4s ease-in-out all;
+    @media only screen and (min-width: 1500px) {
+      top: 3vw;
+      left: 4vw;
+    }
+    @media only screen and (max-width: 850px) {
+      font-size: 25em;
+      top: 1vw;
     }
   }
-  .no-stock {
-    color: $darkpurple;
-    font-family: $neutra;
-    text-transform: uppercase;
-    font-size: 25px;
-    text-align: center;
-    display: block;
-    width: 50%;
+  .stock-content {
+    width: 90%;
     margin: auto;
-    @media only screen and (max-width: 1000px) {
-      width: 75%;
+    @media only screen and (min-width: 1500px) {
+      width: 80%;
+      margin: auto;
     }
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 850px) {
       width: 90%;
+    }
+    h1 {
+      margin: 0.75em 0;
+      display: block;
+      color: $primary;
+      font: 5.5em $neutra-bold;
+      transition: $bezier-transition;
+      @media only screen and (max-width: 1600px) {
+        font-size: 4.5em;
+      }
+      @media only screen and (max-width: 1200px) {
+        font-size: 3em;
+      }
+      @media only screen and (max-width: 800px) {
+        font-size: 2.5em;
+      }
+    }
+    .no-stock {
+      color: $darkpurple;
+      font-family: $neutra;
+      text-transform: uppercase;
+      font-size: 25px;
+      text-align: center;
+      display: block;
+      width: 50%;
+      margin: auto;
+      @media only screen and (max-width: 1000px) {
+        width: 75%;
+      }
+      @media only screen and (max-width: 600px) {
+        width: 90%;
+      }
     }
   }
 }

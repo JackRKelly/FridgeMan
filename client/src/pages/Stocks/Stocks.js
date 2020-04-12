@@ -26,24 +26,27 @@ const Stocks = ({ isMobile, locationList }) => {
 
   return (
     <div className="stocks page">
-      <h1>Stock List</h1>
-      <Navigation
-        name={name}
-        location={location}
-        setName={setName}
-        setLocation={setLocation}
-        locationList={locationList}
-        getStocks={getStocks}
-        stocks={stocks}
-        setStocks={setStocks}
-      />
-      <ListStocks
-        locationList={locationList}
-        getStocks={getStocks}
-        stocks={stocks}
-        setStocks={setStocks}
-        isMobile={isMobile}
-      />
+      <span className="background-text">Name's Stock List</span>
+      <div className="stock-content">
+        <h1>Name's Stock List</h1>
+        <Navigation
+          name={name}
+          location={location}
+          setName={setName}
+          setLocation={setLocation}
+          locationList={locationList}
+          getStocks={getStocks}
+          stocks={stocks}
+          setStocks={setStocks}
+        />
+        <ListStocks
+          locationList={locationList}
+          getStocks={getStocks}
+          stocks={stocks}
+          setStocks={setStocks}
+          isMobile={isMobile}
+        />
+      </div>
     </div>
   );
 };

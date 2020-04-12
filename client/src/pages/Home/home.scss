@@ -8,7 +8,7 @@
     width: 100%;
     padding: 6em 2em 5em 2em;
     transition: $bezier-transition;
-    @media only screen and (max-width: 850px) {
+    @media only screen and (max-width: 800px) {
       padding: 4em 1em 2.5em 1em;
     }
     .background-text {
