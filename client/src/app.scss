@@ -11,13 +11,13 @@
     height: 1em;
     background-color: $primary;
     transition: 0.4s ease-in-out all;
-    @media only screen and (max-width: 1600px) {
+    @media (max-width: $extralarge) {
       height: 2em;
     }
-    @media only screen and (max-width: 1300px) {
+    @media (max-width: $large) {
       height: 3em;
     }
-    @media only screen and (max-width: 1000px) {
+    @media (max-width: $medium) {
       height: 4em;
     }
   }
@@ -38,11 +38,10 @@ nav.desktop {
     list-style: none;
     text-align: center;
     li {
-      margin: 0 20px;
+      margin: 0 1.5em;
       display: inline-block;
       cursor: pointer;
-      font-family: $neutra-bold;
-      font-size: 20px;
+      font: 1.5em $neutra-bold;
       transition: $bezier-transition;
       position: relative;
       &:hover {
@@ -58,18 +57,18 @@ nav.desktop {
         }
         display: block;
         letter-spacing: 0.75px;
-        padding: 25px 25px 25px 55px;
+        padding: 0.75em 0.75em 0.75em 2.5em;
         text-decoration: none;
         color: $secondary;
         font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        @include bar(16px, 90%, true);
+        @include bar(0.4em, 90%, true);
         div {
           svg {
             height: 1em;
             position: absolute;
-            left: 20px;
+            left: 0.75em;
             top: 50%;
             transform: translateY(-50%);
           }
@@ -88,7 +87,7 @@ nav.desktop {
         font-family: $neutra-bold;
         transition: $bezier-transition;
         position: relative;
-        @include bar(16px, 90%, true);
+        @include bar(0.4em, 90%, true);
       }
     }
   }
@@ -97,13 +96,13 @@ nav.desktop {
 nav.mobile {
   z-index: 100;
   .circle {
-    width: 140px;
-    height: 140px;
+    width: 8.75em;
+    height: 8.75em;
     position: fixed;
     top: -70px;
     right: -70px;
     background-color: $primary;
-    border-radius: 100px;
+    border-radius: 6em;
     z-index: 100;
     transition: 0.4s ease-in-out all;
     cursor: pointer;
@@ -157,7 +156,7 @@ nav.mobile-full {
       flex-direction: column;
       justify-content: space-around;
       li {
-        margin: 0 20px;
+        margin: 0 2em;
         display: block;
         cursor: pointer;
         font-family: $neutra-bold;
@@ -173,7 +172,7 @@ nav.mobile-full {
         a {
           display: inline-block;
           letter-spacing: 0.75px;
-          padding: 25px 25px 25px 60px;
+          padding: 0.75em 0.75em 0.75em 2.25em;
           text-decoration: none;
           color: $secondary;
           font-family: $neutra-bold;
@@ -183,7 +182,7 @@ nav.mobile-full {
             svg {
               height: 1em;
               position: absolute;
-              left: 0px;
+              left: 0.5em;
               top: 50%;
               transform: translateY(-50%);
             }

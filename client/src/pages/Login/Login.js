@@ -93,55 +93,6 @@ const Login = ({ isMobile }) => {
         </div>
       </section>
     </div>
-
-    // <div className="login page">
-    //   <form
-    //     onSubmit={(e) => {
-    //       handleLogin(e);
-    //     }}
-    //     className="login"
-    //   >
-    //     <div className="error">
-    //       <p
-    //         className="error-message"
-    //         style={{ display: errorMessage ? "inline-block" : "none" }}
-    //       >
-    //         {errorMessage}
-    //       </p>
-    //     </div>
-    //     <h1>Login</h1>
-    //     <div className="login-input">
-    //       <label htmlFor="email">Email</label>
-    //       <input
-    //         name="email"
-    //         type="email"
-    //         value={email}
-    //         onChange={(e) => {
-    //           setEmail(e.target.value);
-    //         }}
-    //         required
-    //       />
-    //     </div>
-    //     <div className="login-input">
-    //       <label htmlFor="password">Password</label>
-    //       <input
-    //         name="password"
-    //         type="password"
-    //         value={password}
-    //         onChange={(e) => {
-    //           setPassword(e.target.value);
-    //         }}
-    //         required
-    //       />
-    //     </div>
-    //     <p className="no-login">
-    //       No login? <Link to="/login">login</Link>.
-    //     </p>
-    //     <div className="btn-container">
-    //       <button>Login</button>
-    //     </div>
-    //   </form>
-    // </div>
   );
 };
 

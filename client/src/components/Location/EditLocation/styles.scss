@@ -25,26 +25,26 @@
     justify-content: center;
     .modal-content {
       background-color: white;
-      padding: 35px;
+      padding: 2.25em;
       z-index: 100;
       position: absolute;
-      border-radius: 5px;
+      border-radius: 0.3em;
       box-sizing: border-box;
       width: 60%;
-      @media only screen and (max-width: 1000px) {
+      @media (max-width: $medium) {
         width: 80%;
       }
-      @media only screen and (max-width: 600px) {
+      @media (max-width: $small) {
         width: 95%;
       }
 
       .modal-header {
         .modal-title {
           margin: 0;
-          color: $darkpurple;
+          color: $primary;
           font-family: $neutra-bold;
           text-transform: uppercase;
-          font-size: 25px;
+          font-size: 1.5em;
         }
       }
 
@@ -56,29 +56,29 @@
 
         .modal-input {
           width: 100%;
-          margin-top: 15px;
+          margin-top: 1em;
           transition: $bezier-transition;
-          @media only screen and (max-width: 1000px) {
+          @media (max-width: $medium) {
             width: 100%;
-            margin-top: 15px;
+            margin-top: 1em;
           }
 
           input,
           select {
             border: none;
-            font-size: 24px;
+            font-size: 1.5em;
             width: 100%;
-            color: $darkpurple;
-            border-bottom: 2px solid $bluepurple;
+            color: $primary;
+            border-bottom: 2px solid $primary;
             font-family: $neutra;
-            padding: 3px 0 7px 0;
+            padding: 3px 0 0.5em 0;
           }
           label {
-            font-size: 14px;
+            font-size: 1em;
             width: 100%;
             display: block;
             font-family: $neutra-bold;
-            color: $bluepurple;
+            color: $primary;
             text-transform: uppercase;
           }
           &:hover {
@@ -89,19 +89,19 @@
 
       .modal-footer {
         text-align: right;
-        margin-top: 20px;
+        margin-top: 2em;
         button {
-          margin: 0 10px;
+          margin: 0 1em;
           border: none;
-          padding: 7.5px 50px;
-          font-size: 22px;
-          border-radius: 100px;
+          padding: 0.5em 3.125em;
+          font-size: 1.5em;
+          border-radius: 6em;
           font-family: $neutra-bold;
-          color: $bluepurple;
+          color: $primary;
           cursor: pointer;
           transition: $bezier-transition;
-          @media only screen and (max-width: 600px) {
-            padding: 7.5px 25px;
+          @media (max-width: $small) {
+            padding: 0.5em 1.5em;
           }
           &:hover {
             transform: scale(1.1);

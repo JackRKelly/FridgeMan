@@ -4,7 +4,7 @@
   padding-top: 6em;
   position: relative;
   transition: 0.3s ease-in-out all;
-  @media only screen and (max-width: 800px) {
+  @media (max-width: $medium) {
     padding-top: 0em;
   }
   .background-text {
@@ -21,11 +21,11 @@
     z-index: -1;
     user-select: none;
     transition: 0.4s ease-in-out all;
-    @media only screen and (min-width: 1500px) {
+    @media (min-width: $large) {
       top: 3vw;
       left: 4vw;
     }
-    @media only screen and (max-width: 850px) {
+    @media (max-width: $medium) {
       font-size: 25em;
       top: 1vw;
     }
@@ -33,11 +33,11 @@
   .stock-content {
     width: 90%;
     margin: auto;
-    @media only screen and (min-width: 1500px) {
+    @media (min-width: $large) {
       width: 80%;
       margin: auto;
     }
-    @media only screen and (max-width: 850px) {
+    @media (max-width: $medium) {
       width: 90%;
     }
     h1 {
@@ -46,29 +46,29 @@
       color: $primary;
       font: 5.5em $neutra-bold;
       transition: $bezier-transition;
-      @media only screen and (max-width: 1600px) {
+      @media (max-width: $extralarge) {
         font-size: 4.5em;
       }
-      @media only screen and (max-width: 1200px) {
+      @media (max-width: $large) {
         font-size: 3em;
       }
-      @media only screen and (max-width: 800px) {
+      @media (max-width: $medium) {
         font-size: 2.5em;
       }
     }
     .no-stock {
-      color: $darkpurple;
+      color: $primary;
       font-family: $neutra;
       text-transform: uppercase;
-      font-size: 25px;
+      font-size: 1.5em;
       text-align: center;
       display: block;
       width: 50%;
       margin: auto;
-      @media only screen and (max-width: 1000px) {
+      @media (max-width: $medium) {
         width: 75%;
       }
-      @media only screen and (max-width: 600px) {
+      @media (max-width: $small) {
         width: 90%;
       }
     }

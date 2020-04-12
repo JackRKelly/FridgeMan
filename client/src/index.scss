@@ -4,28 +4,24 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: NeutraBold;
-  src: url("./assets/fonts/NeutraText-Bold.otf");
-  font-display: swap;
+@mixin font($name, $src) {
+  @font-face {
+    font-family: $name;
+    src: url($src);
+    font-display: swap;
+  }
 }
-@font-face {
-  font-family: NeutraBoldItalic;
-  src: url("./assets/fonts/NeutraText-BoldItalic.otf");
-  font-display: swap;
-}
-@font-face {
-  font-family: NeutraBook;
-  src: url("./assets/fonts/NeutraText-Book.otf");
-  font-display: swap;
-}
+
+@include font(NeutraBoldItalic, "./assets/fonts/NeutraText-BoldItalic.otf");
+@include font(NeutraBold, "./assets/fonts/NeutraText-Bold.otf");
+@include font(NeutraBook, "./assets/fonts/NeutraText-Book.otf");
 
 body {
   margin: 0;
   font-family: $neutra;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $darkpurple;
+  color: $primary;
 }
 
 input:focus,
@@ -53,10 +49,10 @@ textarea:focus {
       -webkit-user-select: none;
       user-select: none;
       transition: 0.4s ease-in-out all;
-      @media only screen and (min-width: 1500px) {
+      @media (min-width: $large) {
         font-size: 30em;
       }
-      @media only screen and (max-width: 800px) {
+      @media (max-width: $medium) {
         font-size: 25em;
         left: 0;
         right: 0;
@@ -77,13 +73,13 @@ textarea:focus {
         color: $primary;
         font: 6.5em $neutra-bold;
         transition: $bezier-transition;
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 4em;
         }
-        @media only screen and (max-width: 800px) {
+        @media (max-width: $medium) {
           font-size: 3em;
         }
       }
@@ -97,7 +93,7 @@ textarea:focus {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 1em;
 }
 
 ::-webkit-scrollbar-track {

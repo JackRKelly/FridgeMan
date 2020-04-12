@@ -6,44 +6,40 @@ div.location-list {
   &-item {
     box-sizing: border-box;
     width: 50%;
-    margin: 25px auto;
-    padding: 0 15px;
+    margin: 1.5em auto;
+    padding: 0 1em;
     font-family: $neutra;
     transition: 1s ease-in-out all;
-    color: $darkpurple;
-    @media only screen and (max-width: 1000px) {
-      width: 75%;
-      margin: 20px auto;
-    }
-    @media only screen and (max-width: 750px) {
+    color: $primary;
+    @media (max-width: $medium) {
       width: 90%;
-      margin: 20px auto;
+      margin: 2em auto;
     }
-    @media only screen and (max-width: 500px) {
+    @media (max-width: $small) {
       width: 100%;
-      margin: 15px auto;
+      margin: 1em auto;
     }
     .name {
       margin: 0;
       display: inline;
       font-family: $neutra-bold;
-      font-size: 22px;
+      font-size: 1.5em;
     }
     .btn-container {
       text-align: right;
-      @media only screen and (min-width: 500px) {
+      @media (min-width: $small) {
         display: inline;
         float: right;
       }
       button {
-        margin: 5px 7.5px 0 0;
+        margin: 0.3em 0.5em 0 0;
         display: inline;
         border: none;
-        padding: 6.5px 25px;
+        padding: 6.3em 1.5em;
         font-size: 1em;
-        border-radius: 100px;
+        border-radius: 6em;
         font-family: $neutra-bold;
-        color: $bluepurple;
+        color: $primary;
         cursor: pointer;
         transition: $bezier-transition;
         &:hover {

@@ -1,29 +1,29 @@
 @import "../../../assets/variables";
 
 .navigation-buttons {
-  margin: 15px 15px 25px;
+  margin: 1em 1em 1.5em;
   display: flex;
   justify-content: center;
-  @media only screen and (max-width: 700px) {
+  @media (max-width: $medium) {
     margin: 0;
   }
   button {
-    margin: 0 10px;
+    margin: 0 1em;
     border: none;
-    padding: 7.5px 50px;
-    font-size: 22px;
-    border-radius: 100px;
+    padding: 0.5em 3.125em;
+    font-size: 1.5em;
+    border-radius: 6em;
     font-family: $neutra-bold;
-    color: $pink;
+    color: $primary;
     cursor: pointer;
     transition: $bezier-transition;
-    @media only screen and (max-width: 1000px) {
-      margin: 15px 10px 10px;
-      padding: 7.5px 30px;
+    @media (max-width: $medium) {
+      margin: 1em 1em 1em;
+      padding: 0.5em 2em;
     }
-    @media only screen and (max-width: 600px) {
-      margin: 15px 5px 10px;
-      padding: 7.5px 20px;
+    @media (max-width: $small) {
+      margin: 1em 0.3em 1em;
+      padding: 0.5em 2em;
     }
     &:hover {
       transform: scale(1.1);

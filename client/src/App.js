@@ -179,11 +179,11 @@ const App = () => {
             <div
               className="circle"
               style={{
-                width: navOpen ? "100vw" : "140px",
-                height: navOpen ? "100vh" : "140px",
-                borderRadius: navOpen ? "0" : "100px",
-                top: navOpen ? "0" : "-70px",
-                right: navOpen ? "0" : "-70px",
+                width: navOpen ? "100vw" : "8.75em",
+                height: navOpen ? "100vh" : "8.75em",
+                borderRadius: navOpen ? "0" : "6em",
+                top: navOpen ? "0" : "-4.375em",
+                right: navOpen ? "0" : "-4.375em",
               }}
               onClick={navOpen ? closeNavigation : openNavigation}
             >

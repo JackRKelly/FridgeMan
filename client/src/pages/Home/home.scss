@@ -8,7 +8,7 @@
     width: 100%;
     padding: 6em 2em 5em 2em;
     transition: $bezier-transition;
-    @media only screen and (max-width: 800px) {
+    @media (max-width: $medium) {
       padding: 4em 1em 2.5em 1em;
     }
     .background-text {
@@ -25,11 +25,11 @@
       z-index: 0;
       user-select: none;
       transition: 0.4s ease-in-out all;
-      @media only screen and (min-width: 1500px) {
+      @media (min-width: $large) {
         top: 3vw;
         left: 4vw;
       }
-      @media only screen and (max-width: 850px) {
+      @media (max-width: $medium) {
         font-size: 25em;
         top: 1vw;
       }
@@ -41,21 +41,20 @@
       flex-wrap: wrap;
       width: 90%;
       margin: auto;
-      @media only screen and (min-width: 1500px) {
+      @media (max-width: $medium) {
+        width: 90%;
+      }
+      @media (min-width: $large) {
         width: 80%;
         margin: auto;
       }
-      @media only screen and (max-width: 850px) {
-        width: 90%;
-      }
-
       .left {
         width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 1;
-        @media only screen and (max-width: 850px) {
+        @media (max-width: $medium) {
           width: 100%;
           justify-content: left;
         }
@@ -66,21 +65,20 @@
             margin: 0;
             display: block;
             color: $lightprimary;
-            font-family: $neutra-bold;
-            font-size: 2em;
+            font: 2em $neutra-bold;
             text-transform: uppercase;
             transition: $bezier-transition;
             &::selection {
               background-color: $secondary;
               color: $primary;
             }
-            @media only screen and (max-width: 1600px) {
+            @media (max-width: $extralarge) {
               font-size: 1.65em;
             }
-            @media only screen and (max-width: 1200px) {
+            @media (max-width: $large) {
               font-size: 1.25em;
             }
-            @media only screen and (max-width: 800px) {
+            @media (max-width: $medium) {
               font-size: 1.125em;
             }
           }
@@ -94,18 +92,18 @@
               background-color: $secondary;
               color: $primary;
             }
-            @media only screen and (max-width: 1600px) {
+            @media (max-width: $extralarge) {
               font-size: 5.5em;
             }
-            @media only screen and (max-width: 1200px) {
+            @media (max-width: $large) {
               font-size: 4em;
             }
-            @media only screen and (max-width: 800px) {
+            @media (max-width: $medium) {
               font-size: 3.5em;
             }
           }
           p {
-            margin: 5px 0;
+            margin: 0.3em 0;
             color: $lightprimary;
             font: 2em $neutra-bold;
             display: block;
@@ -115,39 +113,24 @@
               background-color: $secondary;
               color: $primary;
             }
-            @media only screen and (max-width: 1600px) {
+            @media (max-width: $extralarge) {
               font-size: 1.65em;
             }
-            @media (max-width: 1600px) and (min-width: 1400px) {
-              max-width: 80%;
-            }
-            @media only screen and (max-width: 1200px) {
+            @media (max-width: $large) {
               font-size: 1.3em;
             }
-            @media (max-width: 1200px) and (min-width: 1000px) {
-              max-width: 80%;
-            }
-            @media only screen and (max-width: 850px) {
+            @media (max-width: $medium) {
               max-width: 58%;
               font: 1.2em $neutra-bold;
-            }
-            @media only screen and (min-width: 1800px) {
-              max-width: 80%;
-            }
-            @media only screen and (max-width: 670px) {
-              max-width: 75%;
-            }
-            @media only screen and (max-width: 500px) {
-              max-width: 100%;
             }
           }
           a {
             user-select: none;
-            margin: 20px 0;
-            padding: 8px 60px;
+            margin: 1em 0;
+            padding: 0.5em 3em;
             width: fit-content;
             border: none;
-            border-radius: 25px;
+            border-radius: 1.5em;
             color: $primary;
             font: 2em $neutra-bold;
             display: table;
@@ -158,10 +141,10 @@
             &:hover {
               transform: scale(1.1);
             }
-            @media only screen and (max-width: 1600px) {
-              padding: 6px 40px;
+            @media (max-width: $extralarge) {
+              padding: 0.5em 2.5em;
               font: 1.6em $neutra-bold;
-              border-radius: 15px;
+              border-radius: 1em;
             }
           }
         }
@@ -170,14 +153,14 @@
       .right {
         width: 50%;
         z-index: 1;
-        @media only screen and (max-width: 850px) {
+        @media (max-width: $medium) {
           display: none;
         }
         .hero-icon {
           width: 75%;
           margin: 3em auto;
           transition: $bezier-transition;
-          @media only screen and (min-width: 1500px) {
+          @media (min-width: $large) {
             width: 80%;
           }
           &:hover {
@@ -203,14 +186,13 @@
     width: 100%;
     padding: 6em 2em 0em 2em;
     transition: $bezier-transition;
-    @media only screen and (max-width: 850px) {
+    @media (max-width: $medium) {
       padding: 6em 1em 0em 1em;
     }
     .background-text {
       cursor: default;
-      font-family: $neutra-bold-italic;
       color: #f8f7ff;
-      font-size: 37em;
+      font: 37em $neutra-bold-italic;
       position: absolute;
       top: 2vw;
       left: -5vw;
@@ -219,11 +201,11 @@
       z-index: -1;
       user-select: none;
       transition: 0.4s ease-in-out all;
-      @media only screen and (min-width: 1500px) {
+      @media (min-width: $large) {
         top: -2vw;
         left: 3vw;
       }
-      @media only screen and (max-width: 850px) {
+      @media (max-width: $medium) {
         font-size: 25em;
         top: 6vw;
       }
@@ -231,7 +213,7 @@
     .feature-content {
       width: 80%;
       margin: auto;
-      @media only screen and (max-width: 1500px) {
+      @media (max-width: $large) {
         width: 90%;
       }
 
@@ -239,24 +221,23 @@
         margin: 0;
         display: inline-block;
         color: $lightprimary;
-        font-family: $neutra-bold;
-        font-size: 2em;
+        font: 2em $neutra-bold;
         text-transform: uppercase;
         transition: $bezier-transition;
         position: relative;
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 1.65em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 1.25em;
         }
         &::after {
           content: "";
           position: absolute;
-          width: 40px;
+          width: 2.5em;
           height: 3px;
           background-color: $lightprimary;
-          right: -50px;
+          right: -3.125em;
           bottom: 45%;
         }
       }
@@ -266,13 +247,13 @@
         color: $primary;
         font: 6.5em $neutra-bold;
         transition: $bezier-transition;
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 4em;
         }
-        @media only screen and (max-width: 800px) {
+        @media (max-width: $medium) {
           font-size: 3em;
         }
       }
@@ -289,23 +270,23 @@
           background-color: white;
           flex: 1 1 0px;
           flex-basis: auto;
-          box-shadow: 0px 0px 25px rgba(116, 83, 255, 0.1);
+          box-shadow: 0px 0px 1.5em rgba(116, 83, 255, 0.1);
           padding: 2em;
           margin-bottom: 3em;
           max-width: 47%;
           display: flex;
           transition: $bezier-transition;
-          @media only screen and (max-width: 1200px) {
+          @media (max-width: $large) {
             padding: 1.25em;
           }
-          @media only screen and (max-width: 900px) {
+          @media (max-width: $medium) {
             width: 100%;
             max-width: 100%;
             margin-bottom: 1.5em;
           }
           &:hover {
             transform: translateY(-1em) scale(1.05);
-            @media only screen and (max-width: 900px) {
+            @media (max-width: $medium) {
               transform: scale(1.1);
             }
           }
@@ -314,7 +295,7 @@
             width: 15.5%;
             display: flex;
             align-items: center;
-            @media (max-width: 900px) and (min-width: 600px) {
+            @media (max-width: $medium) and (min-width: $small) {
               width: 10%;
             }
           }
@@ -326,7 +307,7 @@
             justify-content: space-around;
             flex-direction: column;
             padding-left: 1.5em;
-            @media (max-width: 900px) and (min-width: 600px) {
+            @media (max-width: $medium) and (min-width: $small) {
               width: 90%;
             }
             h4 {
@@ -336,31 +317,28 @@
               text-transform: uppercase;
               color: $primary;
               position: relative;
-              @media only screen and (max-width: 1600px) {
+              @media (max-width: $extralarge) {
                 font-size: 1.75em;
               }
-              @media only screen and (max-width: 1200px) {
+              @media (max-width: $large) {
                 font-size: 1.5em;
               }
-              @media only screen and (max-width: 800px) {
+              @media (max-width: $medium) {
                 font-size: 1.25em;
               }
               &::after {
                 content: "";
                 position: absolute;
-                width: 40px;
+                width: 2.5em;
                 height: 3px;
                 background-color: $primary;
-                right: -50px;
+                right: -3.125em;
                 bottom: 45%;
-                @media only screen and (max-width: 1000px) {
+                @media (max-width: $large), (max-width: $small) {
                   display: none;
                 }
-                @media only screen and (max-width: 800px) {
+                @media (max-width: $medium) {
                   display: block;
-                }
-                @media only screen and (max-width: 450px) {
-                  display: none;
                 }
               }
             }
@@ -371,19 +349,18 @@
               display: block;
               line-height: 1.25;
               transition: $bezier-transition;
-
-              @media only screen and (max-width: 1600px) {
+              @media (max-width: $extralarge) {
                 font-size: 1.65em;
                 margin: 0;
               }
-              @media only screen and (max-width: 1200px) {
+              @media (max-width: $large) {
                 font-size: 1.3em;
               }
-              @media only screen and (max-width: 850px) {
+              @media (max-width: $medium) {
                 max-width: 82%;
                 font: 1.2em $neutra;
               }
-              @media only screen and (max-width: 600px) {
+              @media (max-width: $small) {
                 max-width: 100%;
               }
             }
@@ -398,7 +375,7 @@
     width: 100%;
     padding: 6em 2em 5em 2em;
     transition: $bezier-transition;
-    @media only screen and (max-width: 850px) {
+    @media (max-width: $medium) {
       padding: 6em 1em 2.5em 1em;
     }
     .background-text {
@@ -414,11 +391,11 @@
       z-index: -1;
       user-select: none;
       transition: 0.4s ease-in-out all;
-      @media only screen and (min-width: 1500px) {
+      @media (min-width: $large) {
         top: -2vw;
         left: 3vw;
       }
-      @media only screen and (max-width: 850px) {
+      @media (max-width: $medium) {
         font-size: 25em;
         top: 6vw;
       }
@@ -426,7 +403,7 @@
     .about-content {
       width: 80%;
       margin: auto;
-      @media only screen and (max-width: 1500px) {
+      @media (max-width: $large) {
         width: 90%;
       }
 
@@ -434,24 +411,23 @@
         margin: 0;
         display: inline-block;
         color: $lightprimary;
-        font-family: $neutra-bold;
-        font-size: 2em;
+        font: 2em $neutra-bold;
         text-transform: uppercase;
         transition: $bezier-transition;
         position: relative;
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 1.65em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 1.25em;
         }
         &::after {
           content: "";
           position: absolute;
-          width: 40px;
+          width: 2.5em;
           height: 3px;
           background-color: $lightprimary;
-          right: -50px;
+          right: -3.125em;
           bottom: 45%;
         }
       }
@@ -461,13 +437,13 @@
         color: $primary;
         font: 6.5em $neutra-bold;
         transition: $bezier-transition;
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 4em;
         }
-        @media only screen and (max-width: 800px) {
+        @media (max-width: $medium) {
           font-size: 3em;
         }
       }
@@ -478,14 +454,13 @@
         display: block;
         line-height: 1.5;
         transition: $bezier-transition;
-
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 1.65em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 1.3em;
         }
-        @media only screen and (max-width: 850px) {
+        @media (max-width: $medium) {
           font: 1.3em $neutra;
           line-height: 1.5;
           margin: 0.4em 0;
@@ -499,14 +474,13 @@
     width: 100%;
     padding: 6em 2em 5em 2em;
     transition: $bezier-transition;
-    @media only screen and (max-width: 850px) {
+    @media (max-width: $medium) {
       padding: 6em 1em 2.5em 1em;
     }
     .background-text {
       cursor: default;
-      font-family: $neutra-bold-italic;
+      font: 37em $neutra-bold-italic;
       color: #f8f7ff;
-      font-size: 37em;
       position: absolute;
       top: -3vw;
       left: -5vw;
@@ -515,11 +489,11 @@
       z-index: -1;
       user-select: none;
       transition: 0.4s ease-in-out all;
-      @media only screen and (min-width: 1500px) {
+      @media (min-width: $large) {
         top: -2vw;
         left: 3vw;
       }
-      @media only screen and (max-width: 850px) {
+      @media (max-width: $medium) {
         font-size: 25em;
         top: 6vw;
       }
@@ -527,31 +501,30 @@
     .signup-content {
       width: 80%;
       margin: auto;
-      @media only screen and (max-width: 1500px) {
+      @media (max-width: $large) {
         width: 90%;
       }
       h3 {
         margin: 0;
         display: inline-block;
         color: $lightprimary;
-        font-family: $neutra-bold;
-        font-size: 2em;
+        font: 2em $neutra-bold;
         text-transform: uppercase;
         transition: $bezier-transition;
         position: relative;
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 1.65em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 1.25em;
         }
         &::after {
           content: "";
           position: absolute;
-          width: 40px;
+          width: 2.5em;
           height: 3px;
           background-color: $lightprimary;
-          right: -50px;
+          right: -3.125em;
           bottom: 45%;
         }
       }
@@ -561,13 +534,13 @@
         color: $primary;
         font: 6.5em $neutra-bold;
         transition: $bezier-transition;
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 4em;
         }
-        @media only screen and (max-width: 800px) {
+        @media (max-width: $medium) {
           font-size: 3em;
         }
       }
@@ -578,14 +551,13 @@
         display: block;
         line-height: 1.5;
         transition: $bezier-transition;
-
-        @media only screen and (max-width: 1600px) {
+        @media (max-width: $extralarge) {
           font-size: 1.65em;
         }
-        @media only screen and (max-width: 1200px) {
+        @media (max-width: $large) {
           font-size: 1.3em;
         }
-        @media only screen and (max-width: 850px) {
+        @media (max-width: $medium) {
           font: 1.3em $neutra;
           line-height: 1.5;
           margin: 0.4em 0;
@@ -594,13 +566,13 @@
       form.signup-form {
         background-color: $secondary;
         padding: 3em 6em;
-        border-radius: 7.5px;
-        box-shadow: 0px 0px 25px rgba(116, 83, 255, 0.1);
+        border-radius: 0.5em;
+        box-shadow: 0px 0px 1.5em rgba(116, 83, 255, 0.1);
         margin-top: 0.75em;
-        @media only screen and (max-width: 1400px) {
+        @media (max-width: $large) {
           padding: 2em 4em;
         }
-        @media only screen and (max-width: 800px) {
+        @media (max-width: $medium) {
           padding: 1em 1.75em;
         }
         .input-container {
@@ -611,7 +583,7 @@
             padding: 1em 0;
             width: 46%;
             position: relative;
-            @media only screen and (max-width: 800px) {
+            @media (max-width: $medium) {
               width: 100%;
             }
             transition: $bezier-transition;
@@ -620,19 +592,18 @@
             }
             .eye-icon {
               position: absolute;
-              bottom: 24px;
+              bottom: 1.5em;
               right: 11px;
-              width: 32px;
+              width: 2em;
               cursor: pointer;
             }
             label {
-              font-size: 1.1em;
+              font: 1.1em $neutra-bold;
               width: 100%;
               display: block;
-              font-family: $neutra-bold;
               color: $primary;
               text-transform: uppercase;
-              @media only screen and (min-width: 1500px) {
+              @media (min-width: $large) {
                 font-size: 1.5em;
               }
             }
@@ -643,7 +614,7 @@
               color: $medprimary;
               border-bottom: 2px solid $primary;
               font-family: $neutra;
-              padding: 3px 0 7px 0;
+              padding: 3px 0 0.5em 0;
               -webkit-appearance: none;
               border-radius: 0;
               &::placeholder {
@@ -654,7 +625,7 @@
                 font: 1em $neutra;
                 color: $medprimary;
               }
-              @media only screen and (min-width: 1500px) {
+              @media (min-width: $large) {
                 font-size: 2.25em;
               }
             }
@@ -662,14 +633,14 @@
         }
         .requirements {
           h5 {
-            margin: 10px 0 0;
+            margin: 1em 0 0;
             font-size: 1.25em;
             width: 100%;
             display: block;
             font-family: $neutra-bold;
             color: $primary;
             text-transform: uppercase;
-            @media only screen and (min-width: 1500px) {
+            @media (min-width: $large) {
               font-size: 1.5em;
             }
           }
@@ -680,7 +651,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            @media only screen and (max-width: 600px) {
+            @media (max-width: $small) {
               padding: 0.25em;
               margin: 0;
               justify-content: left;
@@ -689,17 +660,17 @@
               display: inline;
               font-size: 1.25em;
               position: relative;
-              padding: 5px 0 5px 35px;
-              @media only screen and (min-width: 1500px) {
+              padding: 0.3em 0 0.3em 2.25em;
+              @media (min-width: $large) {
                 font-size: 1.5em;
-                padding: 5px 0 5px 45px;
+                padding: 0.3em 0 0.3em 2.8em;
               }
               div {
                 transition: 0.3s ease-in-out all;
                 svg {
                   height: 1em;
                   position: absolute;
-                  left: 10px;
+                  left: 1em;
                   top: 50%;
                   transform: translateY(-50%);
                   transition: 0.3s ease-in-out all;
@@ -717,7 +688,7 @@
             font: 1.5em $neutra-bold;
             padding: 0.35em 2em;
             border: none;
-            border-radius: 30px;
+            border-radius: 2em;
             background-color: $primary;
             color: $secondary;
             transition: $bezier-transition;
@@ -725,10 +696,10 @@
             &:hover {
               transform: scale(1.1);
             }
-            @media only screen and (min-width: 1000px) {
+            @media (min-width: $medium) {
               font-size: 1.75em;
             }
-            @media only screen and (min-width: 1500px) {
+            @media (min-width: $large) {
               font-size: 2.25em;
             }
           }
@@ -765,11 +736,11 @@
       z-index: 0;
       user-select: none;
       transition: 0.4s ease-in-out all;
-      @media only screen and (min-width: 1500px) {
+      @media (min-width: $large) {
         top: 3vw;
         left: 4vw;
       }
-      @media only screen and (max-width: 850px) {
+      @media (max-width: $medium) {
         font-size: 25em;
         top: 1vw;
       }
@@ -777,7 +748,7 @@
     footer.content {
       width: 80%;
       margin: auto;
-      @media only screen and (max-width: 1500px) {
+      @media (max-width: $large) {
         width: 90%;
       }
     }
