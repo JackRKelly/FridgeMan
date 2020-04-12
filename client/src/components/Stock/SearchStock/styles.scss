@@ -10,7 +10,7 @@ div.search-modal {
   bottom: 0;
   z-index: 200;
   font-family: $neutra;
-  transition: 0.2s ease-in-out opacity;
+  transition: $ease-all-short;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,7 @@ div.search-modal {
         font-family: $neutra-bold;
         color: $primary;
         cursor: pointer;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $small) {
           padding: 0.5em 1.5em;
         }
@@ -73,7 +73,7 @@ div.search-modal {
       margin: 1em 0;
       min-width: 200px;
       flex: 1;
-      transition: $bezier-transition;
+      transition: $bezier;
       label {
         font-size: 1em;
         width: 100%;

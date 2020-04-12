@@ -1,6 +1,6 @@
 @import "../../variables";
 .hamburger {
-  transition: 0.3s ease-in-out all;
+  transition: $ease-all;
   .cls-1 {
     fill: #fff;
   }

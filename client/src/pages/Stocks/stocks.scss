@@ -3,7 +3,7 @@
 .stocks.page {
   padding-top: 6em;
   position: relative;
-  transition: 0.3s ease-in-out all;
+  transition: $ease-all;
   @media (max-width: $medium) {
     padding-top: 0em;
   }
@@ -20,7 +20,7 @@
     line-height: 0.8;
     z-index: -1;
     user-select: none;
-    transition: 0.4s ease-in-out all;
+    transition: $ease-all;
     @media (min-width: $large) {
       top: 3vw;
       left: 4vw;
@@ -45,7 +45,7 @@
       display: block;
       color: $primary;
       font: 5.5em $neutra-bold;
-      transition: $bezier-transition;
+      transition: $bezier;
       @media (max-width: $extralarge) {
         font-size: 4.5em;
       }

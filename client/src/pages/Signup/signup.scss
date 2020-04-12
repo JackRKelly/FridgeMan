@@ -10,7 +10,7 @@
     height: 100%;
     padding: 6em 2em 5em 2em;
     margin-top: calc(3em + 5%);
-    transition: $bezier-transition;
+    transition: $bezier;
     @media (max-width: $medium) {
       padding: 6em 1em 2.5em 1em;
     }
@@ -26,7 +26,7 @@
       line-height: 0.8;
       z-index: -1;
       user-select: none;
-      transition: 0.4s ease-in-out all;
+      transition: $ease-all;
       @media (min-width: $large) {
         top: -2vw;
         left: 3vw;
@@ -54,7 +54,7 @@
         font-family: $neutra-bold;
         font-size: 2em;
         text-transform: uppercase;
-        transition: $bezier-transition;
+        transition: $bezier;
         position: relative;
         @media (max-width: $extralarge) {
           font-size: 1.65em;
@@ -77,7 +77,7 @@
         display: block;
         color: $primary;
         font: 6.5em $neutra-bold;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
@@ -94,7 +94,7 @@
         font: 2.25em $neutra;
         display: block;
         line-height: 1.5;
-        transition: $bezier-transition;
+        transition: $bezier;
 
         @media (max-width: $extralarge) {
           font-size: 1.65em;
@@ -131,16 +131,12 @@
             @media (max-width: $medium) {
               width: 100%;
             }
-            transition: $bezier-transition;
+            transition: $bezier;
             &:hover {
               transform: scale(1.05);
             }
             .eye-icon {
-              position: absolute;
-              bottom: 1.5em;
-              right: 11px;
-              width: 2em;
-              cursor: pointer;
+              @include eyeIcon;
             }
             label {
               font-size: 1.1em;
@@ -212,14 +208,14 @@
                 padding: 0.3em 0 0.3em 2.8em;
               }
               div {
-                transition: 0.3s ease-in-out all;
+                transition: $ease-all;
                 svg {
                   height: 1em;
                   position: absolute;
                   left: 1em;
                   top: 50%;
                   transform: translateY(-50%);
-                  transition: 0.3s ease-in-out all;
+                  transition: $ease-all;
                 }
               }
             }
@@ -237,7 +233,7 @@
             border-radius: 2em;
             background-color: $primary;
             color: $secondary;
-            transition: $bezier-transition;
+            transition: $bezier;
             text-transform: uppercase;
             &:hover {
               transform: scale(1.1);

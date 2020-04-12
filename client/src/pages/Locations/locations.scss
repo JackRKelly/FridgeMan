@@ -22,7 +22,7 @@
     font-family: $neutra-bold;
     color: $primary;
     cursor: pointer;
-    transition: $bezier-transition;
+    transition: $bezier;
     @media (max-width: $small) {
       padding: 0.5em 1.5em;
     }

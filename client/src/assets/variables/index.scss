@@ -11,7 +11,10 @@ $neutra-bold: "NeutraBold", sans-serif;
 $neutra: "NeutraBook", sans-serif;
 
 //Transitions
-$bezier-transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$bezier: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$ease-all-short: 200ms ease-in-out all;
+$ease-all: 400ms ease-in-out all;
+$ease-all-long: 1000ms ease-in-out all;
 
 //Media Queries
 $small: 400px;
@@ -29,7 +32,7 @@ $extralarge: 1600px;
     width: 0%;
     transform: translateX(-50%);
     height: 3px;
-    transition: $bezier-transition;
+    transition: $bezier;
     @if $is-nav {
       background-color: $secondary;
     } @else {
@@ -42,4 +45,12 @@ $extralarge: 1600px;
   &.active::after {
     background-color: $secondary;
   }
+}
+
+@mixin eyeIcon {
+  position: absolute;
+  bottom: 1.75em;
+  right: 11px;
+  width: 2em;
+  cursor: pointer;
 }

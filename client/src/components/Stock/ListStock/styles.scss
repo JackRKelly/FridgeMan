@@ -8,7 +8,7 @@ div.stock-list {
     margin: 1.5em auto;
     padding: 0 1em;
     font-family: $neutra;
-    transition: 1s ease-in-out all;
+    transition: $ease-all-long;
     color: $primary;
     @media (max-width: $medium) {
       width: 75%;
@@ -56,13 +56,13 @@ div.stock-list {
       button {
         margin: 0.3em 0 0 1em;
         border: none;
-        padding: 6.3em 19px;
+        padding: 0.3em 19px;
         font-size: 1em;
         border-radius: 6em;
         font-family: $neutra-bold;
         color: $primary;
         cursor: pointer;
-        transition: $bezier-transition;
+        transition: $bezier;
         &:hover {
           transform: scale(1.1);
         }
@@ -79,7 +79,7 @@ table.stock-list {
     margin: 1.5em auto;
     padding: 0 1em;
     font-family: $neutra;
-    transition: 1s ease-in-out all;
+    transition: $ease-all-long;
     color: $primary;
     tr {
       td {
@@ -93,13 +93,13 @@ table.stock-list {
           margin: 0 0 0 0.5em;
           display: inline;
           border: none;
-          padding: 6.3em 1.5em;
+          padding: 0.3em 1.5em;
           font-size: 1em;
           border-radius: 6em;
           font-family: $neutra-bold;
           color: $primary;
           cursor: pointer;
-          transition: $bezier-transition;
+          transition: $bezier;
           &:hover {
             transform: scale(1.1);
           }
@@ -116,7 +116,7 @@ table.stock-list {
     padding: 0 1em;
     font-family: $neutra-bold;
     text-align: left;
-    transition: 1s ease-in-out all;
+    transition: $ease-all-long;
     color: $primary;
     tr {
       th {

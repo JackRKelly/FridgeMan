@@ -48,7 +48,7 @@ textarea:focus {
       z-index: -1;
       -webkit-user-select: none;
       user-select: none;
-      transition: 0.4s ease-in-out all;
+      transition: $ease-all;
       @media (min-width: $large) {
         font-size: 30em;
       }
@@ -72,7 +72,7 @@ textarea:focus {
         display: block;
         color: $primary;
         font: 6.5em $neutra-bold;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
@@ -102,7 +102,7 @@ textarea:focus {
 
 ::-webkit-scrollbar-thumb {
   background: $primary;
-  transition: 0.3s ease-in-out all;
+  transition: $ease-all;
 }
 
 .page {

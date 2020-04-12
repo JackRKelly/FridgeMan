@@ -2,7 +2,7 @@
 .eye-icon {
   svg {
     line {
-      transition: 0.2s ease-in-out opacity;
+      transition: $ease-all-short;
     }
   }
   .cls-1 {

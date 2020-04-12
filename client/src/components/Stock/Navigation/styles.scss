@@ -16,7 +16,7 @@
     font-family: $neutra-bold;
     color: $primary;
     cursor: pointer;
-    transition: $bezier-transition;
+    transition: $bezier;
     @media (max-width: $medium) {
       margin: 1em 1em 1em;
       padding: 0.5em 2em;

@@ -7,24 +7,23 @@
     position: relative;
     width: 100%;
     padding: 6em 2em 5em 2em;
-    transition: $bezier-transition;
+    transition: $bezier;
     @media (max-width: $medium) {
       padding: 4em 1em 2.5em 1em;
     }
     .background-text {
       cursor: default;
       font-family: $neutra-bold-italic;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.05);
       font-size: 37em;
       position: absolute;
       top: 2vw;
       left: -5vw;
-      opacity: 0.07;
       white-space: nowrap;
       line-height: 0.8;
       z-index: 0;
       user-select: none;
-      transition: 0.4s ease-in-out all;
+      transition: $ease-all;
       @media (min-width: $large) {
         top: 3vw;
         left: 4vw;
@@ -67,7 +66,7 @@
             color: $lightprimary;
             font: 2em $neutra-bold;
             text-transform: uppercase;
-            transition: $bezier-transition;
+            transition: $bezier;
             &::selection {
               background-color: $secondary;
               color: $primary;
@@ -87,7 +86,7 @@
             display: block;
             color: $secondary;
             font: 6.5em $neutra-bold;
-            transition: $bezier-transition;
+            transition: $bezier;
             &::selection {
               background-color: $secondary;
               color: $primary;
@@ -108,7 +107,7 @@
             font: 2em $neutra-bold;
             display: block;
             line-height: 1.5;
-            transition: $bezier-transition;
+            transition: $bezier;
             &::selection {
               background-color: $secondary;
               color: $primary;
@@ -137,7 +136,7 @@
             text-transform: uppercase;
             text-decoration: none;
             background-color: $secondary;
-            transition: $bezier-transition;
+            transition: $bezier;
             &:hover {
               transform: scale(1.1);
             }
@@ -159,7 +158,7 @@
         .hero-icon {
           width: 75%;
           margin: 3em auto;
-          transition: $bezier-transition;
+          transition: $bezier;
           @media (min-width: $large) {
             width: 80%;
           }
@@ -185,7 +184,7 @@
     position: relative;
     width: 100%;
     padding: 6em 2em 0em 2em;
-    transition: $bezier-transition;
+    transition: $bezier;
     @media (max-width: $medium) {
       padding: 6em 1em 0em 1em;
     }
@@ -200,7 +199,7 @@
       line-height: 0.8;
       z-index: -1;
       user-select: none;
-      transition: 0.4s ease-in-out all;
+      transition: $ease-all;
       @media (min-width: $large) {
         top: -2vw;
         left: 3vw;
@@ -223,7 +222,7 @@
         color: $lightprimary;
         font: 2em $neutra-bold;
         text-transform: uppercase;
-        transition: $bezier-transition;
+        transition: $bezier;
         position: relative;
         @media (max-width: $extralarge) {
           font-size: 1.65em;
@@ -246,7 +245,7 @@
         display: block;
         color: $primary;
         font: 6.5em $neutra-bold;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
@@ -275,7 +274,7 @@
           margin-bottom: 3em;
           max-width: 47%;
           display: flex;
-          transition: $bezier-transition;
+          transition: $bezier;
           @media (max-width: $large) {
             padding: 1.25em;
           }
@@ -348,7 +347,7 @@
               font: 2.25em $neutra;
               display: block;
               line-height: 1.25;
-              transition: $bezier-transition;
+              transition: $bezier;
               @media (max-width: $extralarge) {
                 font-size: 1.65em;
                 margin: 0;
@@ -374,7 +373,7 @@
     position: relative;
     width: 100%;
     padding: 6em 2em 5em 2em;
-    transition: $bezier-transition;
+    transition: $bezier;
     @media (max-width: $medium) {
       padding: 6em 1em 2.5em 1em;
     }
@@ -390,7 +389,7 @@
       line-height: 0.8;
       z-index: -1;
       user-select: none;
-      transition: 0.4s ease-in-out all;
+      transition: $ease-all;
       @media (min-width: $large) {
         top: -2vw;
         left: 3vw;
@@ -413,7 +412,7 @@
         color: $lightprimary;
         font: 2em $neutra-bold;
         text-transform: uppercase;
-        transition: $bezier-transition;
+        transition: $bezier;
         position: relative;
         @media (max-width: $extralarge) {
           font-size: 1.65em;
@@ -436,7 +435,7 @@
         display: block;
         color: $primary;
         font: 6.5em $neutra-bold;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
@@ -453,7 +452,7 @@
         font: 2.25em $neutra;
         display: block;
         line-height: 1.5;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $extralarge) {
           font-size: 1.65em;
         }
@@ -473,7 +472,7 @@
     position: relative;
     width: 100%;
     padding: 6em 2em 5em 2em;
-    transition: $bezier-transition;
+    transition: $bezier;
     @media (max-width: $medium) {
       padding: 6em 1em 2.5em 1em;
     }
@@ -488,7 +487,7 @@
       line-height: 0.8;
       z-index: -1;
       user-select: none;
-      transition: 0.4s ease-in-out all;
+      transition: $ease-all;
       @media (min-width: $large) {
         top: -2vw;
         left: 3vw;
@@ -510,7 +509,7 @@
         color: $lightprimary;
         font: 2em $neutra-bold;
         text-transform: uppercase;
-        transition: $bezier-transition;
+        transition: $bezier;
         position: relative;
         @media (max-width: $extralarge) {
           font-size: 1.65em;
@@ -533,7 +532,7 @@
         display: block;
         color: $primary;
         font: 6.5em $neutra-bold;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $extralarge) {
           font-size: 5.5em;
         }
@@ -550,7 +549,7 @@
         font: 2.25em $neutra;
         display: block;
         line-height: 1.5;
-        transition: $bezier-transition;
+        transition: $bezier;
         @media (max-width: $extralarge) {
           font-size: 1.65em;
         }
@@ -586,16 +585,12 @@
             @media (max-width: $medium) {
               width: 100%;
             }
-            transition: $bezier-transition;
+            transition: $bezier;
             &:hover {
               transform: scale(1.05);
             }
             .eye-icon {
-              position: absolute;
-              bottom: 1.5em;
-              right: 11px;
-              width: 2em;
-              cursor: pointer;
+              @include eyeIcon;
             }
             label {
               font: 1.1em $neutra-bold;
@@ -627,6 +622,9 @@
               }
               @media (min-width: $large) {
                 font-size: 2.25em;
+              }
+              @media (min-width: $medium) {
+                font-size: 1.75em;
               }
             }
           }
@@ -666,14 +664,14 @@
                 padding: 0.3em 0 0.3em 2.8em;
               }
               div {
-                transition: 0.3s ease-in-out all;
+                transition: $ease-all;
                 svg {
                   height: 1em;
                   position: absolute;
-                  left: 1em;
+                  left: 0.75em;
                   top: 50%;
                   transform: translateY(-50%);
-                  transition: 0.3s ease-in-out all;
+                  transition: $ease-all;
                 }
               }
             }
@@ -691,7 +689,7 @@
             border-radius: 2em;
             background-color: $primary;
             color: $secondary;
-            transition: $bezier-transition;
+            transition: $bezier;
             text-transform: uppercase;
             &:hover {
               transform: scale(1.1);
@@ -735,7 +733,7 @@
       line-height: 0.8;
       z-index: 0;
       user-select: none;
-      transition: 0.4s ease-in-out all;
+      transition: $ease-all;
       @media (min-width: $large) {
         top: 3vw;
         left: 4vw;

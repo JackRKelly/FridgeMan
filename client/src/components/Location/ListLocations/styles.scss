@@ -9,7 +9,7 @@ div.location-list {
     margin: 1.5em auto;
     padding: 0 1em;
     font-family: $neutra;
-    transition: 1s ease-in-out all;
+    transition: $ease-all-long;
     color: $primary;
     @media (max-width: $medium) {
       width: 90%;
@@ -35,13 +35,13 @@ div.location-list {
         margin: 0.3em 0.5em 0 0;
         display: inline;
         border: none;
-        padding: 6.3em 1.5em;
+        padding: 0.3em 1.5em;
         font-size: 1em;
         border-radius: 6em;
         font-family: $neutra-bold;
         color: $primary;
         cursor: pointer;
-        transition: $bezier-transition;
+        transition: $bezier;
         &:hover {
           transform: scale(1.1);
         }

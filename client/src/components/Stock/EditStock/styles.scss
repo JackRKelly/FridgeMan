@@ -14,7 +14,7 @@
   bottom: 0;
   z-index: 200;
   font-family: $neutra;
-  transition: 0.2s ease-in-out opacity;
+  transition: $ease-all-short;
 
   form {
     width: 100%;
@@ -53,7 +53,7 @@
         .modal-input {
           width: 45%;
           margin-top: 1em;
-          transition: $bezier-transition;
+          transition: $bezier;
           @media (max-width: $medium) {
             width: 100%;
             margin-top: 1em;
@@ -105,7 +105,7 @@
           font-family: $neutra-bold;
           color: $primary;
           cursor: pointer;
-          transition: $bezier-transition;
+          transition: $bezier;
           @media (max-width: $small) {
             padding: 0.5em 1.5em;
           }

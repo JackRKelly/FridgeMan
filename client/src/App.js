@@ -336,13 +336,13 @@ const App = () => {
                   )}
                 </Route>
                 <Route path="/stocks">
-                  {/* {isLoading ? (
+                  {isLoading ? (
                     <LoadingPage />
-                  ) : isAuthenticated ? ( */}
-                  <Stocks locationList={locationList} isMobile={isMobile} />
-                  {/* ) : (
+                  ) : isAuthenticated ? (
+                    <Stocks locationList={locationList} isMobile={isMobile} />
+                  ) : (
                     <Redirect to="/login" />
-                  )} */}
+                  )}
                 </Route>
                 <Route path="/dashboard">
                   {isLoading ? (
