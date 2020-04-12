@@ -24,7 +24,7 @@ const Signup = ({ isMobile }) => {
 
   const verifyPassword = (pass) => {
     setCheckPassword({
-      charCount: pass.length > 8,
+      charCount: pass.length >= 8,
       upperCase: uppercaseCheck.test(pass),
       lowerCase: lowercaseCheck.test(pass),
       number: numberCheck.test(pass),

@@ -97,7 +97,7 @@ const App = () => {
   return (
     <Router>
       {!isMobile ? (
-        <>
+        <div className="navigation-bar">
           <div className="navigation-background">
             <div className="navigation-background-top"></div>
             <svg
@@ -139,9 +139,9 @@ const App = () => {
               </li>
             </ul>
           </nav>
-        </>
+        </div>
       ) : (
-        <>
+        <div className="navigation-bar">
           <nav className="mobile">
             <div
               className="circle"
@@ -214,7 +214,7 @@ const App = () => {
               </ul>
             </div>
           </nav>
-        </>
+        </div>
       )}
 
       <Route
@@ -223,26 +223,22 @@ const App = () => {
             <CSSTransition key={location.key} timeout={300} classNames="fade">
               <Switch location={location}>
                 <Route path="/signup">
-                  {/* {isLoading ? (
-                    <div className="loading page">
-                      <h1 className="loading">Loading...</h1>
-                    </div>
-                  ) : !isAuthenticated ? ( */}
-                  <Signup isMobile={isMobile} />
-                  {/* ) : (
-                    <Redirect to="/home" />
-                  )} */}
+                  {isLoading ? (
+                    <LoadingPage />
+                  ) : !isAuthenticated ? (
+                    <Signup isMobile={isMobile} />
+                  ) : (
+                    <Redirect to="/dashboard" />
+                  )}
                 </Route>
                 <Route path="/login">
-                  {/* {isLoading ? (
-                    <div className="loading page">
-                      <h1 className="loading">Loading...</h1>
-                    </div>
-                  ) : !isAuthenticated ? ( */}
-                  <Login isMobile={isMobile} />
-                  {/* ) : (
-                    <Redirect to="/home" />
-                  )} */}
+                  {isLoading ? (
+                    <LoadingPage />
+                  ) : !isAuthenticated ? (
+                    <Login isMobile={isMobile} />
+                  ) : (
+                    <Redirect to="/dashboard" />
+                  )}
                 </Route>
                 <Route path="/locations">
                   {isLoading ? (

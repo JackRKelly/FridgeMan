@@ -59,7 +59,7 @@ router.post("/login", async (req, res) => {
               case true:
                 req.session.isAuthenticated = true;
                 req.session.email = email;
-                res.redirect("/");
+                res.redirect("/dashboard");
                 break;
               case false:
                 res.status(401).send({ error: "Email/Password incorrect." });
