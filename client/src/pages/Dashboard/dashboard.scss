@@ -1,0 +1,16 @@
+@import "../../assets/variables";
+
+.dashboard.page {
+  padding-top: 6em;
+  transition: $ease-all;
+  @media (max-width: $medium) {
+    padding-top: 0em;
+  }
+  .dashboard-content {
+    width: 80%;
+    margin: auto;
+    @media (max-width: $large) {
+      width: 90%;
+    }
+  }
+}

@@ -4,20 +4,12 @@ div.stock-list {
   width: 100%;
   &-item {
     box-sizing: border-box;
-    width: 50%;
+    width: 100%;
     margin: 1.5em auto;
     padding: 0 1em;
     font-family: $neutra;
     transition: $ease-all-long;
     color: $primary;
-    @media (max-width: $medium) {
-      width: 75%;
-      margin: 2em auto;
-    }
-    @media (max-width: $small) {
-      width: 100%;
-      margin: 1em auto;
-    }
     .row-1 {
       display: flex;
       justify-content: space-between;
@@ -72,12 +64,13 @@ div.stock-list {
 }
 
 table.stock-list {
-  width: 90%;
-  margin: 0 auto 1em;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 10px;
   tbody {
     box-sizing: border-box;
     margin: 1.5em auto;
-    padding: 0 1em;
+    padding: 0;
     font-family: $neutra;
     transition: $ease-all-long;
     color: $primary;
@@ -90,14 +83,16 @@ table.stock-list {
           white-space: nowrap;
         }
         button {
-          margin: 0 0 0 0.5em;
+          margin-right: 10px;
           display: inline;
-          border: none;
-          padding: 0.3em 1.5em;
-          font-size: 1em;
-          border-radius: 6em;
+          padding: 0.2em 0.75em;
+          font-size: 0.9em;
+          border-radius: 5px;
+          border-radius: 10px;
           font-family: $neutra-bold;
           color: $primary;
+          background-color: #f0ecff;
+          border: 2px solid #e3dcff;
           cursor: pointer;
           transition: $bezier;
           &:hover {
@@ -106,6 +101,9 @@ table.stock-list {
           &:focus {
             outline: 0;
           }
+          &:last-child {
+            margin-right: 0;
+          }
         }
       }
     }
@@ -113,14 +111,22 @@ table.stock-list {
   thead {
     box-sizing: border-box;
     margin: 1.5em auto;
-    padding: 0 1em;
     font-family: $neutra-bold;
     text-align: left;
     transition: $ease-all-long;
     color: $primary;
+
     tr {
       th {
         font-size: 1.5em;
+        background-color: #f0ecff;
+        padding: 0.25em 0em;
+        &:first-child {
+          border-radius: 10px 0 0 0;
+        }
+        &:last-child {
+          border-radius: 0 10px 0 0;
+        }
       }
     }
   }

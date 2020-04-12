@@ -37,6 +37,7 @@ const Login = ({ isMobile }) => {
     <div className="login page">
       <section className="login">
         <span className="background-text">Login</span>
+
         <div className="login-content">
           <h3>Login Form</h3>
           <h1>Login</h1>

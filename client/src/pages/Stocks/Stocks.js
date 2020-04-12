@@ -26,9 +26,9 @@ const Stocks = ({ isMobile, locationList }) => {
 
   return (
     <div className="stocks page">
-      <span className="background-text">Name's Stock List</span>
       <div className="stock-content">
-        <h1>Name's Stock List</h1>
+        <h3>Name</h3>
+        <h1>Stock List</h1>
         <Navigation
           name={name}
           location={location}

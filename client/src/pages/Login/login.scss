@@ -1,13 +1,12 @@
 @import "../../assets/variables";
 
 .login.page {
-  height: 100vh;
+  width: 100%;
   overflow: hidden;
+  height: 100%;
   section.login {
-    overflow: hidden;
-    position: relative;
+    overflow-x: hidden;
     width: 100%;
-    height: 100%;
     margin-top: calc(3em + 5%);
     padding: 6em 2em 7em 2em;
     transition: $bezier;
@@ -42,6 +41,7 @@
         transform: rotate(-90deg);
       }
     }
+
     .login-content {
       width: 80%;
       margin: auto;

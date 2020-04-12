@@ -1,6 +1,7 @@
 @import "../../assets/variables";
 
-.home {
+.home.page {
+  width: 100%;
   header.hero {
     overflow: hidden;
     background-color: $primary;
@@ -33,6 +34,7 @@
         top: 1vw;
       }
     }
+
     .hero-content {
       display: flex;
       justify-content: center;
@@ -180,7 +182,7 @@
   }
 
   section.features {
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     width: 100%;
     padding: 6em 2em 0em 2em;
@@ -209,6 +211,7 @@
         top: 6vw;
       }
     }
+
     .feature-content {
       width: 80%;
       margin: auto;
@@ -369,7 +372,7 @@
     }
   }
   section.about {
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     width: 100%;
     padding: 6em 2em 5em 2em;
@@ -399,6 +402,7 @@
         top: 6vw;
       }
     }
+
     .about-content {
       width: 80%;
       margin: auto;
@@ -468,7 +472,7 @@
     }
   }
   section.signup {
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
     width: 100%;
     padding: 6em 2em 5em 2em;
@@ -497,6 +501,7 @@
         top: 6vw;
       }
     }
+
     .signup-content {
       width: 80%;
       margin: auto;

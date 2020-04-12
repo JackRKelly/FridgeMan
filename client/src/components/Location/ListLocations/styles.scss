@@ -5,20 +5,12 @@ div.location-list {
   margin: auto;
   &-item {
     box-sizing: border-box;
-    width: 50%;
+    width: 100%;
     margin: 1.5em auto;
     padding: 0 1em;
     font-family: $neutra;
     transition: $ease-all-long;
     color: $primary;
-    @media (max-width: $medium) {
-      width: 90%;
-      margin: 2em auto;
-    }
-    @media (max-width: $small) {
-      width: 100%;
-      margin: 1em auto;
-    }
     .name {
       margin: 0;
       display: inline;

@@ -1,34 +1,10 @@
 @import "../../assets/variables";
 
 .stocks.page {
-  padding-top: 6em;
-  position: relative;
+  padding-top: 7em;
   transition: $ease-all;
   @media (max-width: $medium) {
     padding-top: 0em;
-  }
-  .background-text {
-    cursor: default;
-    font-family: $neutra-bold-italic;
-    color: black;
-    font-size: 37em;
-    position: absolute;
-    top: 2vw;
-    left: 2vw;
-    opacity: 0.04;
-    white-space: nowrap;
-    line-height: 0.8;
-    z-index: -1;
-    user-select: none;
-    transition: $ease-all;
-    @media (min-width: $large) {
-      top: 3vw;
-      left: 4vw;
-    }
-    @media (max-width: $medium) {
-      font-size: 25em;
-      top: 1vw;
-    }
   }
   .stock-content {
     width: 90%;
@@ -40,8 +16,33 @@
     @media (max-width: $medium) {
       width: 90%;
     }
+    h3 {
+      margin: 0;
+      display: inline-block;
+      color: $lightprimary;
+      font-family: $neutra-bold;
+      font-size: 2em;
+      text-transform: uppercase;
+      transition: $bezier;
+      position: relative;
+      @media (max-width: $extralarge) {
+        font-size: 1.65em;
+      }
+      @media (max-width: $large) {
+        font-size: 1.25em;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 2.5em;
+        height: 3px;
+        background-color: $lightprimary;
+        right: -3.125em;
+        bottom: 45%;
+      }
+    }
     h1 {
-      margin: 0.75em 0;
+      margin: 0;
       display: block;
       color: $primary;
       font: 5.5em $neutra-bold;

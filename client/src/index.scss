@@ -92,19 +92,6 @@ textarea:focus {
   color: $secondary;
 }
 
-::-webkit-scrollbar {
-  width: 1em;
-}
-
-::-webkit-scrollbar-track {
-  background: $secondary;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $primary;
-  transition: $ease-all;
-}
-
 .page {
   position: absolute;
   left: 0;

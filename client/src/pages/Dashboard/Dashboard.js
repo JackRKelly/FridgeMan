@@ -1,4 +1,5 @@
 import React from "react";
+import "./dashboard.scss";
 
 const Dashboard = ({ email }) => {
   document.title = "FridgeMan - Dashboard";
@@ -16,9 +17,11 @@ const Dashboard = ({ email }) => {
 
   return (
     <div className="dashboard page">
-      <h1>Dashboard</h1>
-      <p className="email">{email}</p>
-      <button onClick={logOut}>Log Out</button>
+      <div className="dashboard-content">
+        <h1>Dashboard</h1>
+        <p className="email">{email}</p>
+        <button onClick={logOut}>Log Out</button>
+      </div>
     </div>
   );
 };

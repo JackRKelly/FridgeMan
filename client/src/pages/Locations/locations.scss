@@ -1,8 +1,13 @@
 @import "../../assets/variables";
 
 .locations.page {
+  padding-top: 6em;
+  transition: $ease-all;
+  @media (max-width: $medium) {
+    padding-top: 0em;
+  }
   h1 {
-    margin: 1.5em 0 0;
+    margin: 0.5em 0;
     display: block;
     text-align: center;
     color: $primary;
