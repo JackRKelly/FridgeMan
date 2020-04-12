@@ -15,6 +15,7 @@ import Locations from "./pages/Locations/Locations";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Recipes from "./pages/Recipes/Recipes";
 //Icons
 import Hamburger from "./assets/images/Hamburger";
 import CloseMenu from "./assets/images/CloseMenu";
@@ -113,24 +114,50 @@ const App = () => {
           </div>
           <nav className="desktop">
             <ul>
-              <li>
-                <NavLink activeClassName="active" to="/home">
-                  <HomeIcon />
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeClassName="active" to="/login">
-                  <LoginIcon />
-                  Login
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeClassName="active" to="/signup">
-                  <SignupIcon />
-                  Signup
-                </NavLink>
-              </li>
+              {!isAuthenticated ? (
+                <li>
+                  <NavLink activeClassName="active" to="/home">
+                    <HomeIcon />
+                    Home
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink activeClassName="active" to="/stocks">
+                    Stocks
+                  </NavLink>
+                </li>
+              )}
+
+              {!isAuthenticated ? (
+                <li>
+                  <NavLink activeClassName="active" to="/login">
+                    <LoginIcon />
+                    Login
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink activeClassName="active" to="/locations">
+                    Locations
+                  </NavLink>
+                </li>
+              )}
+              {!isAuthenticated ? (
+                <li>
+                  <NavLink activeClassName="active" to="/signup">
+                    <SignupIcon />
+                    Signup
+                  </NavLink>
+                </li>
+              ) : (
+                <li>
+                  <NavLink activeClassName="active" to="/recipes">
+                    Recipes
+                  </NavLink>
+                </li>
+              )}
+
               <li>
                 <NavLink activeClassName="active" to="/dashboard">
                   <DashboardIcon />
@@ -171,36 +198,73 @@ const App = () => {
                 <li>
                   <CloseMenu closeNavigation={closeNavigation} />
                 </li>
-                <li>
-                  <NavLink
-                    activeClassName="active"
-                    to="/home"
-                    onClick={closeNavigation}
-                  >
-                    <HomeIcon />
-                    Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    activeClassName="active"
-                    to="/login"
-                    onClick={closeNavigation}
-                  >
-                    <LoginIcon />
-                    Login
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    activeClassName="active"
-                    to="/signup"
-                    onClick={closeNavigation}
-                  >
-                    <SignupIcon />
-                    Signup
-                  </NavLink>
-                </li>
+                {!isAuthenticated ? (
+                  <li>
+                    <NavLink
+                      activeClassName="active"
+                      to="/home"
+                      onClick={closeNavigation}
+                    >
+                      <HomeIcon />
+                      Home
+                    </NavLink>
+                  </li>
+                ) : (
+                  <li>
+                    <NavLink
+                      activeClassName="active"
+                      to="/stocks"
+                      onClick={closeNavigation}
+                    >
+                      Stocks
+                    </NavLink>
+                  </li>
+                )}
+                {!isAuthenticated ? (
+                  <li>
+                    <NavLink
+                      activeClassName="active"
+                      to="/login"
+                      onClick={closeNavigation}
+                    >
+                      <LoginIcon />
+                      Login
+                    </NavLink>
+                  </li>
+                ) : (
+                  <li>
+                    <NavLink
+                      activeClassName="active"
+                      to="/locations"
+                      onClick={closeNavigation}
+                    >
+                      Locations
+                    </NavLink>
+                  </li>
+                )}
+                {!isAuthenticated ? (
+                  <li>
+                    <NavLink
+                      activeClassName="active"
+                      to="/signup"
+                      onClick={closeNavigation}
+                    >
+                      <SignupIcon />
+                      Signup
+                    </NavLink>
+                  </li>
+                ) : (
+                  <li>
+                    <NavLink
+                      activeClassName="active"
+                      to="/recipes"
+                      onClick={closeNavigation}
+                    >
+                      Recipes
+                    </NavLink>
+                  </li>
+                )}
+
                 <li>
                   <NavLink
                     activeClassName="active"
@@ -249,6 +313,15 @@ const App = () => {
                       setLocationList={setLocationList}
                       getLocations={getLocations}
                     />
+                  ) : (
+                    <Redirect to="/login" />
+                  )}
+                </Route>
+                <Route path="/recipes">
+                  {isLoading ? (
+                    <LoadingPage />
+                  ) : isAuthenticated ? (
+                    <Recipes />
                   ) : (
                     <Redirect to="/login" />
                   )}
