@@ -3,7 +3,7 @@ import ListStocks from "../../components/Stock/ListStock";
 import Navigation from "../../components/Stock/Navigation";
 import "./stocks.scss";
 
-const Stocks = ({ isMobile, locationList }) => {
+const Stocks = ({ isMobile, locationList, username }) => {
   document.title = "FridgeMan - Stocks";
 
   const [stocks, setStocks] = useState([]);
@@ -27,7 +27,7 @@ const Stocks = ({ isMobile, locationList }) => {
   return (
     <div className="stocks page">
       <div className="stock-content">
-        <h3>Name</h3>
+        <h3>{username}'s</h3>
         <h1>Stock List</h1>
         <Navigation
           name={name}

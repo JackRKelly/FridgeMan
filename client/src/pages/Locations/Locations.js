@@ -3,7 +3,7 @@ import ListLocations from "../../components/Location/ListLocations";
 import AddLocation from "../../components/Location/AddLocation";
 import "./locations.scss";
 
-const Locations = ({ locationList, setLocationList, getLocations }) => {
+const Locations = ({ locationList, getLocations, username }) => {
   document.title = "FridgeMan - Locations";
 
   const [addVisible, setAddVisibility] = useState(false);
@@ -11,7 +11,7 @@ const Locations = ({ locationList, setLocationList, getLocations }) => {
   return (
     <div className="locations page">
       <div className="location-content">
-        <h3>Name</h3>
+        <h3>{username}'s</h3>
         <h1>Location List</h1>
         <div className="button-container">
           <button

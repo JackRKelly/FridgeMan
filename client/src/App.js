@@ -34,6 +34,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [navOpen, setNavOpen] = useState(false);
 
   //Component Functions
@@ -67,11 +68,13 @@ const App = () => {
         if (data.response) {
           setIsAuthenticated(data.response);
           setEmail(data.email);
+          setUsername(data.email.substring(0, data.email.indexOf("@")));
           setIsLoading(false);
           return true;
         } else {
           setIsAuthenticated(false);
           setEmail("");
+          setUsername("Name");
           setIsLoading(false);
           return false;
         }
@@ -321,6 +324,7 @@ const App = () => {
                       locationList={locationList}
                       setLocationList={setLocationList}
                       getLocations={getLocations}
+                      username={username}
                     />
                   ) : (
                     <Redirect to="/login" />
@@ -339,7 +343,11 @@ const App = () => {
                   {isLoading ? (
                     <LoadingPage />
                   ) : isAuthenticated ? (
-                    <Stocks locationList={locationList} isMobile={isMobile} />
+                    <Stocks
+                      locationList={locationList}
+                      isMobile={isMobile}
+                      username={username}
+                    />
                   ) : (
                     <Redirect to="/login" />
                   )}
@@ -348,7 +356,7 @@ const App = () => {
                   {isLoading ? (
                     <LoadingPage />
                   ) : isAuthenticated ? (
-                    <Dashboard email={email} />
+                    <Dashboard email={email} username={username} />
                   ) : (
                     <Redirect to="/login" />
                   )}

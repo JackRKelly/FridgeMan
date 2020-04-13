@@ -1,6 +1,5 @@
 import React from "react";
 import EditStock from "../EditStock";
-import "./styles.scss";
 
 const ListStocks = ({
   stocks,

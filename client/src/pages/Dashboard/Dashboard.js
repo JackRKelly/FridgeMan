@@ -1,7 +1,7 @@
 import React from "react";
 import "./dashboard.scss";
 
-const Dashboard = ({ email }) => {
+const Dashboard = ({ email, username }) => {
   document.title = "FridgeMan - Dashboard";
 
   const logOut = async () => {
@@ -18,6 +18,7 @@ const Dashboard = ({ email }) => {
   return (
     <div className="dashboard page">
       <div className="dashboard-content">
+        <h3>{username}'s</h3>
         <h1>Dashboard</h1>
         <p className="email">{email}</p>
         <button onClick={logOut}>Log Out</button>

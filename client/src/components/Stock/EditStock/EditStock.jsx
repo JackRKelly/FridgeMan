@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./styles.scss";
 
 const EditStock = ({ stock, locationList, stocks, setStocks }) => {
   const [name, setName] = useState(stock.name);
