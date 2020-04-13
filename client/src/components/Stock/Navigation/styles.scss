@@ -1,16 +1,13 @@
 @import "../../../assets/variables";
 
 .navigation-buttons {
-  margin: 1.25em 0 1.75em;
+  margin: 1em 0 2em;
   display: flex;
   justify-content: left;
-  @media (max-width: $medium) {
-    margin: 0;
-  }
   button {
     margin: 0 1em 0 0;
     border: none;
-    padding: 0.5em 3.125em;
+    padding: 0.5em 2em;
     font-size: 1.5em;
     border-radius: 6em;
     font-family: $neutra-bold;
@@ -18,13 +15,15 @@
     background-color: $primary;
     cursor: pointer;
     transition: $bezier;
+    @media (min-width: $medium) {
+      font-size: 1.5em;
+    }
     @media (max-width: $medium) {
-      margin: 1em 1em 1em;
-      padding: 0.5em 2em;
+      padding: 0.5em 1em;
+      font-size: 1.25em;
     }
     @media (max-width: $small) {
-      margin: 1em 0.3em 1em;
-      padding: 0.5em 2em;
+      font-size: 1.1em;
     }
     &:hover {
       transform: scale(1.1);

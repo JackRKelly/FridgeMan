@@ -40,14 +40,12 @@
       justify-content: center;
       flex-direction: row;
       flex-wrap: wrap;
-      width: 90%;
       margin: auto;
-      @media (max-width: $medium) {
+      @media (max-width: $large) {
         width: 90%;
       }
       @media (min-width: $large) {
         width: 80%;
-        margin: auto;
       }
       .left {
         width: 50%;
@@ -372,7 +370,7 @@
     }
   }
   section.about {
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     width: 100%;
     padding: 6em 2em 5em 2em;

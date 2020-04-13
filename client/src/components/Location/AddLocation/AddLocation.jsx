@@ -31,20 +31,23 @@ const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
           addLocation(e);
         }}
       >
-        <h1>Add a location</h1>
-        <div className="add-input">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Location Name"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            required
-          />
+        <h1 className="modal-title">Add a location</h1>
+        <div className="input-container">
+          <div className="input">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Location Name"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              required
+            />
+          </div>
         </div>
+
         <div className="btn-container">
           <button type="submit">Add</button>
           <button

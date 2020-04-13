@@ -4,7 +4,7 @@
   padding-top: 7em;
   transition: $ease-all;
   @media (max-width: $medium) {
-    padding-top: 0em;
+    padding-top: 2em;
   }
   .stock-content {
     width: 90%;
@@ -51,7 +51,7 @@
         font-size: 4.5em;
       }
       @media (max-width: $large) {
-        font-size: 3em;
+        font-size: 3.5em;
       }
       @media (max-width: $medium) {
         font-size: 2.5em;

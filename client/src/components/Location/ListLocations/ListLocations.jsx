@@ -20,7 +20,7 @@ const ListLocations = ({ locationList, getLocations }) => {
           return (
             <div className="location-list-item" key={location.location_id}>
               <p className="name">{location.name}</p>
-              <div className="btn-container">
+              <div className="options">
                 <EditLocation location={location} getLocations={getLocations} />
                 <button
                   onClick={() => {

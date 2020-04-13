@@ -4,7 +4,7 @@
   cursor: pointer;
 }
 
-.edit-stock-modal {
+div.edit-stock-modal {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -15,111 +15,6 @@
   z-index: 200;
   font-family: $neutra;
   transition: $ease-all-short;
-
-  form {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .modal-content {
-      background-color: white;
-      padding: 2.25em;
-      z-index: 100;
-      position: absolute;
-      border-radius: 0.3em;
-      width: 60%;
-      box-sizing: border-box;
-      @media (max-width: $medium) {
-        width: 80%;
-      }
-      @media (max-width: $small) {
-        width: 95%;
-      }
-      .modal-header {
-        .modal-title {
-          margin: 0;
-          color: $primary;
-          font-family: $neutra-bold;
-          text-transform: uppercase;
-          font-size: 1.5em;
-        }
-      }
-      .modal-body {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        .modal-input {
-          width: 45%;
-          margin-top: 1em;
-          transition: $bezier;
-          @media (max-width: $medium) {
-            width: 100%;
-            margin-top: 1em;
-          }
-          input {
-            border: none;
-            font-size: 1.5em;
-            width: 100%;
-            color: $primary;
-            border-bottom: 2px solid $primary;
-            font-family: $neutra;
-            padding: 3px 0 0.5em 0;
-          }
-          select {
-            border: none;
-            font-size: 1.5em;
-            width: 100%;
-            color: $primary;
-            border-bottom: 2px solid $primary;
-            font-family: $neutra;
-            padding: 3px 0 0.5em 0;
-          }
-          label {
-            font-size: 1em;
-            width: 100%;
-            display: block;
-            font-family: $neutra-bold;
-            color: $primary;
-            text-transform: uppercase;
-          }
-          &:hover {
-            transform: scale(1.025);
-          }
-        }
-      }
-
-      .modal-footer {
-        text-align: right;
-        margin-top: 2em;
-        @media (max-width: $small) {
-          text-align: center;
-        }
-        button {
-          margin: 0 1em;
-          border: none;
-          padding: 0.5em 4em;
-          font-size: 1.5em;
-          border-radius: 6em;
-          font-family: $neutra-bold;
-          color: $primary;
-          cursor: pointer;
-          transition: $bezier;
-          @media (max-width: $small) {
-            padding: 0.5em 1.5em;
-          }
-          &:hover {
-            transform: scale(1.1);
-          }
-          &:focus {
-            outline: 0;
-          }
-        }
-      }
-    }
-  }
-
   .modal-background {
     background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
@@ -127,5 +22,16 @@
     position: absolute;
     left: 0;
     top: 0;
+    z-index: -1;
+  }
+  form.edit-stock {
+    border-collapse: initial;
+    border-spacing: initial;
+    font-size: initial;
+    position: fixed;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+    @include modal(false);
   }
 }

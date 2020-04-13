@@ -34,37 +34,39 @@ const SearchStock = ({
           searchStock(e);
         }}
       >
-        <h1>Search all stocks</h1>
-        <div className="search-input">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="Search Name"
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-        </div>
-        <div className="search-input">
-          <label htmlFor="location">Location</label>
-          <select
-            name="location"
-            value={location}
-            onChange={(e) => {
-              setLocation(e.target.value);
-            }}
-          >
-            <option value="all-locations">All Locations</option>
-            {locationList.map((location, key) => {
-              return (
-                <option key={key} value={location.name}>
-                  {location.name}
-                </option>
-              );
-            })}
-          </select>
+        <h1 className="modal-title">Search all stocks</h1>
+        <div className="input-container">
+          <div className="input">
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Search Name"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="location">Location</label>
+            <select
+              name="location"
+              value={location}
+              onChange={(e) => {
+                setLocation(e.target.value);
+              }}
+            >
+              <option value="all-locations">All Locations</option>
+              {locationList.map((location, key) => {
+                return (
+                  <option key={key} value={location.name}>
+                    {location.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
         <div className="btn-container">
           <button type="submit">Search</button>

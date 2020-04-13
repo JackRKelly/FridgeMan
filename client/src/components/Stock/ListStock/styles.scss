@@ -6,7 +6,7 @@ div.stock-list {
     box-sizing: border-box;
     width: 100%;
     margin: 1.5em auto;
-    padding: 0 1em;
+    padding: 0;
     font-family: $neutra;
     transition: $ease-all-long;
     color: $primary;
@@ -67,17 +67,30 @@ table.stock-list {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 10px;
+  font-size: 1.3em;
+  @media (max-width: $large) {
+    font-size: 1em;
+  }
+  @media (max-width: $medium) {
+    font-size: 1.15em;
+  }
   tbody {
     box-sizing: border-box;
     margin: 1.5em auto;
     padding: 0;
     font-family: $neutra;
     transition: $ease-all-long;
-    color: $primary;
+    color: $gray;
     tr {
       td {
         font-size: 1.25em;
-        padding: 0.3em 0;
+        padding: 0.2em 0;
+        @media (min-width: $large) {
+          padding: 0.6em 0;
+        }
+        @media (max-width: $large) {
+          padding: 0.3em 0;
+        }
         &:last-child {
           width: 1%;
           white-space: nowrap;
@@ -104,6 +117,11 @@ table.stock-list {
           &:last-child {
             margin-right: 0;
           }
+        }
+        .expiration-span {
+          padding: 0.2em 0.5em;
+          padding: 0.2em 0.75em;
+          border-radius: 10px;
         }
       }
     }

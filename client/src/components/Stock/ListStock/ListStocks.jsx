@@ -95,13 +95,19 @@ const ListStocks = ({
               let today = new Date();
               let expDate = new Date(stock.expiration);
               let difDay = Math.round((expDate - today) / (1000 * 3600 * 24));
-              let color;
+              let color = {
+                text: "",
+                background: "",
+              };
               if (difDay < 30) {
-                color = "red";
+                color.text = "rgba(255,0,0,1)";
+                color.background = "rgba(255,0,0,.1)";
               } else if (difDay < 90) {
-                color = "#F9A107";
+                color.text = "rgba(255,165,0,1)";
+                color.background = "rgba(255,165,0,.1)";
               } else {
-                color = "green";
+                color.text = "rgba(46, 204, 113, 1)";
+                color.background = "rgba(46, 204, 113, .1)";
               }
               return (
                 <tr key={stock.stock_id}>
@@ -109,7 +115,15 @@ const ListStocks = ({
                   <td>{stock.quantity}</td>
                   <td>{stock.location}</td>
                   <td>
-                    <span style={{ color: color }}>{difDay}</span> days
+                    <span
+                      className="expiration-span"
+                      style={{
+                        color: color.text,
+                        backgroundColor: color.background,
+                      }}
+                    >
+                      {difDay} days
+                    </span>
                   </td>
                   <td>
                     <EditStock

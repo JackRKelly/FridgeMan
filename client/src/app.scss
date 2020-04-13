@@ -39,6 +39,9 @@ nav.desktop {
     text-align: center;
     li {
       margin: 0 0.75em;
+      @media (max-width: $medium) {
+        margin: 0;
+      }
       display: inline-block;
       cursor: pointer;
       font: 1.5em $neutra-bold;
@@ -156,7 +159,7 @@ nav.mobile-full {
       flex-direction: column;
       justify-content: space-around;
       li {
-        margin: 0 2em;
+        margin: 0;
         display: block;
         cursor: pointer;
         font-family: $neutra-bold;
