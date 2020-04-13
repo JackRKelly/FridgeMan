@@ -1,6 +1,5 @@
 import React from "react";
 import EditLocation from "../EditLocation";
-import "./styles.scss";
 
 const ListLocations = ({ locationList, getLocations }) => {
   const deleteLocation = async (id) => {

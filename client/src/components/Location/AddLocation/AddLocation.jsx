@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./styles.scss";
 
 const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
   const [name, setName] = useState("");
@@ -26,7 +25,6 @@ const AddLocation = ({ getLocations, setAddVisibility, addVisible }) => {
       }}
     >
       <form
-        className="add"
         onSubmit={(e) => {
           addLocation(e);
         }}

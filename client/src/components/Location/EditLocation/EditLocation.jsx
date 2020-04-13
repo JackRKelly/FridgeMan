@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./styles.scss";
 
 const EditLocation = ({ locationList, location, getLocations }) => {
   const [name, setName] = useState(location.name);
@@ -42,7 +41,7 @@ const EditLocation = ({ locationList, location, getLocations }) => {
           pointerEvents: visible ? "auto" : "none",
         }}
       >
-        <form className="edit-location">
+        <form>
           <h1 className="modal-title">Edit Location: "{location.name}"</h1>
 
           <div className="input-container">
