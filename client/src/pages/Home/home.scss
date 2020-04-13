@@ -122,6 +122,9 @@
               max-width: 58%;
               font: 1.2em $neutra-bold;
             }
+            @media (max-width: 600px) {
+              max-width: 100%;
+            }
           }
           a {
             user-select: none;

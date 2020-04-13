@@ -31,24 +31,37 @@ const ListStocks = ({
           )
           .map((stock, index) => {
             let difDay = getDifDays(stock.expiration);
-            let color;
+            let color = {
+              text: "",
+              background: "",
+            };
             if (difDay < 30) {
-              color = "red";
+              color.text = "rgba(255,0,0,1)";
+              color.background = "rgba(255,0,0,.1)";
             } else if (difDay < 90) {
-              color = "#F9A107";
+              color.text = "rgba(255,165,0,1)";
+              color.background = "rgba(255,165,0,.1)";
             } else {
-              color = "green";
+              color.text = "rgba(46, 204, 113, 1)";
+              color.background = "rgba(46, 204, 113, .1)";
             }
             return (
               <div className="stock-list-item" key={stock.stock_id}>
                 <div className="row-1">
                   <p className="name">{stock.name}</p>
-                  <p className="quantity">Qt. {stock.quantity}</p>
+                  <p className="quantity">{stock.quantity}x</p>
                 </div>
                 <div className="row-2">
                   <p className="location">{stock.location}</p>
                   <p className="expiration">
-                    Exp. <span style={{ color: color }}>{difDay}</span> days
+                    <span
+                      style={{
+                        color: color.text,
+                        backgroundColor: color.background,
+                      }}
+                    >
+                      {difDay} days
+                    </span>
                   </p>
                 </div>
                 <div className="row-3">

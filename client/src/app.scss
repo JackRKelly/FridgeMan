@@ -39,7 +39,7 @@ nav.desktop {
     text-align: center;
     li {
       margin: 0 0.75em;
-      @media (max-width: $medium) {
+      @media (max-width: $large) {
         margin: 0;
       }
       display: inline-block;
