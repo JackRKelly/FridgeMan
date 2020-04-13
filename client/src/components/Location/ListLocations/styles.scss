@@ -1,16 +1,27 @@
 @import "../../../assets/variables";
 
 div.location-list {
-  width: 90%;
-  margin: auto;
+  font-size: 1.3em;
+  @media (max-width: $large) {
+    font-size: 1em;
+  }
+  @media (max-width: $medium) {
+    font-size: 1.15em;
+  }
   &-item {
     box-sizing: border-box;
     width: 100%;
-    margin: 1.5em auto;
-    padding: 0 1em;
+    padding: 1.5em 0;
     font-family: $neutra;
     transition: $ease-all-long;
     color: $primary;
+    border-bottom: 2px solid #e3dcff;
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
     .name {
       margin: 0;
       display: inline;
@@ -19,19 +30,23 @@ div.location-list {
     }
     .options {
       text-align: right;
+      padding-top: 1em;
       @media (min-width: $small) {
+        padding-top: 0;
         display: inline;
         float: right;
       }
       button {
-        margin: 0.3em 0.5em 0 0;
+        margin-right: 10px;
         display: inline;
-        border: none;
-        padding: 0.3em 1.5em;
-        font-size: 1em;
-        border-radius: 6em;
+        padding: 0.2em 0.75em;
+        font-size: 1.25em;
+        border-radius: 5px;
+        border-radius: 10px;
         font-family: $neutra-bold;
         color: $primary;
+        background-color: #f0ecff;
+        border: 2px solid #e3dcff;
         cursor: pointer;
         transition: $bezier;
         &:hover {
@@ -39,6 +54,9 @@ div.location-list {
         }
         &:focus {
           outline: 0;
+        }
+        &:last-child {
+          margin-right: 0;
         }
       }
     }

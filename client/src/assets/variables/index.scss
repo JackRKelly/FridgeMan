@@ -161,7 +161,7 @@ $extralarge: 1600px;
         border: none;
         font-size: 1.5em;
         width: 100%;
-        color: $primary;
+        color: $gray;
         border-bottom: 2px solid $primary;
         font-family: $neutra;
         padding: 3px 0 0.5em 0;
@@ -171,7 +171,7 @@ $extralarge: 1600px;
           font-size: 1.75em;
         }
         &::placeholder {
-          color: $primary;
+          color: $medprimary;
         }
       }
       &:hover {

@@ -10,22 +10,30 @@ const Locations = ({ locationList, setLocationList, getLocations }) => {
 
   return (
     <div className="locations page">
-      <h1>Location List</h1>
-      <button
-        className="add-location-button"
-        onClick={() => {
-          setAddVisibility(true);
-        }}
-      >
-        Add Location
-      </button>
-      <AddLocation
-        setAddVisibility={setAddVisibility}
-        addVisible={addVisible}
-        locationList={locationList}
-        getLocations={getLocations}
-      />
-      <ListLocations locationList={locationList} getLocations={getLocations} />
+      <div className="location-content">
+        <h3>Name</h3>
+        <h1>Location List</h1>
+        <div className="button-container">
+          <button
+            className="add-location-button"
+            onClick={() => {
+              setAddVisibility(true);
+            }}
+          >
+            Add Location
+          </button>
+        </div>
+        <AddLocation
+          setAddVisibility={setAddVisibility}
+          addVisible={addVisible}
+          locationList={locationList}
+          getLocations={getLocations}
+        />
+        <ListLocations
+          locationList={locationList}
+          getLocations={getLocations}
+        />
+      </div>
     </div>
   );
 };

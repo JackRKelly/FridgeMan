@@ -18,8 +18,11 @@
     background-color: $primary;
     cursor: pointer;
     transition: $bezier;
-    @media (min-width: $medium) {
+    @media (min-width: $large) {
       font-size: 1.5em;
+    }
+    @media (max-width: $large) {
+      font-size: 1.15em;
     }
     @media (max-width: $medium) {
       padding: 0.5em 1em;
