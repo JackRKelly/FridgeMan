@@ -14,5 +14,41 @@
     h1 {
       @include headerOne;
     }
+    .button-container {
+      margin: 15px 0 20px;
+      display: flex;
+      justify-content: left;
+      button {
+        margin: 0 1em 0 0;
+        border: none;
+        padding: 0.5em 2em;
+        font-size: 1.5em;
+        border-radius: 6em;
+        font-family: $neutra-bold;
+        color: $secondary;
+        background-color: $primary;
+        cursor: pointer;
+        transition: $bezier;
+        @media (min-width: $large) {
+          font-size: 1.5em;
+        }
+        @media (max-width: $large) {
+          font-size: 1.15em;
+        }
+        @media (max-width: $medium) {
+          padding: 0.5em 1em;
+          font-size: 1.25em;
+        }
+        @media (max-width: $small) {
+          font-size: 1.1em;
+        }
+        &:hover {
+          transform: scale(1.1);
+        }
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
   }
 }

@@ -14,5 +14,23 @@
     h1 {
       @include headerOne;
     }
+    p {
+      margin: 0.3em 0;
+      color: $gray;
+      font: 2em $neutra;
+      display: block;
+      line-height: 1.5;
+      transition: $bezier;
+      &::selection {
+        background-color: $secondary;
+        color: $primary;
+      }
+      @media (max-width: $extralarge) {
+        font-size: 1.65em;
+      }
+      @media (max-width: $large) {
+        font-size: 1.3em;
+      }
+    }
   }
 }

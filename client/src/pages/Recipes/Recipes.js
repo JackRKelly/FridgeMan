@@ -9,6 +9,7 @@ const Recipes = ({ username }) => {
       <div className="recipe-content">
         <h3>{username}'s</h3>
         <h1>Recipes</h1>
+        <p>This page is coming soon.</p>
       </div>
     </div>
   );

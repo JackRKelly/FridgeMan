@@ -20,8 +20,9 @@ const Dashboard = ({ email, username }) => {
       <div className="dashboard-content">
         <h3>{username}'s</h3>
         <h1>Dashboard</h1>
-        <p className="email">{email}</p>
-        <button onClick={logOut}>Log Out</button>
+        <div className="button-container">
+          <button onClick={logOut}>Log Out</button>
+        </div>
       </div>
     </div>
   );
