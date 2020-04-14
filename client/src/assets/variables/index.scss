@@ -232,3 +232,11 @@ $extralarge: 1600px;
     font-size: 2.5em;
   }
 }
+
+@mixin pageSpacing() {
+  padding-top: 7em;
+  transition: $ease-all;
+  @media (max-width: $medium) {
+    padding-top: 2em;
+  }
+}

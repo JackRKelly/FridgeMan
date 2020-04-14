@@ -18,7 +18,7 @@ const ListStocks = ({
   const getDifDays = (expiration) => {
     let today = new Date();
     let expDate = new Date(expiration);
-    return Math.round((expDate - today) / (1000 * 3600 * 24));
+    return Math.round((expDate - today) / (1000 * 3600 * 24) + 1);
   };
 
   const MobileList = () => {
@@ -28,7 +28,7 @@ const ListStocks = ({
           .sort((a, b) =>
             getDifDays(a.expiration) > getDifDays(b.expiration) ? 1 : -1
           )
-          .map((stock, index) => {
+          .map((stock) => {
             let difDay = getDifDays(stock.expiration);
             let color = {
               text: "",
@@ -103,10 +103,8 @@ const ListStocks = ({
             .sort((a, b) =>
               getDifDays(a.expiration) > getDifDays(b.expiration) ? 1 : -1
             )
-            .map((stock, index) => {
-              let today = new Date();
-              let expDate = new Date(stock.expiration);
-              let difDay = Math.round((expDate - today) / (1000 * 3600 * 24));
+            .map((stock) => {
+              let difDay = getDifDays(stock.expiration);
               let color = {
                 text: "",
                 background: "",

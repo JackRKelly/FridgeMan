@@ -1,11 +1,7 @@
 @import "../../assets/variables";
 
 .stocks.page {
-  padding-top: 7em;
-  transition: $ease-all;
-  @media (max-width: $medium) {
-    padding-top: 2em;
-  }
+  @include pageSpacing();
   div.edit-stock-modal,
   div.add-stock-modal,
   div.search-modal {

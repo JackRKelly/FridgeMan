@@ -7,7 +7,7 @@ const Recipes = ({ username }) => {
   return (
     <div className="recipes page">
       <div className="recipe-content">
-        <h3>{username}</h3>
+        <h3>{username}'s</h3>
         <h1>Recipes</h1>
       </div>
     </div>

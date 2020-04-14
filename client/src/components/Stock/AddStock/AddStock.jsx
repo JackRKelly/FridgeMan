@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const AddStock = ({
   getStocks,
@@ -13,9 +13,7 @@ const AddStock = ({
       : `${today.getMonth() + 1}`;
   let todayDate = `${today.getFullYear()}-${todayMonth}-${today.getDate()}`;
   const [name, setName] = useState("");
-  const [location, setLocation] = useState(
-    locationList[0] ? locationList[0].name : ""
-  );
+  const [location, setLocation] = useState("");
   const [quantity, setQuantity] = useState("");
   const [expiration, setExpiration] = useState(todayDate);
 
@@ -33,6 +31,10 @@ const AddStock = ({
     setExpiration(todayDate);
     getStocks();
   };
+
+  useEffect(() => {
+    setLocation(locationList[0] ? locationList[0].name : "");
+  }, []);
 
   return (
     <div

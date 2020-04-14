@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ListStocks from "../../components/Stock/ListStock";
-import Navigation from "../../components/Stock/Navigation";
+import AddStock from "../../components/Stock/AddStock";
+import SearchStock from "../../components/Stock/SearchStock";
 import "./stocks.scss";
 
 const Stocks = ({ isMobile, locationList, username }) => {
   document.title = "FridgeMan - Stocks";
+
+  const [addVisible, setAddVisibility] = useState(false);
+  const [searchVisible, setSearchVisibility] = useState(false);
 
   const [stocks, setStocks] = useState([]);
   const [name, setName] = useState("");
@@ -29,15 +33,37 @@ const Stocks = ({ isMobile, locationList, username }) => {
       <div className="stock-content">
         <h3>{username}'s</h3>
         <h1>Stock List</h1>
-        <Navigation
+        <div className="navigation-buttons">
+          <button
+            onClick={() => {
+              setAddVisibility(true);
+            }}
+          >
+            Add Item
+          </button>
+          <button
+            onClick={() => {
+              setSearchVisibility(true);
+            }}
+          >
+            Search Item
+          </button>
+        </div>
+        <AddStock
+          locationList={locationList}
+          getStocks={getStocks}
+          setAddVisibility={setAddVisibility}
+          addVisible={addVisible}
+        />
+        <SearchStock
           name={name}
           location={location}
           setName={setName}
           setLocation={setLocation}
           locationList={locationList}
-          getStocks={getStocks}
-          stocks={stocks}
           setStocks={setStocks}
+          setSearchVisibility={setSearchVisibility}
+          searchVisible={searchVisible}
         />
         <ListStocks
           locationList={locationList}

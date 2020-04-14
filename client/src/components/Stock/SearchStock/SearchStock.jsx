@@ -17,6 +17,7 @@ const SearchStock = ({
     );
     const jsonResponse = await searchResult.json();
     await setStocks(jsonResponse);
+    setSearchVisibility(false);
   };
 
   return (
