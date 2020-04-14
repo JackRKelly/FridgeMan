@@ -112,12 +112,9 @@
       }
     }
     .button-container {
-      margin: 1em 0 2em;
+      margin: 15px 0 20px;
       display: flex;
       justify-content: left;
-      @media (max-width: $medium) {
-        margin: 1em 0 1em;
-      }
       button {
         margin: 0 1em 0 0;
         border: none;

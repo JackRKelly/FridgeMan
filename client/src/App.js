@@ -334,7 +334,7 @@ const App = () => {
                   {isLoading ? (
                     <LoadingPage />
                   ) : isAuthenticated ? (
-                    <Recipes />
+                    <Recipes username={username} />
                   ) : (
                     <Redirect to="/login" />
                   )}

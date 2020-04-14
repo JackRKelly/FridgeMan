@@ -6,12 +6,18 @@ const AddStock = ({
   setAddVisibility,
   addVisible,
 }) => {
+  let today = new Date();
+  let todayMonth =
+    today.getMonth() + 1 < 10
+      ? `0${today.getMonth() + 1}`
+      : `${today.getMonth() + 1}`;
+  let todayDate = `${today.getFullYear()}-${todayMonth}-${today.getDate()}`;
   const [name, setName] = useState("");
   const [location, setLocation] = useState(
     locationList[0] ? locationList[0].name : ""
   );
   const [quantity, setQuantity] = useState("");
-  const [expiration, setExpiration] = useState("");
+  const [expiration, setExpiration] = useState(todayDate);
 
   const addStock = async (e) => {
     e.preventDefault();
@@ -24,7 +30,7 @@ const AddStock = ({
     setName("");
     setLocation(locationList[0] ? locationList[0].name : "");
     setQuantity("");
-    setExpiration("");
+    setExpiration(todayDate);
     getStocks();
   };
 

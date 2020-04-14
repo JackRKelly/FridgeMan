@@ -108,7 +108,7 @@ $extralarge: 1600px;
       transition: $bezier;
       @media (max-width: $medium) {
         margin: 0 0.5em;
-        padding: 0.5em 1.75em;
+        padding: 0.5em 1.5em;
         font-size: 1.25em;
       }
       @media (max-width: $small) {
@@ -217,7 +217,7 @@ $extralarge: 1600px;
 }
 
 @mixin headerOne() {
-  margin: 0;
+  margin: 7.5px 0;
   display: block;
   color: $primary;
   font: 5.5em $neutra-bold;
