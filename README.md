@@ -49,10 +49,10 @@ cd FridgeMan/server
 npm install
 call touch .env
 echo import DB_USER=postgres >> .env
-echo import DB_PASSWORD=PASSWORD >> env
-echo import DB_NAME=DB_NAME >> env
-echo import SECRET=SECRET_KEY >> env
-echo import SALT_LENGTH=10 >> env
+echo import DB_PASSWORD=PASSWORD >> .env
+echo import DB_NAME=DB_NAME >> .env
+echo import SECRET=SECRET_KEY >> .env
+echo import SALT_LENGTH=10 >> .env
 ```
 
 3. Navigate to client directory and install dependencies and create production build
@@ -62,7 +62,7 @@ npm install
 npm run build
 ```
 
-4. Start server and view at http://localhost:5000 (port defined in /server/index)
+4. Start server and view at http://localhost:5000 (port defined in /server/index.js)
 ```
 cd ../server
 nodemon index
