@@ -128,7 +128,7 @@ nav.mobile-full {
   top: 0;
   display: block;
   left: 0;
-  transition: $ease-all;
+  transition: 200ms ease-in-out all;
   div.navigation-content {
     position: relative;
     height: 100%;

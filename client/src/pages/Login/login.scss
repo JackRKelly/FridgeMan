@@ -51,45 +51,10 @@
         width: 90%;
       }
       h3 {
-        margin: 0;
-        display: inline-block;
-        color: $lightprimary;
-        font-family: $neutra-bold;
-        font-size: 2em;
-        text-transform: uppercase;
-        transition: $bezier;
-        position: relative;
-        @media (max-width: $extralarge) {
-          font-size: 1.65em;
-        }
-        @media (max-width: $large) {
-          font-size: 1.25em;
-        }
-        &::after {
-          content: "";
-          position: absolute;
-          width: 2.5em;
-          height: 3px;
-          background-color: $lightprimary;
-          right: -3.125em;
-          bottom: 45%;
-        }
+        @include headerThree;
       }
       h1 {
-        margin: 0;
-        display: block;
-        color: $primary;
-        font: 6.5em $neutra-bold;
-        transition: $bezier;
-        @media (max-width: $extralarge) {
-          font-size: 5.5em;
-        }
-        @media (max-width: $large) {
-          font-size: 4em;
-        }
-        @media (max-width: $medium) {
-          font-size: 3em;
-        }
+        @include headerOne;
       }
       p {
         margin: 0.3em 0;

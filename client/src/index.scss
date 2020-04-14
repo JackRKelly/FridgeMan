@@ -68,20 +68,7 @@ textarea:focus {
       justify-content: center;
       align-items: center;
       h1 {
-        margin: 0;
-        display: block;
-        color: $primary;
-        font: 6.5em $neutra-bold;
-        transition: $bezier;
-        @media (max-width: $extralarge) {
-          font-size: 5.5em;
-        }
-        @media (max-width: $large) {
-          font-size: 4em;
-        }
-        @media (max-width: $medium) {
-          font-size: 3em;
-        }
+        @include headerOne;
       }
     }
   }
