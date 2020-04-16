@@ -155,10 +155,7 @@ const Home = ({ isMobile }) => {
             Fridge Man was created by a high schooler who decided there had to
             be an easier way to manage household food stock. Fridge Man allows
             users to manage their inventory by efficiently searching and editing
-            their stocks. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Duis porta lacus eu mi malesuada rutrum. Curabitur tincidunt
-            velit id turpis pellentesque tincidunt. Nullam vitae dolor id massa
-            scelerisque placerat et in dui.
+            their stocks.
           </p>
         </div>
       </section>
