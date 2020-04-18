@@ -71,7 +71,7 @@ nodemon index
 ***
 ### Screenshots:
 
-![Home Page](https://i.ibb.co/sjmsTQF/Home.png "Home Page")
+![Home Page](https://i.ibb.co/Qn8Zk2J/Home.png "Home Page")
 ![Signup Page](https://i.ibb.co/2SZnKH2/Signup.png "Signup Page")
 ![Login Page](https://i.ibb.co/TbxtjSH/Login.png "Login Page")
 ![Navigation Menu](https://i.ibb.co/NF4trK4/Menu.png "Navigation Menu")
