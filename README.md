@@ -1,7 +1,7 @@
 # FridgeMan
 #### A Full-Stack food inventory management application built using React.js, Node.js, Express.js, and PostgreSQL.
 ***
-## Build Instructions:
+## Windows Build Instructions:
 
 ### Database Setup:
 1. Login to PostgreSQL
